@@ -1,0 +1,54 @@
+/* AUniPath System Styles */
+/* Designed for 1920x1080 but responsive for all screens */
+
+:root {
+    /* Define your color variables from Figma */
+    --primary-color: #your-primary-color;
+    --secondary-color: #your-secondary-color;
+    --background-color: #your-background-color;
+    --text-color: #your-text-color;
+    
+    /* Font variables from Figma */
+    --main-font: 'Your-Font-Family', sans-serif;
+    --heading-font: 'Your-Heading-Font', serif;
+    
+    /* Container max-width for 1920px design */
+    --max-width: 1200px; /* Comfortable reading width */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--main-font);
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+}
+
+/* Main container for content */
+.container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px; /* Side padding for mobile */
+}
+
+/* Responsive design for your 1920x1080 Figma design */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+}
+
+/* Add your Figma design styles here */
+h1 {
+    font-family: var(--heading-font);
+    /* Copy font properties from Figma but use relative units */
+    font-size: clamp(1.8rem, 4vw, 3rem); /* Responsive font size */
+}
+
+/* More styles will be added based on your Figma design */
