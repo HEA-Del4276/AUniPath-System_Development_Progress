@@ -1,0 +1,244 @@
+.SIGNIN {
+font-family: "Dustismo-Regular", Helvetica;
+background-color: #ffffff;
+color: #1f4784;
+}
+
+.HEADER {
+position: relative;
+width: 100%;
+height: 106px;
+background-color: #f8f0ff;
+display: flex;
+align-items: center;
+padding: 0 40px;
+}
+
+.logo {
+width: 116px;
+height: 100px;
+}
+
+.site-name {
+font-family: "SF Cartoonist Hand-Regular", Helvetica;
+font-size: 64px;
+color: #3f118b;
+margin-left: 20px;
+}
+
+.nav-links {
+display: flex;
+align-items: center;
+margin-left: auto;
+}
+
+.nav-item {
+font-size: 36px;
+margin: 0 20px;
+color: #000000;
+}
+
+.log-in-btn .overlap-group {
+background-color: #ffffff;
+border-radius: 50px;
+border: 2px solid #1f4784;
+width: 195px;
+height: 61px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.log-in-btn .text-wrapper {
+font-size: 36px;
+color: #1f4784;
+}
+
+.sign-up-btn {
+margin-left: 20px;
+}
+
+.sign-up-btn .div-wrapper {
+background-color: #1f4784;
+border-radius: 50px;
+width: 195px;
+height: 61px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.sign-up-btn .div {
+font-size: 36px;
+color: #ffffff;
+}
+
+.search {
+margin-left: 40px;
+width: 691px;
+height: 66px;
+}
+
+.overlap-2 {
+background-color: #ffffff;
+border-radius: 50px;
+border: 1px solid #6b6b6b;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0 20px;
+height: 100%;
+}
+
+.text-wrapper-4 {
+font-size: 32px;
+color: #7b7b7b;
+}
+
+.SEARCH-btn {
+background-color: #ffffff;
+border-radius: 50px;
+border: 1px solid #6b6b6b;
+width: 66px;
+height: 66px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.SEARCH-btn img {
+width: 24px;
+height: 24px;
+}
+
+.main-content {
+display: flex;
+justify-content: space-between;
+padding: 60px 80px;
+}
+
+.sign-in-outer {
+background-color: #F8F0FF;
+padding: 60px 80px;
+}
+
+.sign-in-inner {
+background-color: #DDDFFE;
+display: flex;
+justify-content: space-between;
+padding: 40px;
+border-radius: 12px;
+}
+
+.form-area {
+width: 50%;
+}
+
+.form-area h2 {
+font-size: 36px;
+color: #1f4784;
+}
+
+.form-area p {
+font-size: 20px;
+margin-bottom: 20px;
+}
+
+.form-area a {
+color: #1f4784;
+text-decoration: underline;
+}
+
+.form-area form {
+display: flex;
+flex-direction: column;
+}
+
+.form-area input[type="text"],
+.form-area input[type="email"],
+.form-area input[type="password"] {
+margin-bottom: 15px;
+padding: 12px;
+font-size: 18px;
+border: 1px solid #ccc;
+border-radius: 8px;
+}
+
+.checkbox-container {
+display: flex;
+align-items: center;
+margin-bottom: 20px;
+font-size: 16px;
+}
+
+.checkbox-container input {
+margin-right: 10px;
+}
+
+.form-area button {
+background-color: #1f4784;
+color: white;
+padding: 12px;
+font-size: 18px;
+border: none;
+border-radius: 8px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+.form-area button:hover {
+background-color: #2a5a9c;
+}
+
+.image-area {
+width: 40%;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.image-box {
+width: 100%;
+height: 300px;
+background-color: #3F118B;
+color: white;
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: bold;
+font-size: 24px;
+border-radius: 8px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+.HEADER {
+flex-direction: column;
+height: auto;
+padding: 20px;
+}
+
+.nav-links {
+margin-left: 0;
+margin-top: 20px;
+}
+
+.search {
+margin-left: 0;
+margin-top: 20px;
+width: 100%;
+}
+
+.sign-in-inner {
+flex-direction: column;
+}
+
+.form-area,
+.image-area {
+width: 100%;
+}
+
+.image-area {
+margin-top: 20px;
+}
+}

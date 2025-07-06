@@ -1,0 +1,397 @@
+.header-something {
+    position: absolute;
+    top: 5px;
+    left: 0px;
+    background-color: #f8f0ff;
+    width: 1440px;
+    height: 66px;
+}
+.aunipath-logo-1 {
+    position: absolute;
+    top: 0px;
+    left: 34px;
+    width: 91.3px;
+    height: 84px;
+    object-fit: cover;
+}
+.aunipath {
+    position: absolute;
+    top: 13px;
+    left: 116px;
+    font-size: 36px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 181px;
+    height: 50px;
+}
+.home {
+    position: absolute;
+    top: 23px;
+    left: 740px;
+    font-weight: 500;
+}
+.about {
+    position: absolute;
+    top: 23px;
+    left: 855px;
+    font-weight: 500;
+}
+.courses {
+    position: absolute;
+    top: 23px;
+    left: 972px;
+    font-weight: 500;
+}
+.universities {
+    position: absolute;
+    top: 23px;
+    left: 1109px;
+    font-weight: 500;
+}
+.notifs-icon {
+    position: absolute;
+    top: 16px;
+    left: 1267px;
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+}
+.profile-icon {
+    position: absolute;
+    top: 9px;
+    left: 1330px;
+    width: 57px;
+    height: 57px;
+    object-fit: cover;
+}
+.header {
+    position: absolute;
+    top: 11px;
+    left: 0px;
+    width: 1440px;
+    height: 84px;
+    text-align: center;
+    font-size: 24px;
+}
+.tagline {
+    position: absolute;
+    top: 174px;
+    left: 373px;
+    font-size: 64px;
+    font-weight: 500;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 694px;
+    height: 125px;
+}
+.search {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 50px;
+    background-color: #fff;
+    border: 3px solid #d9c7e6;
+    box-sizing: border-box;
+    width: 745px;
+    height: 59px;
+}
+.filter-button-icon {
+    position: absolute;
+    top: 4.87px;
+    left: 676.85px;
+    width: 48.3px;
+    height: 48.3px;
+    object-fit: cover;
+}
+.search-button-icon {
+    position: absolute;
+    top: 5.9px;
+    left: 627.31px;
+    width: 47.2px;
+    height: 47.2px;
+    object-fit: cover;
+}
+.search-bar {
+    position: absolute;
+    top: 356px;
+    left: 347px;
+    width: 745px;
+    height: 59px;
+}
+.course-button-child {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 50px;
+    background-color: #9a6fef;
+    width: 209px;
+    height: 66px;
+}
+.find-a-course {
+    position: absolute;
+    top: 18px;
+    left: 39px;
+    font-weight: 500;
+}
+.course-button {
+    position: absolute;
+    top: 435px;
+    left: 475px;
+    width: 209px;
+    height: 66px;
+    text-align: center;
+    font-size: 22px;
+    color: #fff;
+}
+.find-a-university {
+    position: absolute;
+    top: 18px;
+    left: 24px;
+    font-weight: 500;
+}
+.university-button {
+    position: absolute;
+    top: 435px;
+    left: 740px;
+    width: 209px;
+    height: 66px;
+    text-align: center;
+    font-size: 22px;
+    color: #fff;
+}
+.university-button-item {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 50px;
+    background-color: #f8f0ff;
+    border: 3px solid #3f118b;
+    box-sizing: border-box;
+    width: 209px;
+    height: 66px;
+}
+.compare {
+    position: absolute;
+    top: 17px;
+    left: 58px;
+    font-weight: 500;
+}
+.university-button1 {
+    position: absolute;
+    top: 1238px;
+    left: 1133px;
+    width: 209px;
+    height: 66px;
+    text-align: center;
+    font-size: 24px;
+}
+.courses-backdrop {
+    position: absolute;
+    top: 112px;
+    left: 0px;
+    background-color: #3f118b;
+    width: 1440px;
+    height: 489px;
+}
+.purple-bar {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: #9a6fef;
+    width: 1440px;
+    height: 84px;
+}
+.courses-for-you1 {
+    position: absolute;
+    top: 16px;
+    left: 580px;
+    font-weight: 500;
+}
+.courses-for-you-bar {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 1440px;
+    height: 84px;
+}
+.course-photo {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 50%;
+    background-color: #f8f0ff;
+    width: 266px;
+    height: 266px;
+}
+.course {
+    position: absolute;
+    top: 274px;
+    left: 72px;
+    font-weight: 500;
+}
+.course-description {
+    position: absolute;
+    top: 326px;
+    left: 33px;
+    font-size: 24px;
+    font-weight: 500;
+}
+.course-contents {
+    position: absolute;
+    top: 155px;
+    left: 82px;
+    width: 266px;
+    height: 357px;
+}
+.course-contents1 {
+    position: absolute;
+    top: 155px;
+    left: 423px;
+    width: 266px;
+    height: 357px;
+}
+.course-contents2 {
+    position: absolute;
+    top: 155px;
+    left: 764px;
+    width: 266px;
+    height: 357px;
+}
+.course-contents3 {
+    position: absolute;
+    top: 155px;
+    left: 1105px;
+    width: 266px;
+    height: 357px;
+}
+.courses-for-you {
+    position: absolute;
+    top: 580px;
+    left: 0px;
+    width: 1440px;
+    height: 601px;
+    text-align: center;
+    font-size: 40px;
+    color: #fff;
+}
+.top-universities-that {
+    position: absolute;
+    top: 1238px;
+    left: 82px;
+    font-size: 40px;
+    font-weight: 500;
+    color: #000;
+}
+.university-photo {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: #d9c7e6;
+    width: 316px;
+    height: 206px;
+}
+.university {
+    position: absolute;
+    top: 12px;
+    left: 350px;
+    font-weight: 500;
+}
+.university-description {
+    position: absolute;
+    top: 72px;
+    left: 350px;
+    font-size: 24px;
+    font-weight: 500;
+}
+.university-info {
+    position: absolute;
+    top: 1345px;
+    left: 82px;
+    width: 582px;
+    height: 206px;
+    color: #000;
+}
+.university-info1 {
+    position: absolute;
+    top: 1581px;
+    left: 82px;
+    width: 582px;
+    height: 206px;
+    color: #000;
+}
+.university-info2 {
+    position: absolute;
+    top: 1345px;
+    left: 739px;
+    width: 582px;
+    height: 206px;
+    color: #000;
+}
+.university-info3 {
+    position: absolute;
+    top: 1578px;
+    left: 739px;
+    width: 582px;
+    height: 206px;
+    color: #000;
+}
+.desktop-1-child {
+    position: absolute;
+    top: 1861px;
+    left: 0px;
+    background-color: #d9c7e6;
+    width: 1440px;
+    height: 188px;
+}
+.aunipath-logo-11 {
+    position: absolute;
+    top: 1880px;
+    left: 122px;
+    width: 173px;
+    height: 159px;
+    object-fit: cover;
+}
+.aunipath1 {
+    position: absolute;
+    top: 1924px;
+    left: 295px;
+    font-size: 48px;
+    font-weight: 500;
+}
+.home1 {
+    position: absolute;
+    top: 1934px;
+    left: 826px;
+    font-size: 32px;
+    font-weight: 500;
+}
+.about1 {
+    position: absolute;
+    top: 1934px;
+    left: 980px;
+    font-size: 32px;
+    font-weight: 500;
+}
+.contact-us {
+    position: absolute;
+    top: 1934px;
+    left: 1132px;
+    font-size: 32px;
+    font-weight: 500;
+}
+.desktop-1 {
+    width: 100%;
+    position: relative;
+    background-color: #fff;
+    height: 2049px;
+    overflow: hidden;
+    text-align: left;
+    font-size: 36px;
+    color: #3f118b;
+    font-family: KoHo;
+}
+
