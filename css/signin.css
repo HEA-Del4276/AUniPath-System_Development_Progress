@@ -208,6 +208,65 @@ justify-content: center;
 font-weight: bold;
 font-size: 24px;
 border-radius: 8px;
+overflow: hidden;
+}
+
+.forgot-password {
+text-align: center;
+margin-top: 15px;
+color: #1f4784;
+text-decoration: underline;
+font-size: 16px;
+}
+
+.forgot-password:hover {
+color: #2a5a9c;
+}
+
+/* Login page specific styles */
+.LOGIN {
+  font-family: "Dustismo-Regular", Helvetica;
+  background-color: #ffffff;
+  color: #1f4784;
+}
+
+.login-outer {
+  background-color: #F8F0FF;
+  padding: 60px 80px;
+}
+
+.login-inner {
+  background-color: #DDDFFE;
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+  border-radius: 12px;
+}
+
+.extra-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.back-home {
+  text-align: center;
+  color: #1f4784;
+  text-decoration: underline;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.back-home:hover {
+  color: #2a5a9c;
+}
+
+.image-content {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 /* Responsive design */

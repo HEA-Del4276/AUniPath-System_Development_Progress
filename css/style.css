@@ -1190,6 +1190,19 @@
 }
 
 .nav-btn {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+.nav-btn {
   font-size: 1.3rem;
   font-weight: 500;
   border-radius: 32px;
@@ -1220,4 +1233,53 @@
 .nav-btn.login-btn:hover {
   background: #23407a;
   color: #fff;
+}
+
+/* Button anchor tag styles */
+.HOME .findcourse-btn,
+.HOME .finduniversity-btn {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.HOME .findcourse-btn:hover,
+.HOME .finduniversity-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.HOME .findcourse-btn:active,
+.HOME .finduniversity-btn:active {
+  transform: translateY(0);
+}
+
+.HOME .log-in-btn,
+.HOME .sign-up-btn {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.HOME .log-in-btn:hover,
+.HOME .sign-up-btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+.HOME .nav-btn {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.HOME .nav-btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
 }
