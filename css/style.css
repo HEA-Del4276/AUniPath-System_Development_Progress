@@ -133,13 +133,14 @@
   position: absolute;
   top: 16px;
   left: 152px;
-  font-family: "SF Cartoonist Hand SC", "SF Cartoonist Hand-Regular", Helvetica;
+  font-family: "SF Cartoonist Hand", "SF Cartoonist Hand-Regular", Helvetica;
   font-weight: 400;
   color: #3f118b;
   font-size: 64px;
   letter-spacing: 0;
   line-height: normal;
   white-space: nowrap;
+  text-transform: none;
 }
 
 .HOME .header-row {
@@ -310,13 +311,14 @@
   width: 471px;
   top: 273px;
   left: 120px;
-  font-family: "SF Cartoonist Hand SC", "SF Cartoonist Hand-Regular", Helvetica;
+  font-family: "SF Cartoonist Hand", "SF Cartoonist Hand-Regular", Helvetica;
   font-weight: 400;
   color: #3f118b;
   font-size: 90px;
   text-align: center;
   letter-spacing: 0;
   line-height: normal;
+  text-transform: none;
 }
 
 .HOME .overlap-4 {
@@ -998,13 +1000,14 @@
   position: absolute;
   top: 54px;
   left: 210px;
-  font-family: "SF Cartoonist Hand-Regular", Helvetica;
+  font-family: "SF Cartoonist Hand", "SF Cartoonist Hand-Regular", Helvetica;
   font-weight: 400;
   color: #3f118b;
   font-size: 64px;
   letter-spacing: 0;
   line-height: normal;
   white-space: nowrap;
+  text-transform: none;
 }
 
 .HOME .socials-twitter {
@@ -1191,14 +1194,13 @@
 }
 
 
-
 /* Navigation Bar Standardization - Clean Modern Design */
 .nav-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 12px 24px;
+  padding: 12px 20px 12px 20px;
   background: #f8f0ff;
   box-sizing: border-box;
   position: relative;
@@ -1215,39 +1217,41 @@
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 32px;  /* Increased from 24px to 32px for more space between Login and Sign Up */
   flex: 0 0 auto;
 }
 
 .aunipath-logo {
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   object-fit: contain;
   flex-shrink: 0;
 }
 
 .aunipath-title {
-  font-family: "SF Cartoonist Hand SC", "SF Cartoonist Hand-Regular", Helvetica;
+  font-family: "SF Cartoonist Hand", "SF Cartoonist Hand-Regular", Helvetica;
   font-weight: 400;
   color: #3f118b;
-  font-size: 24px;
+  font-size: 40px;
   text-decoration: none;
   white-space: nowrap;
   flex-shrink: 0;
+  text-transform: none;
 }
 
 .nav-bar .search {
   flex: 1;
-  max-width: 400px;
-  min-width: 200px;
+  max-width: min(90vw, 800px);
+  min-width: min(700px, 85vw);
   display: flex;
   align-items: center;
   background: #fff;
   border-radius: 25px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.07);
   padding: 4px 8px;
-  margin: 0 16px;
+  margin: 0 20px;
   position: relative;
+  width: 100%;
 }
 
 .nav-bar .search-input {
@@ -1286,11 +1290,14 @@
   font-family: "Inter", sans-serif;
   font-weight: normal;
   color: #8b5cf6;
-  font-size: 16px;
+  font-size: 20px;
   text-decoration: none;
   white-space: nowrap;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
   flex-shrink: 0;
+  margin: 0 15px;  /* Changed from 10px to 15px for moderate spacing between nav links */
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
 }
 
 .nav-link:hover {
@@ -1302,7 +1309,6 @@
   color: #7e5bef !important;
   font-weight: bold;
   border-bottom: 2px solid #7e5bef;
-  padding-bottom: 2px;
 }
 
 .nav-btn {
@@ -1312,20 +1318,22 @@
   padding: 6px 20px;
   border-radius: 25px;
   font-family: "Dustismo-Regular", Helvetica;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 14px;
   text-decoration: none;
   white-space: nowrap;
   transition: all 0.3s ease;
-  min-width: 80px;
-  height: 36px;
+  min-width: 120px;
+  height: 50px;
   border: 1px solid #8b5cf6;
   flex-shrink: 0;
+  margin: 0 4px;
 }
 
 .login-btn {
   background-color: transparent;
   color: #8b5cf6;
+  margin-right: -10px; /* Reduced negative margin to create more space with Sign Up */
 }
 
 .login-btn:hover {
@@ -1347,24 +1355,45 @@
     padding: 10px 16px;
   }
   
+  .aunipath-logo {
+    width: 65px;
+    height: 65px;
+  }
+  
   .aunipath-title {
-    font-size: 20px;
+    font-size: 35px;
+  }
+  
+  .nav-right {
+    gap: 28px;  /* Increased from 20px to 28px for more space */
+  }
+  
+  .nav-bar .search {
+    max-width: min(75vw, 600px);
+    min-width: min(500px, 70vw);
+    margin: 0 16px;
   }
   
   .nav-link {
-    font-size: 14px;
+    font-size: 16px;
+    margin: 0 8px;  /* Reduced from 12px to 8px for better spacing */
   }
   
   .nav-btn {
     font-size: 13px;
-    min-width: 70px;
-    height: 32px;
+    min-width: 100px;  /* Reduce from 120px to 100px */
+    height: 45px;  /* Reduce from 50px to 45px */
     padding: 5px 16px;
+    margin: 0 3px;
+  }
+
+  .login-btn {
+    margin-right: 0px; /* Removed negative margin for better spacing */
   }
 
   .search {
-    max-width: 300px;
-    min-width: 150px;
+    max-width: 85vw;
+    min-width: 280px;
   }
 }
 
@@ -1385,31 +1414,42 @@
   .nav-right {
     justify-content: center;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 20px;  /* Increased from 16px to 20px for better spacing */
     flex: none;
   }
   
   .search {
-    max-width: 100%;
-    min-width: auto;
+    max-width: min(85vw, 450px);
+    min-width: min(350px, 60vw);
     margin: 8px 0 0 0;
     order: 3;
     width: 100%;
   }
   
+  .aunipath-logo {
+    width: 60px;
+    height: 60px;
+  }
+  
   .aunipath-title {
-    font-size: 18px;
+    font-size: 30px;
   }
   
   .nav-link {
-    font-size: 14px;
+    font-size: 16px;
+    margin: 0 6px;  /* Reduced from 8px to 6px for better spacing */
   }
   
   .nav-btn {
     font-size: 12px;
-    min-width: 60px;
-    height: 30px;
+    min-width: 80px;  /* Increase from 60px to 80px */
+    height: 35px;  /* Increase from 30px to 35px */
     padding: 4px 12px;
+    margin: 0 2px;
+  }
+
+  .login-btn {
+    margin-right: 2px; /* Small positive margin for better spacing */
   }
 }
 
@@ -1419,26 +1459,38 @@
   }
   
   .aunipath-logo {
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
   }
   
   .aunipath-title {
-    font-size: 16px;
+    font-size: 25px;
+  }
+  
+  .nav-right {
+    gap: 18px;  /* Increased from 15px to 18px for better spacing */
   }
   
   .nav-link {
-    font-size: 13px;
+    font-size: 15px;
+    margin: 0 4px;  /* Reduced from 6px to 4px for better spacing */
   }
   
   .nav-btn {
     font-size: 11px;
-    min-width: 55px;
-    height: 28px;
+    min-width: 70px;  /* Increase from 55px to 70px */
+    height: 32px;  /* Increase from 28px to 32px */
     padding: 3px 10px;
+    margin: 0 1px;
+  }
+
+  .login-btn {
+    margin-right: 4px; /* Positive margin for better spacing */
   }
 
   .search {
+    max-width: min(85vw, 350px);
+    min-width: min(280px, 50vw);
     margin: 4px 0 0 0;
   }
 
@@ -1495,7 +1547,8 @@
     font-size: 28px;
     font-weight: 600;
     color: white;
-    font-family: "SF Cartoonist Hand SC", "SF Cartoonist Hand-Regular", Helvetica;
+    font-family: "SF Cartoonist Hand", "SF Cartoonist Hand-Regular", Helvetica;
+    text-transform: none;
 }
 
 .footer-description {
