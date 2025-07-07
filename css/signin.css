@@ -94,11 +94,15 @@ width: 50%;
 }
 
 .form-area h2 {
+font-family: "Inter", Helvetica;
+font-weight: bold;
 font-size: 36px;
 color: #1f4784;
 }
 
 .form-area p {
+font-family: "Inter", Helvetica;
+font-weight: normal;
 font-size: 20px;
 margin-bottom: 20px;
 }
@@ -135,6 +139,8 @@ margin-right: 10px;
 }
 
 .form-area button {
+font-family: "Dustismo-Regular", Helvetica;
+font-weight: 400;
 background-color: #1f4784;
 color: white;
 padding: 12px;

@@ -1,21 +1,23 @@
 .HOME {
-  background-color: transparent;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
 }
 
 .HOME .BODY-wrapper {
-  width: 1920px;
-  height: 3630px;
+    width: 100%;
+    max-width: 1920px;
+    min-height: 100vh;
 }
 
 .HOME .BODY {
-  position: relative;
-  height: 3630px;
-  background-color: #ffffff;
-  overflow: hidden;
+    position: relative;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .HOME .overlap {
@@ -131,7 +133,7 @@
   position: absolute;
   top: 16px;
   left: 152px;
-  font-family: "SF Cartoonist Hand-Regular", Helvetica;
+  font-family: "SF Cartoonist Hand SC", "SF Cartoonist Hand-Regular", Helvetica;
   font-weight: 400;
   color: #3f118b;
   font-size: 64px;
@@ -308,7 +310,7 @@
   width: 471px;
   top: 273px;
   left: 120px;
-  font-family: "Dustismo-Regular", Helvetica;
+  font-family: "SF Cartoonist Hand SC", "SF Cartoonist Hand-Regular", Helvetica;
   font-weight: 400;
   color: #3f118b;
   font-size: 90px;
@@ -1054,28 +1056,103 @@
   line-height: normal;
 }
 
- .about-section {
-            padding: 60px;
+.about-section {
+            padding: 60px 60px 30px 60px;
             color: rgb(0, 0, 0);
             max-width: 1000px;
+            font-family: "Inter", Helvetica;
             margin: auto;
             margin-top: 90px;
+            margin-bottom: 20px;
+            flex: 1;
+            line-height: 1.7;
         }
 
         .about-section h1 {
-            font-size: 36px;
-            border-bottom: 2px solid #000000;
+            font-family: "Inter", Helvetica;
+            font-weight: bold;
+            font-size: 48px;
+            border-bottom: 2px solid #3f118b;
             display: inline-block;
             padding-bottom: 10px;
+            margin-bottom: 25px;
+            color: #3f118b;
+            transition: color 0.3s ease;
+        }
+
+        .about-section h1:hover {
+            color: #7e5bef;
+        }
+
+        .about-section h2 {
+            font-family: "Inter", Helvetica;
+            font-weight: bold;
+            font-size: 36px;
+            color: #3f118b;
+            margin-top: 45px;
+            margin-bottom: 25px;
+        }
+
+        .about-section h3 {
+            font-family: "Inter", Helvetica;
+            font-weight: bold;
+            font-size: 32px;
+            color: #3f118b;
+            margin-top: 35px;
             margin-bottom: 20px;
         }
 
         .about-section p {
-            font-size: 18px;
-            line-height: 1.6;
+            font-family: "Inter", Helvetica;
+            font-weight: normal;
+            font-size: 22px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            text-align: justify;
         }
 
+        .about-section ul {
+            font-family: "Inter", Helvetica;
+            font-weight: normal;
+            margin: 20px 0 20px 0;
+            padding-left: 30px;
+            font-size: 20px;
+            line-height: 1.7;
+        }
 
+        .about-section li {
+            font-family: "Inter", Helvetica;
+            font-weight: normal;
+            font-size: 20px;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .about-section li strong {
+            color: #7e5bef;
+        }
+
+        .student-img {
+            width: 100%;
+            max-width: 650px;
+            height: auto;
+            border-radius: 15px;
+            margin: 30px auto;
+            display: block;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+/* Ensure proper page layout and footer positioning */
+.HOME .BODY-wrapper {
+    min-height: 100vh;
+}
+
+.HOME .BODY {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
 /* Button anchor tag styles */
 .HOME .findcourse-btn,
@@ -1150,7 +1227,7 @@
 }
 
 .aunipath-title {
-  font-family: "SF Cartoonist Hand-Regular", Helvetica;
+  font-family: "SF Cartoonist Hand SC", "SF Cartoonist Hand-Regular", Helvetica;
   font-weight: 400;
   color: #3f118b;
   font-size: 24px;
@@ -1207,7 +1284,7 @@
 
 .nav-link {
   font-family: "Inter", sans-serif;
-  font-weight: 400;
+  font-weight: normal;
   color: #8b5cf6;
   font-size: 16px;
   text-decoration: none;
@@ -1221,14 +1298,21 @@
   cursor: pointer;
 }
 
+.nav-link.active-page {
+  color: #7e5bef !important;
+  font-weight: bold;
+  border-bottom: 2px solid #7e5bef;
+  padding-bottom: 2px;
+}
+
 .nav-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 6px 20px;
   border-radius: 25px;
-  font-family: "Inter", sans-serif;
-  font-weight: 500;
+  font-family: "Dustismo-Regular", Helvetica;
+  font-weight: 400;
   font-size: 14px;
   text-decoration: none;
   white-space: nowrap;
@@ -1362,4 +1446,305 @@
     font-size: 12px;
     padding: 6px 10px;
   }
+}
+
+/* Clean, responsive footer for about page */
+.about-footer {
+    background: linear-gradient(135deg, #3f118b 0%, #7e5bef 100%);
+    color: white;
+    padding: 40px 0 20px;
+    width: 100%;
+    position: relative;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.footer-section h4 {
+    font-family: "Inter", Helvetica;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #f8f0ff;
+    border-bottom: 2px solid #d9c7e6;
+    display: inline-block;
+    padding-bottom: 8px;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.footer-logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.footer-title {
+    font-size: 28px;
+    font-weight: 600;
+    color: white;
+    font-family: "SF Cartoonist Hand SC", "SF Cartoonist Hand-Regular", Helvetica;
+}
+
+.footer-description {
+    font-family: "Inter", Helvetica;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #e6d3ff;
+    max-width: 400px;
+}
+
+.contact-info p {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #e6d3ff;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.social-link {
+    color: #e6d3ff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.social-link:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #d9c7e6;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+    color: #e6d3ff;
+    margin: 0;
+}
+
+/* Responsive footer design */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        text-align: center;
+        padding: 0 15px;
+    }
+    
+    .footer-brand {
+        justify-content: center;
+    }
+    
+    .footer-description {
+        max-width: 100%;
+    }
+    
+    .social-links {
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .about-footer {
+        padding: 30px 0 15px;
+    }
+    
+    .footer-bottom {
+        margin-top: 20px;
+        padding-top: 15px;
+    }
+    
+    .about-section {
+        padding: 40px 20px;
+        margin-top: 60px;
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-footer {
+        padding: 25px 0 10px;
+    }
+    
+    .footer-container {
+        padding: 0 10px;
+        gap: 20px;
+    }
+    
+    .footer-title {
+        font-size: 24px;
+    }
+    
+    .footer-logo {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .footer-description {
+        font-size: 14px;
+    }
+    
+    .contact-info p {
+        font-size: 14px;
+    }
+    
+    .social-link {
+        font-size: 14px;
+    }
+    
+    .footer-bottom p {
+        font-size: 12px;
+    }
+    
+    .about-section {
+        padding: 30px 15px;
+        margin-top: 40px;
+        margin-bottom: 10px;
+    }
+}
+
+/* Responsive design for about section */
+@media (max-width: 768px) {
+    .about-section {
+        padding: 40px 20px 25px 20px;
+        margin-top: 60px;
+        margin-bottom: 15px;
+    }
+    
+    .about-section h1 {
+        font-size: 36px;
+    }
+    
+    .about-section h2 {
+        font-size: 28px;
+    }
+    
+    .about-section h3 {
+        font-size: 24px;
+    }
+    
+    .about-section p {
+        font-size: 18px;
+    }
+    
+    .about-section ul {
+        font-size: 18px;
+    }
+    
+    .about-section li {
+        font-size: 18px;
+    }
+    
+    .student-img {
+        margin: 20px auto;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-section {
+        padding: 30px 15px 20px 15px;
+        margin-top: 40px;
+        margin-bottom: 10px;
+    }
+    
+    .about-section h1 {
+        font-size: 28px;
+    }
+    
+    .about-section h2 {
+        font-size: 24px;
+    }
+    
+    .about-section h3 {
+        font-size: 20px;
+    }
+    
+    .about-section p {
+        font-size: 16px;
+    }
+    
+    .about-section ul {
+        padding-left: 20px;
+        font-size: 16px;
+    }
+    
+    .about-section li {
+        font-size: 16px;
+    }
+}
+
+/* About page specific overrides */
+.about-page .HOME .overlap,
+.about-page .HOME .HERO-img,
+.about-page .HOME .img,
+.about-page .HOME .group,
+.about-page .HOME .ellipse,
+.about-page .HOME .ellipse-2,
+.about-page .HOME .ellipse-3,
+.about-page .HOME .findcourse-btn,
+.about-page .HOME .finduniversity-btn,
+.about-page .HOME .header-row {
+    display: none !important;
+}
+
+/* Ensure clean layout for about page */
+.about-page .HOME .BODY {
+    background-color: #ffffff;
+    min-height: 100vh;
+}
+
+/* Responsive improvements for very small screens */
+@media (max-width: 360px) {
+    .about-section {
+        padding: 25px 12px 15px 12px;
+        margin-top: 35px;
+    }
+    
+    .about-section h1 {
+        font-size: 24px;
+    }
+    
+    .about-section h2 {
+        font-size: 20px;
+    }
+    
+    .about-section h3 {
+        font-size: 18px;
+    }
+    
+    .about-section p {
+        font-size: 14px;
+    }
+    
+    .about-section ul {
+        padding: 15px 20px;
+        margin: 15px 0;
+    }
+    
+    .about-section li {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
 }

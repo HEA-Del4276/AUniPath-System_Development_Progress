@@ -8,6 +8,7 @@
 
 /* Tagline */
 .tagline {
+    font-family: "SF Cartoonist Hand SC", "SF Cartoonist Hand-Regular", Helvetica;
     font-size: clamp(32px, 8vw, 64px);
     font-weight: 500;
     text-align: center;
@@ -142,6 +143,7 @@
 }
 
 .courses-for-you1 {
+    font-family: "Dustismo-Regular", Helvetica;
     font-size: clamp(24px, 4vw, 36px);
     font-weight: 500;
     color: white;
