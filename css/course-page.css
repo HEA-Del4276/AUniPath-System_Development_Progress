@@ -1,451 +1,457 @@
-.header-something {
-    position: absolute;
-    top: 5px;
-    left: 0px;
-    background-color: #f8f0ff;
-    width: 1440px;
-    height: 66px;
+/* Main content wrapper */
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
 }
-.aunipath-logo-1 {
-    position: absolute;
-    top: 0px;
-    left: 34px;
-    width: 91.3px;
-    height: 84px;
-    object-fit: cover;
-}
-.aunipath {
-    position: absolute;
-    top: 13px;
-    left: 116px;
-    font-size: 36px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 181px;
-    height: 50px;
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
-    transition: color 0.2s ease, transform 0.2s ease;
-}
-.aunipath:hover {
-  color: #9a6fef;
-  transform: scale(1.05);
-}
-.home {
-    position: absolute;
-    top: 23px;
-    left: 740px;
-    font-weight: 500;
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
-    transition: color 0.2s ease, transform 0.2s ease;
-}
-.about {
-    position: absolute;
-    top: 23px;
-    left: 855px;
-    font-weight: 500;
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
-    transition: color 0.2s ease, transform 0.2s ease;
-}
-.courses {
-    position: absolute;
-    top: 23px;
-    left: 972px;
-    font-weight: 500;
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
-    transition: color 0.2s ease, transform 0.2s ease;
-}
-.universities {
-    position: absolute;
-    top: 23px;
-    left: 1109px;
-    font-weight: 500;
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
-    transition: color 0.2s ease, transform 0.2s ease;
-}
-.notifs-icon {
-    position: absolute;
-    top: 16px;
-    left: 1267px;
-    width: 45px;
-    height: 45px;
-    object-fit: cover;
-    text-decoration: none;
-    cursor: pointer;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-}
-.profile-icon {
-    position: absolute;
-    top: 9px;
-    left: 1330px;
-    width: 57px;
-    height: 57px;
-    object-fit: cover;
-    text-decoration: none;
-    cursor: pointer;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-}
-.header {
-    position: absolute;
-    top: 11px;
-    left: 0px;
-    width: 1440px;
-    height: 84px;
-    text-align: center;
-    font-size: 24px;
-}
+
+/* Tagline */
 .tagline {
-    position: absolute;
-    top: 174px;
-    left: 373px;
-    font-size: 64px;
+    font-size: clamp(32px, 8vw, 64px);
     font-weight: 500;
     text-align: center;
+    margin: 40px 0;
+    color: #3f118b;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Search bar container */
+.search-bar {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 694px;
-    height: 125px;
+    gap: 15px;
+    margin: 40px auto;
+    max-width: 800px;
 }
-.search {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    border-radius: 50px;
+
+/* Search input styling - scoped to avoid conflicts */
+.search-bar .search {
+    display: flex;
+    align-items: center;
     background-color: #fff;
     border: 3px solid #d9c7e6;
-    box-sizing: border-box;
-    width: 745px;
+    border-radius: 50px;
+    padding: 0 20px;
+    flex: 1;
+    max-width: 600px;
     height: 59px;
 }
-.filter-button-icon {
-    position: absolute;
-    top: 4.87px;
-    left: 676.85px;
-    width: 48.3px;
-    height: 48.3px;
-    object-fit: cover;
+
+.search-bar .search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    padding: 15px 0;
+    background: transparent;
 }
-.search-button-icon {
-    position: absolute;
-    top: 5.9px;
-    left: 627.31px;
-    width: 47.2px;
-    height: 47.2px;
-    object-fit: cover;
+
+.search-bar .search-input::placeholder {
+    color: #999;
 }
-.search-bar {
-    position: absolute;
-    top: 356px;
-    left: 347px;
-    width: 745px;
+
+.search-bar .search-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-bar .search-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.filter-btn {
+    background: #9a6fef;
+    border: none;
+    border-radius: 50px;
+    width: 59px;
     height: 59px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
 }
-.course-button-child {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    border-radius: 50px;
+
+.filter-btn:hover {
+    background: #7e5bef;
+}
+
+.filter-icon {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
+}
+
+/* Action buttons */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 40px 0 60px;
+    flex-wrap: wrap;
+}
+
+.course-button, .university-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 305px;
+    height: 90px;
     background-color: #9a6fef;
-    width: 209px;
-    height: 66px;
-}
-.find-a-course {
-    position: absolute;
-    top: 18px;
-    left: 39px;
-    font-weight: 500;
-}
-.course-button {
-    position: absolute;
-    top: 435px;
-    left: 475px;
-    width: 209px;
-    height: 66px;
-    text-align: center;
-    font-size: 22px;
-    color: #fff;
-    text-decoration: none;
-    color: inherit;
-    display: block;
-    cursor: pointer;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-}
-.course-button:hover {
-  transform: translateY(-2px);
-  opacity: 0.9;
-}
-.course-button:active {
-  transform: translateY(0);
-}
-.find-a-university {
-    position: absolute;
-    top: 18px;
-    left: 24px;
-    font-weight: 500;
-}
-.university-button {
-    position: absolute;
-    top: 435px;
-    left: 740px;
-    width: 209px;
-    height: 66px;
-    text-align: center;
-    font-size: 22px;
-    color: #fff;
-    text-decoration: none;
-    color: inherit;
-    display: block;
-    cursor: pointer;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-}
-.university-button:hover {
-  transform: translateY(-2px);
-  opacity: 0.9;
-}
-.university-button:active {
-  transform: translateY(0);
-}
-.university-button-item {
-    position: absolute;
-    top: 0px;
-    left: 0px;
     border-radius: 50px;
-    background-color: #f8f0ff;
-    border: 3px solid #3f118b;
-    box-sizing: border-box;
-    width: 209px;
-    height: 66px;
-}
-.compare {
-    position: absolute;
-    top: 17px;
-    left: 58px;
-    font-weight: 500;
-}
-.university-button1 {
-    position: absolute;
-    top: 1238px;
-    left: 1133px;
-    width: 209px;
-    height: 66px;
-    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    font-family: "Dustismo-Regular", Helvetica;
+    font-weight: 400;
+    color: #ffffff;
     font-size: 24px;
 }
-.courses-backdrop {
-    position: absolute;
-    top: 112px;
-    left: 0px;
-    background-color: #3f118b;
-    width: 1440px;
-    height: 489px;
+
+.course-button.active {
+    background-color: #7e5bef;
+    transform: translateY(-2px);
 }
-.purple-bar {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    background-color: #9a6fef;
-    width: 1440px;
-    height: 84px;
+
+.course-button:hover, .university-button:hover {
+    transform: translateY(-2px);
+    background-color: #7e5bef;
 }
-.courses-for-you1 {
-    position: absolute;
-    top: 16px;
-    left: 580px;
-    font-weight: 500;
-}
-.courses-for-you-bar {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 1440px;
-    height: 84px;
-}
-.course-photo {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    border-radius: 50%;
-    background-color: #f8f0ff;
-    width: 266px;
-    height: 266px;
-}
-.course {
-    position: absolute;
-    top: 274px;
-    left: 72px;
-    font-weight: 500;
-}
-.course-description {
-    position: absolute;
-    top: 326px;
-    left: 33px;
-    font-size: 24px;
-    font-weight: 500;
-}
-.course-contents {
-    position: absolute;
-    top: 155px;
-    left: 82px;
-    width: 266px;
-    height: 357px;
-}
-.course-contents1 {
-    position: absolute;
-    top: 155px;
-    left: 423px;
-    width: 266px;
-    height: 357px;
-}
-.course-contents2 {
-    position: absolute;
-    top: 155px;
-    left: 764px;
-    width: 266px;
-    height: 357px;
-}
-.course-contents3 {
-    position: absolute;
-    top: 155px;
-    left: 1105px;
-    width: 266px;
-    height: 357px;
-}
+/* Courses section */
 .courses-for-you {
-    position: absolute;
-    top: 580px;
-    left: 0px;
-    width: 1440px;
-    height: 601px;
+    margin: 60px 0;
+}
+
+.courses-for-you-bar {
+    background: linear-gradient(135deg, #9a6fef 0%, #7c3aed 100%);
     text-align: center;
-    font-size: 40px;
-    color: #fff;
+    padding: 30px 20px;
+    margin-bottom: 40px;
+    border-radius: 15px;
 }
-.top-universities-that {
-    position: absolute;
-    top: 1238px;
-    left: 82px;
-    font-size: 40px;
+
+.courses-for-you1 {
+    font-size: clamp(24px, 4vw, 36px);
     font-weight: 500;
-    color: #000;
+    color: white;
+    margin: 0;
 }
-.university-photo {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    background-color: #d9c7e6;
-    width: 316px;
-    height: 206px;
+
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
-.university {
-    position: absolute;
-    top: 12px;
-    left: 350px;
-    font-weight: 500;
+
+.course-contents {
+    background: #f8f0ff;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
-.university-description {
-    position: absolute;
-    top: 72px;
-    left: 350px;
-    font-size: 24px;
-    font-weight: 500;
+
+.course-contents:hover {
+    transform: translateY(-5px);
 }
-.university-info {
-    position: absolute;
-    top: 1345px;
-    left: 82px;
-    width: 582px;
-    height: 206px;
-    color: #000;
-}
-.university-info1 {
-    position: absolute;
-    top: 1581px;
-    left: 82px;
-    width: 582px;
-    height: 206px;
-    color: #000;
-}
-.university-info2 {
-    position: absolute;
-    top: 1345px;
-    left: 739px;
-    width: 582px;
-    height: 206px;
-    color: #000;
-}
-.university-info3 {
-    position: absolute;
-    top: 1578px;
-    left: 739px;
-    width: 582px;
-    height: 206px;
-    color: #000;
-}
-.desktop-1-child {
-    position: absolute;
-    top: 1861px;
-    left: 0px;
-    background-color: #d9c7e6;
-    width: 1440px;
-    height: 188px;
-}
-.aunipath-logo-11 {
-    position: absolute;
-    top: 1880px;
-    left: 122px;
-    width: 173px;
-    height: 159px;
-    object-fit: cover;
-}
-.aunipath1 {
-    position: absolute;
-    top: 1924px;
-    left: 295px;
+
+.course-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #e6d3ff;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 48px;
-    font-weight: 500;
+    color: #9a6fef;
 }
-.home1 {
-    position: absolute;
-    top: 1934px;
-    left: 826px;
-    font-size: 32px;
-    font-weight: 500;
-}
-.about1 {
-    position: absolute;
-    top: 1934px;
-    left: 980px;
-    font-size: 32px;
-    font-weight: 500;
-}
-.contact-us {
-    position: absolute;
-    top: 1934px;
-    left: 1132px;
-    font-size: 32px;
-    font-weight: 500;
-}
-.desktop-1 {
-    width: 100%;
-    position: relative;
-    background-color: #fff;
-    height: 2049px;
-    overflow: hidden;
-    text-align: left;
-    font-size: 36px;
+
+.course {
+    font-size: 24px;
+    font-weight: 600;
     color: #3f118b;
-    font-family: KoHo;
+    margin-bottom: 10px;
+}
+
+.course-description {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.4;
+}
+/* Universities section */
+.universities-section {
+    margin: 60px 0;
+}
+
+.top-universities-that {
+    text-align: center;
+    font-size: clamp(20px, 4vw, 32px);
+    font-weight: 500;
+    color: #3f118b;
+    margin-bottom: 40px;
+}
+
+.university-grid {
+    display: grid;
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.university-info {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background: #f8f0ff;
+    border-radius: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+.university-info:hover {
+    transform: translateY(-2px);
+}
+
+.university-photo {
+    width: 80px;
+    height: 80px;
+    background: #e6d3ff;
+    border-radius: 10px;
+    margin-right: 20px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #9a6fef;
+}
+
+.university-text {
+    flex: 1;
+}
+
+.university {
+    font-size: 20px;
+    font-weight: 600;
+    color: #3f118b;
+    margin-bottom: 8px;
+}
+
+.university-description {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* Footer */
+.footer {
+    background: linear-gradient(135deg, #3f118b 0%, #7e5bef 100%);
+    margin-top: 80px;
+    padding: 40px 20px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer .aunipath-logo {
+    width: 40px;
+    height: 40px;
+}
+
+.footer .aunipath-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+}
+
+.footer-links {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.footer-link {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+    color: #d9c7e6;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 15px;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .course-button, .university-button {
+        width: 100%;
+        max-width: 305px;
+    }
+    
+    .search-bar {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .search-bar .search {
+        max-width: 100%;
+    }
+    
+    .course-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .university-info {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .university-photo {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-links {
+        justify-content: center;
+    }
+}
+
+/* Reset any conflicting positioning for navigation elements */
+.nav-left, .nav-right {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+}
+
+.nav-link, .nav-btn {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .tagline {
+        margin: 40px auto 30px;
+        padding: 0 15px;
+    }
+    
+    .search-bar {
+        padding: 0 15px;
+        margin: 0 auto 30px;
+    }
+    
+    .course-button-child {
+        width: 250px;
+        height: 70px;
+    }
+    
+    .find-a-course, .find-a-university {
+        font-size: 20px;
+    }
+    
+    .course-button, .university-button {
+        margin: 15px 10px;
+    }
+    
+    .university-info, .university-info1, .university-info2, .university-info3 {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+        margin: 15px 20px;
+    }
+    
+    .university-photo {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    
+    .course-contents, .course-contents1, .course-contents2, .course-contents3 {
+        flex-direction: column;
+        text-align: center;
+        margin: 10px 20px;
+        padding: 12px;
+    }
+    
+    .course-photo {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    
+    .desktop-1-child {
+        flex-direction: column;
+        height: auto;
+        padding: 30px 20px;
+    }
+    
+    .aunipath1 {
+        font-size: 28px;
+        margin: 15px 0;
+    }
+    
+    .home1, .about1, .contact-us {
+        font-size: 20px;
+        margin: 8px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .tagline {
+        margin: 30px auto 20px;
+    }
+    
+    .search-bar {
+        padding: 0 10px;
+        margin: 0 auto 20px;
+    }
+    
+    .course-button-child {
+        width: 200px;
+        height: 60px;
+    }
+    
+    .find-a-course, .find-a-university {
+        font-size: 16px;
+    }
 }
 

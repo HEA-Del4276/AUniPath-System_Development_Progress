@@ -1,118 +1,20 @@
+/* Login Page Specific Styles */
 .LOGIN {
-  font-family: "Dustismo-Regular", Helvetica;
+  font-family: "Inter", sans-serif;
   background-color: #ffffff;
   color: #1f4784;
+  min-height: 100vh;
 }
 
-.HEADER {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #f8f0ff;
-  padding: 16px 40px;
-}
-
-.logo {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-}
-
-.site-name {
-  font-family: "SF Cartoonist Hand-Regular", Helvetica;
-  font-size: 64px;
-  color: #3f118b;
-  margin-left: 20px;
-}
-
-.search {
-  flex: 1;
-  max-width: 500px;
-  margin: 0 40px;
-}
-
-.overlap-2 {
-  background-color: #ffffff;
-  border-radius: 50px;
-  border: 1px solid #6b6b6b;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-  height: 66px;
-}
-
-.search-input {
-  flex: 1;
-  border: none;
-  outline: none;
-  font-size: 1rem;
-  padding: 10px 12px;
-  background: transparent;
-}
-
-.SEARCH-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.ion-search {
-  width: 24px;
-  height: 24px;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.nav-item {
-  font-size: 36px;
-  color: #000000;
-  text-decoration: none;
-}
-
-.nav-item:hover {
-  color: #7e5bef;
-}
-
-.log-in-btn .overlap-group,
-.sign-up-btn .div-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 195px;
-  height: 61px;
-  border-radius: 50px;
-  font-size: 36px;
-  text-align: center;
-}
-
-.log-in-btn .overlap-group {
-  background-color: #ffffff;
-  border: 2px solid #1f4784;
-  color: #1f4784;
-}
-
-.sign-up-btn .div-wrapper {
-  background-color: #1f4784;
-  color: #ffffff;
-}
-
-.sign-up-btn .div {
-  font-size: 36px;
-  color: #ffffff;
-}
+/* Navigation styles are handled by .nav-bar in style.css */
 
 .login-outer {
-  background-color: #F8F0FF;
+  background-color: #ffffff;
   padding: 60px 80px;
 }
 
 .login-inner {
-  background-color: #DDDFFE;
+  background-color: #ffffff;
   display: flex;
   justify-content: space-between;
   padding: 40px;

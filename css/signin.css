@@ -1,53 +1,12 @@
+/* Signup Page Specific Styles */
 .SIGNIN {
-font-family: "Dustismo-Regular", Helvetica;
-background-color: #ffffff;
-color: #1f4784;
+  font-family: "Inter", sans-serif;
+  background-color: #ffffff;
+  color: #1f4784;
+  min-height: 100vh;
 }
 
-.HEADER {
-position: relative;
-width: 100%;
-height: 106px;
-background-color: #f8f0ff;
-display: flex;
-align-items: center;
-padding: 0 40px;
-}
-
-.logo {
-width: 116px;
-height: 100px;
-}
-
-.site-name {
-font-family: "SF Cartoonist Hand-Regular", Helvetica;
-font-size: 64px;
-color: #3f118b;
-margin-left: 20px;
-}
-
-.nav-links {
-display: flex;
-align-items: center;
-margin-left: auto;
-}
-
-.nav-item {
-font-size: 36px;
-margin: 0 20px;
-color: #000000;
-}
-
-.log-in-btn .overlap-group {
-background-color: #ffffff;
-border-radius: 50px;
-border: 2px solid #1f4784;
-width: 195px;
-height: 61px;
-display: flex;
-align-items: center;
-justify-content: center;
-}
+/* Navigation styles are handled by .nav-bar in style.css */
 
 .log-in-btn .text-wrapper {
 font-size: 36px;
@@ -118,12 +77,12 @@ padding: 60px 80px;
 }
 
 .sign-in-outer {
-background-color: #F8F0FF;
+background-color: #ffffff;
 padding: 60px 80px;
 }
 
 .sign-in-inner {
-background-color: #DDDFFE;
+background-color: #ffffff;
 display: flex;
 justify-content: space-between;
 padding: 40px;

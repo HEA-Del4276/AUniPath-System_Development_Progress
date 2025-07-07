@@ -148,57 +148,11 @@
   background: #f8f0ff;
 }
 
-.aunipath-logo {
-  width: 100px; 
-  height: 100px;
-  object-fit: contain;
-}
 
-.aunipath-title {
-  font-family: "SF Cartoonist Hand-Regular", Helvetica;
-  font-weight: 400;
-  color: #3f118b;
-  font-size: 64px;
-  margin-right: 16px;
-}
 
-.search {
-  flex: 1 1 400px; 
-  max-width: 500px;
-}
 
-.overlap-2 {
-  display: flex;
-  align-items: center;
-  background: #fff;
-  border-radius: 30px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-  padding: 6px 12px;
-}
 
-.search-input {
-  flex: 1;
-  border: none;
-  outline: none;
-  font-size: 1rem;
-  padding: 10px 12px;
-  border-radius: 30px;
-  background: transparent;
-}
 
-.SEARCH-btn {
-  background: none;
-  border: none;
-  padding: 0 8px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-}
-
-.ion-search {
-  width: 24px;
-  height: 24px;
-}
 
 .HOME .HERO-img {
   position: absolute;
@@ -1121,119 +1075,7 @@
             line-height: 1.6;
         }
 
-.nav-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 40px;
-  background: #f8f0ff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-}
 
-.nav-left {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.aunipath-logo {
-  height: 56px;
-  width: 56px;
-}
-
-.aunipath-title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #5a2d82;
-}
-
-.search {
-  display: flex;
-  align-items: center;
-  background: #fff;
-  border-radius: 24px;
-  padding: 0 16px;
-  margin-left: 20px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-}
-
-.search-input {
-  border: none;
-  outline: none;
-  padding: 10px 8px;
-  font-size: 1rem;
-  background: transparent;
-}
-
-.SEARCH-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-}
-
-.nav-link {
-  text-decoration: none;
-  color: #222;
-  font-size: 1.5rem;
-  font-weight: 500;
-  transition: color 0.2s;
-}
-
-.nav-link:hover {
-  color: #5a2d82;
-}
-
-.nav-btn {
-  text-decoration: none;
-  color: inherit;
-  display: inline-block;
-  cursor: pointer;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.nav-btn:hover {
-  transform: translateY(-1px);
-  opacity: 0.9;
-}
-
-.nav-btn {
-  font-size: 1.3rem;
-  font-weight: 500;
-  border-radius: 32px;
-  padding: 8px 32px;
-  border: 2px solid #23407a;
-  background: #fff;
-  color: #23407a;
-  margin-left: 8px;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-}
-
-.nav-btn.login-btn {
-  background: #fff;
-  color: #23407a;
-}
-
-.nav-btn.signup-btn {
-  background: #23407a;
-  color: #fff;
-  border: 2px solid #23407a;
-}
-
-.nav-btn.signup-btn:hover {
-  background: #1a2e57;
-}
-
-.nav-btn.login-btn:hover {
-  background: #23407a;
-  color: #fff;
-}
 
 /* Button anchor tag styles */
 .HOME .findcourse-btn,
@@ -1271,15 +1113,253 @@
   opacity: 0.9;
 }
 
-.HOME .nav-btn {
-  text-decoration: none;
-  color: inherit;
-  display: inline-block;
-  cursor: pointer;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+
+
+/* Navigation Bar Standardization - Clean Modern Design */
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 12px 24px;
+  background: #f8f0ff;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 100;
 }
 
-.HOME .nav-btn:hover {
-  transform: translateY(-1px);
-  opacity: 0.9;
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 0 0 auto;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 0 0 auto;
+}
+
+.aunipath-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.aunipath-title {
+  font-family: "SF Cartoonist Hand-Regular", Helvetica;
+  font-weight: 400;
+  color: #3f118b;
+  font-size: 24px;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.nav-bar .search {
+  flex: 1;
+  max-width: 400px;
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 25px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  padding: 4px 8px;
+  margin: 0 16px;
+  position: relative;
+}
+
+.nav-bar .search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  padding: 8px 12px;
+  background: transparent;
+  color: #666;
+  min-width: 0;
+}
+
+.nav-bar .search-input::placeholder {
+  color: #999;
+}
+
+.nav-bar .SEARCH-btn {
+  background: none;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 8px;
+  flex-shrink: 0;
+}
+
+.ion-search, .search-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.nav-link {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  color: #8b5cf6;
+  font-size: 16px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.nav-link:hover {
+  color: #7c3aed;
+  cursor: pointer;
+}
+
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 20px;
+  border-radius: 25px;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  min-width: 80px;
+  height: 36px;
+  border: 1px solid #8b5cf6;
+  flex-shrink: 0;
+}
+
+.login-btn {
+  background-color: transparent;
+  color: #8b5cf6;
+}
+
+.login-btn:hover {
+  background-color: #f3f4f6;
+}
+
+.signup-btn {
+  background-color: #8b5cf6;
+  color: #ffffff;
+}
+
+.signup-btn:hover {
+  background-color: #7c3aed;
+}
+
+/* Responsive design for navigation */
+@media (max-width: 1200px) {
+  .nav-bar {
+    padding: 10px 16px;
+  }
+  
+  .aunipath-title {
+    font-size: 20px;
+  }
+  
+  .nav-link {
+    font-size: 14px;
+  }
+  
+  .nav-btn {
+    font-size: 13px;
+    min-width: 70px;
+    height: 32px;
+    padding: 5px 16px;
+  }
+
+  .search {
+    max-width: 300px;
+    min-width: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-bar {
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+  }
+  
+  .nav-left {
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    flex: none;
+  }
+  
+  .nav-right {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    flex: none;
+  }
+  
+  .search {
+    max-width: 100%;
+    min-width: auto;
+    margin: 8px 0 0 0;
+    order: 3;
+    width: 100%;
+  }
+  
+  .aunipath-title {
+    font-size: 18px;
+  }
+  
+  .nav-link {
+    font-size: 14px;
+  }
+  
+  .nav-btn {
+    font-size: 12px;
+    min-width: 60px;
+    height: 30px;
+    padding: 4px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-bar {
+    padding: 8px;
+  }
+  
+  .aunipath-logo {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .aunipath-title {
+    font-size: 16px;
+  }
+  
+  .nav-link {
+    font-size: 13px;
+  }
+  
+  .nav-btn {
+    font-size: 11px;
+    min-width: 55px;
+    height: 28px;
+    padding: 3px 10px;
+  }
+
+  .search {
+    margin: 4px 0 0 0;
+  }
+
+  .search-input {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
 }
