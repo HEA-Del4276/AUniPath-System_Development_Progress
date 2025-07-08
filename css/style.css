@@ -1056,16 +1056,16 @@
 */
 
 .about-section {
-            padding: 60px 60px 30px 60px;
-            color: rgb(0, 0, 0);
-            max-width: 1000px;
-            font-family: "Inter", Helvetica;
-            margin: auto;
-            margin-top: 90px;
-            margin-bottom: 20px;
-            flex: 1;
-            line-height: 1.7;
-        }
+    padding: 60px 60px 30px 60px;
+    color: rgb(0, 0, 0);
+    max-width: 1000px;
+    font-family: "Inter", Helvetica;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: -50px;
+    flex: 1;
+    line-height: 1.7;
+}
 
         .about-section h1 {
             font-family: "Inter", Helvetica;
@@ -1141,6 +1141,174 @@
             display: block;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
+
+/* ===== MEET THE TEAM SECTION ===== */
+.meet-team-section {
+    background: #3F118B;
+    padding: 80px 20px;
+    margin: 0;
+    width: 100%;
+    position: relative;
+}
+
+.meet-team-section h2 {
+    font-family: "SF Cartoonist Hand", "SF Cartoonist Hand-Regular", Helvetica;
+    font-weight: 400;
+    font-size: 70px;
+    color: #ffffff;
+    text-align: center;
+    margin: 0 0 60px 0;
+    letter-spacing: 2.7px;
+}
+
+.team-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.team-member {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.team-photo {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 25px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    transition: border-color 0.3s ease;
+}
+
+.team-member:hover .team-photo {
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.team-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.team-name {
+    font-family: "Inter", Helvetica;
+    font-weight: 700;
+    font-size: 24px;
+    color: #ffffff;
+    margin: 0 0 15px 0;
+    letter-spacing: 0.5px;
+}
+
+.team-role {
+    font-family: "Inter", Helvetica;
+    font-weight: 400;
+    font-size: 16px;
+    color: #e6d3ff;
+    margin: 0;
+    line-height: 1.4;
+    letter-spacing: 0.3px;
+}
+
+/* ===== RESPONSIVE DESIGN FOR MEET THE TEAM ===== */
+@media (max-width: 1024px) {
+    .team-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        max-width: 800px;
+    }
+    
+    .meet-team-section {
+        padding: 60px 15px;
+    }
+    
+    .meet-team-section h2 {
+        font-size: 36px;
+        margin-bottom: 40px;
+    }
+    
+    .team-member {
+        padding: 30px 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .team-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        max-width: 400px;
+    }
+    
+    .meet-team-section {
+        padding: 50px 10px;
+    }
+    
+    .meet-team-section h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+    }
+    
+    .team-photo {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 20px;
+    }
+    
+    .team-name {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .team-role {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .meet-team-section {
+        padding: 40px 5px;
+    }
+    
+    .meet-team-section h2 {
+        font-size: 28px;
+        margin-bottom: 25px;
+    }
+    
+    .team-member {
+        padding: 25px 10px;
+    }
+    
+    .team-photo {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 15px;
+    }
+    
+    .team-name {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .team-role {
+        font-size: 13px;
+    }
+}
 
 /* Button anchor tag styles */
 .HOME .findcourse-btn,
@@ -2163,5 +2331,60 @@
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+}
+
+/* ===== GROUP PHOTOS SECTION ===== */
+.group-photos-section {
+    background: #ffffff;
+    padding: 120px 20px;
+    text-align: center;
+}
+
+.group-photos-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.group-photo {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.group-photo:hover {
+    transform: translateY(-5px);
+}
+
+.group-img {
+    width: 650px;
+    height: 450px;
+    object-fit: cover;
+    display: block;
+}
+
+.group-photos-section h2 {
+    font-family: "SF Cartoonist Hand", "SF Cartoonist Hand-Regular", Helvetica;
+    font-weight: 400;
+    font-size: 36px;
+    color: #3f118b;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+    .group-photos-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .group-img {
+        width: 100%;
+        max-width: 350px;
+        height: 250px;
+    }
 }
 
