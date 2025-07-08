@@ -10,6 +10,8 @@
     width: 100%;
     max-width: 100%;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .HOME .BODY {
@@ -18,6 +20,7 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    flex: 1;
 }
 
 /* Remove old fixed overlaps that cause responsiveness issues */
@@ -25,22 +28,24 @@
   display: none;
 }
 
-
-
-
-
-
+/* Main content wrapper to push footer to bottom */
+.HOME .main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
 
 /* Hero Section - Responsive Layout */
 .HOME .hero-container {
   display: flex;
   flex-direction: row;
   max-width: 1200px;
-  margin: 20px auto 60px auto; /* Increased bottom margin for more space before universities section */
+  margin: 5px auto 30px auto; /* Reduced bottom margin from 60px to 30px for tighter spacing */
   padding: 0 20px;
   align-items: center;
   gap: 90px;
-  min-height: 70vh;
+  min-height: 600px; /* Fixed height instead of viewport-based height */
 }
 
 .HOME .hero-left {
@@ -221,9 +226,14 @@
   color: #1f4784;
   font-size: 40px;
   letter-spacing: 2.00px;
-  line-height: normal;
+  line-height: 1.4;
   text-align: center;
   box-sizing: border-box;
+  white-space: normal;
+  word-spacing: 0.15em;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  hyphens: none;
 }
 
 .HOME .p {
@@ -238,6 +248,174 @@
   margin: 0 auto 15px;
   max-width: 800px;
   padding: 0 20px;
+}
+
+/* ===== RESPONSIVE BREAKPOINTS FOR HERO SECTION ===== */
+/* Handle zoom levels and proper text wrapping */
+@media (max-width: 1600px) {
+  .HOME .text-wrapper-7 {
+    white-space: normal;
+    word-spacing: 0.1em;
+    max-width: 750px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .HOME .text-wrapper-7 {
+    white-space: normal;
+    line-height: 1.3;
+    word-spacing: 0.05em;
+    max-width: 700px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .HOME .hero-container {
+    max-width: 1000px;
+    gap: 60px;
+    min-height: 60vh;
+    margin: 15px auto 25px auto; /* Reduced bottom margin from 50px to 25px */
+  }
+  
+  .HOME .HERO-img {
+    width: 650px;
+    height: 420px;
+    max-width: 700px;
+  }
+  
+  .HOME .text-wrapper-7 {
+    font-size: 36px;
+    max-width: 700px;
+    margin: 50px auto 30px;
+    white-space: normal;
+    line-height: 1.3;
+  }
+  
+  .HOME .p {
+    font-size: 60px;
+    max-width: 700px;
+  }
+}
+
+@media (max-width: 768px) {
+  .HOME .hero-container {
+    flex-direction: column;
+    gap: 40px;
+    min-height: auto;
+    margin: 10px auto 20px auto; /* Reduced bottom margin from 40px to 20px */
+    padding: 0 15px;
+  }
+  
+  .HOME .hero-left {
+    align-items: center;
+    text-align: center;
+    gap: 25px;
+    order: 2;
+  }
+  
+  .HOME .hero-right {
+    order: 1;
+  }
+  
+  .HOME .HERO-img {
+    width: 100%;
+    max-width: 500px;
+    height: 320px;
+  }
+  
+  .HOME .text-wrapper-7 {
+    font-size: 32px;
+    max-width: 600px;
+    margin: 30px auto 25px;
+    white-space: normal;
+    line-height: 1.3;
+  }
+  
+  .HOME .p {
+    font-size: 50px;
+    max-width: 600px;
+  }
+  
+  .HOME .findcourse-btn,
+  .HOME .finduniversity-btn {
+    width: 200px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .HOME .hero-container {
+    gap: 30px;
+    margin: 5px auto 15px auto; /* Reduced bottom margin from 30px to 15px */
+    padding: 0 10px;
+  }
+  
+  .HOME .hero-left {
+    gap: 20px;
+  }
+  
+  .HOME .HERO-img {
+    width: 100%;
+    max-width: 350px;
+    height: 250px;
+    padding: 20px;
+  }
+  
+  .HOME .text-wrapper-7 {
+    font-size: 28px;
+    max-width: 100%;
+    margin: 20px auto 20px;
+    padding: 0 15px;
+    white-space: normal;
+    line-height: 1.3;
+  }
+  
+  .HOME .p {
+    font-size: 40px;
+    max-width: 100%;
+    padding: 0 15px;
+  }
+  
+  .HOME .findcourse-btn,
+  .HOME .finduniversity-btn {
+    width: 180px;
+    height: 55px;
+  }
+  
+  .HOME .text-wrapper-5,
+  .HOME .text-wrapper-6 {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 320px) {
+  .HOME .HERO-img {
+    max-width: 280px;
+    height: 200px;
+    padding: 15px;
+  }
+  
+  .HOME .text-wrapper-7 {
+    font-size: 24px;
+    margin: 15px auto 15px;
+    white-space: normal;
+    line-height: 1.3;
+  }
+  
+  .HOME .p {
+    font-size: 32px;
+  }
+  
+  .HOME .findcourse-btn,
+  .HOME .finduniversity-btn {
+    width: 160px;
+    height: 50px;
+  }
+  
+  .HOME .text-wrapper-5,
+  .HOME .text-wrapper-6 {
+    font-size: 14px;
+  }
 }
 
 /* ===== UNIVERSITY SLIDESHOW SECTION - MAIN STYLING ===== */
@@ -905,11 +1083,6 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
-/* Ensure proper page layout and footer positioning */
-.HOME .BODY-wrapper {
-    min-height: 100vh;
-}
-
 /* Button anchor tag styles */
 .HOME .findcourse-btn,
 .HOME .finduniversity-btn {
@@ -958,7 +1131,7 @@
   box-sizing: border-box;
   position: relative;
   z-index: 100;
-  margin-bottom: 30px; /* Add space between nav and hero section */
+  margin-bottom: -15px; /* Small positive margin for clean spacing */
 }
 
 .nav-left {
@@ -1017,6 +1190,7 @@
   background: transparent;
   color: #666;
   min-width: 0;
+  letter-spacing: 1.5px;
 }
 
 .nav-bar .search-input::placeholder {
@@ -1043,7 +1217,7 @@
 .nav-bar .nav-link {
   font-family: "Inter", sans-serif;
   font-weight: normal;
-  color: #8b5cf6;
+  color: #3F118B;
   font-size: 20px;
   text-decoration: none;
   white-space: nowrap;
@@ -1086,12 +1260,13 @@
 
 .login-btn {
   background-color: transparent;
-  color: #8b5cf6;
+  color: #3F118B;
   margin-right: -10px; /* Reduced negative margin to create more space with Sign Up */
 }
 
 .login-btn:hover {
-  background-color: #f3f4f6;
+  background-color: #9A6FEF;
+  color: #ffffff;
 }
 
 .signup-btn {
@@ -1100,14 +1275,14 @@
 }
 
 .signup-btn:hover {
-  background-color: #7c3aed;
+  background-color: #3F118B;
 }
 
 /* Responsive design for navigation */
 @media (max-width: 1200px) {
   .nav-bar {
     padding: 10px 16px;
-    margin-bottom: 35px; /* Maintain spacing between nav and hero */
+    margin-bottom: 20px; /* Reduced from 35px to 20px */
   }
   
   .aunipath-logo {
@@ -1157,7 +1332,7 @@
     flex-direction: column;
     gap: 12px;
     padding: 12px;
-    margin-bottom: 30px; /* Maintain spacing between nav and hero */
+    margin-bottom: 15px; /* Reduced from 30px to 15px */
   }
   
   .nav-left {
@@ -1212,7 +1387,7 @@
 @media (max-width: 480px) {
   .nav-bar {
     padding: 8px;
-    margin-bottom: 25px; /* Maintain spacing between nav and hero */
+    margin-bottom: 10px; /* Reduced from 25px to 10px */
   }
   
   .aunipath-logo {
@@ -1261,7 +1436,7 @@
 .HOME .scholarship-updates-section {
   width: 100%;
   background: #ffffff;
-  padding: 60px 20px; /*Space between the cards and the header */
+  padding: 60px 20px 80px 20px; /* Added bottom padding for space before footer */
   margin: 0;
   position: relative;
 }
@@ -1345,176 +1520,11 @@
 
 .HOME .scholarship-title {
   font-family: "Inter", Helvetica;
-  font-weight: 700;
-  color: #1d4ed8;
-  font-size: 20px !important;
-  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1f4784;
+  margin: 0 0 8px 0;
   line-height: 1.3;
-  letter-spacing: 0.3px;
-  transition: color 0.3s ease;
-}
-
-.HOME .scholarship-title .arrow {
-  font-size: 18px;
-  color: #1d4ed8;
-  font-weight: 400;
-  transition: transform 0.3s ease;
-  display: inline-block;
-  margin-left: 8px;
-}
-
-.HOME .scholarship-card:hover .scholarship-title {
-  color: #2563eb;
-}
-
-.HOME .scholarship-card:hover .scholarship-title .arrow {
-  transform: translateX(3px);
-  color: #2563eb;
-}
-
-.HOME .scholarship-description {
-  font-family: "Inter", Helvetica;
-  font-weight: 400;
-  color: #6b7280;
-  font-size: 14px !important;
-  line-height: 1.6;
-  margin: 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-/* Scholarship card link styles */
-.HOME .scholarship-card a {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-.HOME .scholarship-card a:hover {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* ===== MODERN FOOTER SECTION ===== */
-.HOME .main-footer {
-  width: 100%;
-  background: linear-gradient(135deg, #3f118b 0%, #7e5bef 100%);
-  color: white;
-  padding: 50px 0 20px;
-  margin-top: 40px;
-  position: relative;
-}
-
-.HOME .footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 40px;
-  align-items: start;
-}
-
-.HOME .footer-brand-section {
-  display: flex;
-  flex-direction: column;
-}
-
-.HOME .footer-brand {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 20px;
-}
-
-.HOME .footer-logo {
-  width: 60px;
-  height: 60px;
-  object-fit: contain;
-}
-
-.HOME .footer-title {
-  font-family: "SF Cartoonist Hand", "SF Cartoonist Hand-Regular", Helvetica;
-  font-size: 32px;
-  font-weight: 400;
-  color: white;
-  text-transform: none;
-  margin: 0;
-}
-
-.HOME .footer-description {
-  font-family: "Inter", Helvetica;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #e6d3ff;
-  margin: 0;
-  max-width: 350px;
-}
-
-.HOME .footer-section h4 {
-  font-family: "Inter", Helvetica;
-  font-weight: 700;
-  font-size: 18px;
-  color: #ffffff;
-  margin: 0 0 20px 0;
-  border-bottom: 2px solid #9A6FEF;
-  display: inline-block;
-  padding-bottom: 8px;
-}
-
-.HOME .footer-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.HOME .footer-links li {
-  margin-bottom: 12px;
-}
-
-.HOME .footer-links a {
-  color: #e6d3ff;
-  text-decoration: none;
-  font-family: "Inter", Helvetica;
-  font-size: 14px;
-  transition: color 0.3s ease;
-}
-
-.HOME .footer-links a:hover {
-  color: #ffffff;
-  text-decoration: underline;
-}
-
-.HOME .footer-contact p {
-  margin: 0 0 10px 0;
-  font-family: "Inter", Helvetica;
-  font-size: 14px;
-  color: #e6d3ff;
-}
-
-.HOME .footer-bottom {
-  margin-top: 40px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  text-align: center;
-}
-
-.HOME .footer-bottom p {
-  margin: 0;
-  font-family: "Inter", Helvetica;
-  font-size: 14px;
-  color: #e6d3ff;
-}
-
-.HOME .footer-social {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
 }
 
 .HOME .footer-social a {
@@ -1626,6 +1636,7 @@
   
   .HOME .main-footer {
     padding: 40px 0 15px;
+    margin-top: auto;
   }
 }
 
@@ -1684,6 +1695,7 @@
   
   .HOME .main-footer {
     padding: 30px 0 10px;
+    margin-top: auto;
   }
 }
 
@@ -1697,5 +1709,148 @@
 .HOME .scholarship-description,
 .scholarship-description {
   font-size: 14px !important;
+}
+
+/* ===== FOOTER STYLES ===== */
+.HOME .main-footer {
+  background: linear-gradient(135deg, #3f118b 0%, #7e5bef 100%);
+  color: #ffffff;
+  padding: 60px 0 20px;
+  margin-top: auto; /* Push footer to bottom */
+  font-family: "Inter", Helvetica;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 -4px 20px rgba(63, 17, 139, 0.3);
+}
+
+.HOME .footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.HOME .footer-brand-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.HOME .footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.HOME .footer-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.HOME .footer-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.HOME .footer-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #e6d3ff;
+  max-width: 350px;
+  margin: 0;
+}
+
+.HOME .footer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.HOME .footer-section h4 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 15px 0;
+  border-bottom: 2px solid #7e5bef;
+  padding-bottom: 8px;
+  display: inline-block;
+}
+
+.HOME .footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.HOME .footer-links li {
+  margin: 0;
+}
+
+.HOME .footer-links a {
+  color: #e6d3ff;
+  text-decoration: none;
+  font-family: "Inter", Helvetica;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  display: block;
+  padding: 4px 0;
+}
+
+.HOME .footer-links a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+  transform: translateX(5px);
+}
+
+.HOME .footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.HOME .footer-contact p {
+  margin: 0;
+  font-size: 16px;
+  color: #e6d3ff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.HOME .footer-bottom {
+  margin-top: 40px;
+  padding-top: 25px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.HOME .footer-bottom p {
+  margin: 0;
+  font-size: 14px;
+  color: #b8a5d1;
+  line-height: 1.5;
+}
+
+/* Social Links Enhancement */
+.HOME .footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
