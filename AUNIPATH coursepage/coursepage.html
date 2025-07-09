@@ -1,137 +1,247 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AUniPath - Courses</title>
-  <link rel="stylesheet" href="../css/global.css" />
-  <link rel="stylesheet" href="../css/style.css" />
-  <link rel="stylesheet" href="../css/course-page.css" />
-</head>
-<body>
-  <div class="desktop-1">
-    <div class="header">
-      <div class="nav-bar">
-        <div class="nav-left">
-          <img class="aunipath-logo" src="https://c.animaapp.com/nZYq2W0H/img/aunipath-logo-r--2@2x.png" alt="AUniPath Logo" />
-          <a href="../index.html" class="aunipath-title">AUniPath</a>
-          <div class="search">
-            <input type="text" class="search-input" placeholder="Search your path here..." />
-            <button class="SEARCH-btn" aria-label="Search">
-              <img class="ion-search" src="https://c.animaapp.com/nZYq2W0H/img/ion-search.svg" alt="Search" />
-            </button>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <title>AUniPath - Courses</title>
+    <script src="../js/slideshow.js"></script>
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/course-page.css" />
+  </head>
+  <body>
+    <div class="HOME" data-model-id="88:766">
+      <div class="BODY-wrapper">
+        <div class="BODY">
+          <div class="nav-bar">
+            <div class="nav-left">
+              <img class="aunipath-logo" src="https://c.animaapp.com/nZYq2W0H/img/aunipath-logo-r--2@2x.png" />
+              <a href="../index.html" class="aunipath-title">AUniPath</a>
+              <div class="search">
+                <input type="text" class="search-input" placeholder="Search your path here..." />
+                <button class="SEARCH-btn" aria-label="Search">
+                  <img class="ion-search" src="https://c.animaapp.com/nZYq2W0H/img/ion-search.svg" />
+                </button>
+              </div>
+            </div>
+            <div class="nav-right">
+              <a href="../index.html" class="nav-link">Home</a>
+              <a href="../about.html" class="nav-link">About</a>
+              <a href="../login.html" class="nav-btn login-btn">Log In</a>
+              <a href="../signup.html" class="nav-btn signup-btn">Sign Up</a>
+            </div>
           </div>
-        </div>
-        <div class="nav-right">
-          <a href="../index.html" class="nav-link">Home</a>
-          <a href="../about.html" class="nav-link">About</a>
-          <div class="nav-link courses" style="color: #7e5bef;">Courses</div>
-          <a href="../AUNIPATH unipage/universitypage.html" class="nav-link">Universities</a>
-          <a href="../login.html" class="nav-btn login-btn">Log In</a>
-          <a href="../signup.html" class="nav-btn signup-btn">Sign Up</a>
+          
+          <!-- Course Page Hero Section -->
+          <div class="course-hero-section">
+            <div class="course-tagline">Which Path Will You Take?</div>
+            <div class="course-search-container">
+              <div class="course-search-bar">
+                <input type="text" class="course-search-input" placeholder="Search for courses..." />
+                <button class="course-search-btn" aria-label="Search">
+                  <img class="course-search-icon" src="https://c.animaapp.com/nZYq2W0H/img/ion-search.svg" alt="Search" />
+                </button>
+              </div>
+              <button class="course-filter-btn" aria-label="Filter">
+                <img class="course-filter-icon" src="filter button.png" alt="Filter" />
+              </button>
+            </div>
+            <div class="course-action-buttons">
+              <a href="../AUNIPATH coursepage/coursepage.html" class="course-btn active">
+                <div class="course-btn-content">Find a Course</div>
+              </a>
+              <a href="../AUNIPATH unipage/universitypage.html" class="university-btn">
+                <div class="university-btn-content">Find a University</div>
+              </a>
+            </div>
+          </div>
+          
+          <!-- Separator with Recommended Courses title -->
+          <div class="university-separator">
+            <h2 class="recommended-title">Recommended Courses</h2>
+          </div>
+          
+          <!-- Recommended Universities Section -->
+          <div class="recommended-universities-section">
+            <div class="universities-slideshow">
+              <div class="slideshow-container">
+                <div class="universities-track" id="universitiesTrack">
+                  
+                  <!-- Course Card 1 -->
+                  <div class="course-card">
+                    <div class="course-photo"></div>
+                    <div class="course-title">Course</div>
+                    <div class="course-description">Course Description</div>
+                  </div>
+                  
+                  <!-- Course Card 2 -->
+                  <div class="course-card">
+                    <div class="course-photo"></div>
+                    <div class="course-title">Course</div>
+                    <div class="course-description">Course Description</div>
+                  </div>
+                  
+                  <!-- Course Card 3 -->
+                  <div class="course-card">
+                    <div class="course-photo"></div>
+                    <div class="course-title">Course</div>
+                    <div class="course-description">Course Description</div>
+                  </div>
+                  
+                  <!-- Course Card 4 -->
+                  <div class="course-card">
+                    <div class="course-photo"></div>
+                    <div class="course-title">Course</div>
+                    <div class="course-description">Course Description</div>
+                  </div>
+                  
+                  <!-- Course Card 5 -->
+                  <div class="course-card">
+                    <div class="course-photo"></div>
+                    <div class="course-title">Course</div>
+                    <div class="course-description">Course Description</div>
+                  </div>
+                  
+                  <!-- Course Card 6 -->
+                  <div class="course-card">
+                    <div class="course-photo"></div>
+                    <div class="course-title">Course</div>
+                    <div class="course-description">Course Description</div>
+                  </div>
+                  
+                </div>
+                
+                <!-- Navigation buttons -->
+                <div class="slide-nav prev" onclick="previousSlide()"></div>
+                <div class="slide-nav next" onclick="nextSlide()"></div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Scholarship Updates Section -->
+          <div class="scholarship-updates-section">
+            <h2 class="scholarship-updates-title">Scholarship Updates</h2>
+            <div class="scholarships-container">
+              
+              <!-- Scholarship Card 1 -->
+              <div class="scholarship-card">
+                <div class="scholarship-image-container">
+                  <img class="scholarship-pic" src="https://c.animaapp.com/nZYq2W0H/img/scholarship-pic-1@2x.png" alt="DOST Scholarship" />
+                </div>
+                <div class="scholarship-details">
+                  <h3 class="scholarship-title">DOST Scholarship Program for Undergraduates</h3>
+                  <p class="scholarship-description">Full scholarship covering tuition, living allowance, and other educational expenses for science and technology students.</p>
+                </div>
+              </div>
+              
+              <!-- Scholarship Card 2 -->
+              <div class="scholarship-card">
+                <div class="scholarship-image-container">
+                  <img class="scholarship-pic" src="https://c.animaapp.com/nZYq2W0H/img/scholarship-pic-2@2x.png" alt="CHED Scholarship" />
+                </div>
+                <div class="scholarship-details">
+                  <h3 class="scholarship-title">CHED Merit Scholarship Program</h3>
+                  <p class="scholarship-description">Academic excellence scholarship for outstanding students pursuing higher education in priority courses.</p>
+                </div>
+              </div>
+              
+              <!-- Scholarship Card 3 -->
+              <div class="scholarship-card">
+                <div class="scholarship-image-container">
+                  <img class="scholarship-pic" src="https://c.animaapp.com/nZYq2W0H/img/scholarship-pic-3@2x.png" alt="UniFAST Scholarship" />
+                </div>
+                <div class="scholarship-details">
+                  <h3 class="scholarship-title">UniFAST Tertiary Education Subsidy</h3>
+                  <p class="scholarship-description">Government subsidy program providing financial assistance to qualified students in state universities and colleges.</p>
+                </div>
+              </div>
+              
+              <!-- Scholarship Card 4 -->
+              <div class="scholarship-card">
+                <div class="scholarship-image-container">
+                  <img class="scholarship-pic" src="https://c.animaapp.com/nZYq2W0H/img/scholarship-pic-4@2x.png" alt="Private Scholarship" />
+                </div>
+                <div class="scholarship-details">
+                  <h3 class="scholarship-title">SM Foundation College Scholarship</h3>
+                  <p class="scholarship-description">Private scholarship program supporting deserving students from low-income families across the Philippines.</p>
+                </div>
+              </div>
+              
+              <!-- Scholarship Card 5 -->
+              <div class="scholarship-card">
+                <div class="scholarship-image-container">
+                  <img class="scholarship-pic" src="https://c.animaapp.com/nZYq2W0H/img/scholarship-pic-5@2x.png" alt="Academic Scholarship" />
+                </div>
+                <div class="scholarship-details">
+                  <h3 class="scholarship-title">Academic Excellence Scholarship</h3>
+                  <p class="scholarship-description">University-based scholarship program recognizing outstanding academic performance and leadership potential.</p>
+                </div>
+              </div>
+              
+              <!-- Scholarship Card 6 -->
+              <div class="scholarship-card">
+                <div class="scholarship-image-container">
+                  <img class="scholarship-pic" src="https://c.animaapp.com/nZYq2W0H/img/scholarship-pic-6@2x.png" alt="International Scholarship" />
+                </div>
+                <div class="scholarship-details">
+                  <h3 class="scholarship-title">International Exchange Scholarship</h3>
+                  <p class="scholarship-description">Opportunities for Filipino students to study abroad through international partnership programs and cultural exchanges.</p>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          
+          <!-- Footer -->
+          <footer class="main-footer">
+            <div class="footer-content">
+              <div class="footer-brand-section">
+                <div class="footer-brand">
+                  <img class="footer-logo" src="https://c.animaapp.com/nZYq2W0H/img/aunipath-logo-r--2@2x.png" alt="AUniPath Logo" />
+                  <h3 class="footer-title">AUniPath</h3>
+                </div>
+                <p class="footer-description">
+                  Your comprehensive guide to finding the perfect university and scholarship opportunities. 
+                  Empowering students to achieve their educational dreams through informed choices.
+                </p>
+              </div>
+              
+              <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                  <li><a href="../index.html">Home</a></li>
+                  <li><a href="../about.html">About Us</a></li>
+                  <li><a href="../AUNIPATH coursepage/coursepage.html">Find Courses</a></li>
+                  <li><a href="../AUNIPATH unipage/universitypage.html">Find Universities</a></li>
+                </ul>
+              </div>
+              
+              <div class="footer-section">
+                <h4>Contact Info</h4>
+                <div class="footer-contact">
+                  <p>📧 aUnipath@gmail.com</p>
+                  <p>📱 +63 912 723 5862</p>
+                  <p>🌐 www.aunipath.com</p>
+                </div>
+              </div>
+              
+              <div class="footer-section">
+                <h4>Follow Us</h4>
+                <ul class="footer-links">
+                  <li><a href="#" target="_blank">Facebook</a></li>
+                  <li><a href="#" target="_blank">Twitter</a></li>
+                  <li><a href="#" target="_blank">Instagram</a></li>
+                  <li><a href="#" target="_blank">GitHub</a></li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="footer-bottom">
+              <p>© 2025 AUniPath. All rights reserved. Website developed by BSITWMA TW01 students of FEU Tech.</p>
+            </div>
+          </footer>
         </div>
       </div>
     </div>
-    
-    <main class="main-content">
-      <div class="tagline">Which Path Will You Take?</div>
-      <div class="search-bar">
-        <div class="search">
-          <input type="text" class="search-input" placeholder="Search for courses..." />
-          <button class="search-btn" aria-label="Search">
-            <img class="search-icon" src="https://c.animaapp.com/nZYq2W0H/img/ion-search.svg" alt="Search" />
-          </button>
-        </div>
-        <button class="filter-btn" aria-label="Filter">
-          <img class="filter-icon" src="filter button.png" alt="Filter" />
-        </button>
-      </div>
-      <div class="action-buttons">
-        <div class="course-button active">
-          <div class="find-a-course">Find a Course</div>
-        </div>
-        <a href="../AUNIPATH unipage/universitypage.html" class="university-button">
-          <div class="find-a-university">Find a University</div>
-        </a>
-      </div>
-      <div class="courses-for-you">
-        <div class="courses-for-you-bar">
-          <div class="courses-for-you1">Courses For You</div>
-        </div>
-        <div class="course-grid">
-          <div class="course-contents">
-            <div class="course-photo"></div>
-            <div class="course">Course</div>
-            <div class="course-description">Course Description</div>
-          </div>
-          <div class="course-contents">
-            <div class="course-photo"></div>
-            <div class="course">Course</div>
-            <div class="course-description">Course Description</div>
-          </div>
-          <div class="course-contents">
-            <div class="course-photo"></div>
-            <div class="course">Course</div>
-            <div class="course-description">Course Description</div>
-          </div>
-          <div class="course-contents">
-            <div class="course-photo"></div>
-            <div class="course">Course</div>
-            <div class="course-description">Course Description</div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="universities-section">
-        <div class="top-universities-that">Top Universities that offers the course:</div>
-        <div class="university-grid">
-          <div class="university-info">
-            <div class="university-photo"></div>
-            <div class="university-text">
-              <div class="university">University</div>
-              <div class="university-description">University Description</div>
-            </div>
-          </div>
-          <div class="university-info">
-            <div class="university-photo"></div>
-            <div class="university-text">
-              <div class="university">University</div>
-              <div class="university-description">University Description</div>
-            </div>
-          </div>
-          <div class="university-info">
-            <div class="university-photo"></div>
-            <div class="university-text">
-              <div class="university">University</div>
-              <div class="university-description">University Description</div>
-            </div>
-          </div>
-          <div class="university-info">
-            <div class="university-photo"></div>
-            <div class="university-text">
-              <div class="university">University</div>
-              <div class="university-description">University Description</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-    
-    <footer class="footer">
-      <div class="footer-content">
-        <img class="aunipath-logo" src="AUniPath Logo 1.png" alt="AUniPath Logo" />
-        <div class="aunipath-title">AUniPath</div>
-        <div class="footer-links">
-          <a href="../index.html" class="footer-link">Home</a>
-          <a href="../about.html" class="footer-link">About</a>
-          <div class="footer-link">Contact Us</div>
-        </div>
-      </div>
-    </footer>
-  </div>
-  	
-  	
-  	
-  	
-</body>
+  </body>
 </html>
