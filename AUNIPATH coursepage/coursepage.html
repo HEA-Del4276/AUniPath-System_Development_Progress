@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <title>AUniPath - Courses</title>
     <script src="../js/slideshow.js"></script>
+    <script src="../js/course-page.js"></script>
     <link rel="stylesheet" href="../css/global.css" />
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/course-page.css" />
@@ -27,6 +28,8 @@
             <div class="nav-right">
               <a href="../index.html" class="nav-link">Home</a>
               <a href="../about.html" class="nav-link">About</a>
+              <a href="../AUNIPATH coursepage/coursepage.html" class="nav-link" style="color: #7e5bef;">Courses</a>
+              <a href="../AUNIPATH unipage/universitypage.html" class="nav-link">Universities</a>
               <a href="../login.html" class="nav-btn login-btn">Log In</a>
               <a href="../signup.html" class="nav-btn signup-btn">Sign Up</a>
             </div>
@@ -37,8 +40,8 @@
             <div class="course-tagline">Which Path Will You Take?</div>
             <div class="course-search-container">
               <div class="course-search-bar">
-                <input type="text" class="course-search-input" placeholder="Search for courses..." />
-                <button class="course-search-btn" aria-label="Search">
+                <input type="text" class="course-search-input" placeholder="Search for courses..." oninput="filterCoursesHero()" />
+                <button class="course-search-btn" aria-label="Search" onclick="filterCoursesHero()">
                   <img class="course-search-icon" src="https://c.animaapp.com/nZYq2W0H/img/ion-search.svg" alt="Search" />
                 </button>
               </div>
@@ -47,152 +50,180 @@
               </button>
             </div>
             <div class="course-action-buttons">
-              <a href="../AUNIPATH coursepage/coursepage.html" class="course-btn active">
+              <button class="course-btn active" type="button" id="findCourseBtn">
                 <div class="course-btn-content">Find a Course</div>
-              </a>
-              <a href="../AUNIPATH unipage/universitypage.html" class="university-btn">
+              </button>
+              <a href="../AUNIPATH unipage/universitypage.html" class="university-btn" id="findUniversityBtn">
                 <div class="university-btn-content">Find a University</div>
               </a>
             </div>
           </div>
-          
-          <!-- Separator with Recommended Courses title -->
-          <div class="university-separator">
-            <h2 class="recommended-title">Recommended Courses</h2>
-          </div>
-          
-          <!-- Recommended Universities Section -->
-          <div class="recommended-universities-section">
-            <div class="universities-slideshow">
-              <div class="slideshow-container">
-                <div class="universities-track" id="universitiesTrack">
-                  
-                  <!-- Course Card 1 -->
-                  <div class="course-card">
-                    <div class="course-photo"></div>
-                    <div class="course-title">Course</div>
-                    <div class="course-description">Course Description</div>
-                  </div>
-                  
-                  <!-- Course Card 2 -->
-                  <div class="course-card">
-                    <div class="course-photo"></div>
-                    <div class="course-title">Course</div>
-                    <div class="course-description">Course Description</div>
-                  </div>
-                  
-                  <!-- Course Card 3 -->
-                  <div class="course-card">
-                    <div class="course-photo"></div>
-                    <div class="course-title">Course</div>
-                    <div class="course-description">Course Description</div>
-                  </div>
-                  
-                  <!-- Course Card 4 -->
-                  <div class="course-card">
-                    <div class="course-photo"></div>
-                    <div class="course-title">Course</div>
-                    <div class="course-description">Course Description</div>
-                  </div>
-                  
-                  <!-- Course Card 5 -->
-                  <div class="course-card">
-                    <div class="course-photo"></div>
-                    <div class="course-title">Course</div>
-                    <div class="course-description">Course Description</div>
-                  </div>
-                  
-                  <!-- Course Card 6 -->
-                  <div class="course-card">
-                    <div class="course-photo"></div>
-                    <div class="course-title">Course</div>
-                    <div class="course-description">Course Description</div>
-                  </div>
-                  
-                </div>
-                
-                <!-- Navigation buttons -->
-                <div class="slide-nav prev" onclick="previousSlide()"></div>
-                <div class="slide-nav next" onclick="nextSlide()"></div>
+
+          <!-- Browse All Courses Section (Default) -->
+          <div id="browseAllCoursesSection">
+            <div class="courses-for-you-bar" style="background: #3F118B; margin-top: 0;">
+              <div class="courses-for-you1" style="font-family: 'SF Cartoonist Hand', 'SF Cartoonist Hand-Regular', Helvetica; font-size: clamp(36px, 8vw, 64px); font-weight: 500; text-transform: none;">Browse All Courses</div>
+            </div>
+            <!-- Add more space below the bar -->
+            <div style="height: 80px;"></div>
+            <div class="course-grid">
+              <!-- Example Course Cards -->
+              <div class="course-contents">
+                <div class="course-photo">💻</div>
+                <div class="course">Computer Science</div>
+                <div class="course-description">Bachelor of Science in Computer Science - Learn programming, algorithms, and software development</div>
+              </div>
+              <div class="course-contents">
+                <div class="course-photo">🖥️</div>
+                <div class="course">Information Technology</div>
+                <div class="course-description">Bachelor of Science in Information Technology - Focus on IT systems, networks, and database management</div>
+              </div>
+              <div class="course-contents">
+                <div class="course-photo">💼</div>
+                <div class="course">Business Administration</div>
+                <div class="course-description">Bachelor of Science in Business Administration - Comprehensive business management and leadership skills</div>
+              </div>
+              <div class="course-contents">
+                <div class="course-photo">⚙️</div>
+                <div class="course">Engineering</div>
+                <div class="course-description">Bachelor of Science in Engineering - Various engineering disciplines including civil, mechanical, and electrical</div>
+              </div>
+              <div class="course-contents">
+                <div class="course-photo">🧪</div>
+                <div class="course">Biology</div>
+                <div class="course-description">Bachelor of Science in Biology - Study of living organisms, genetics, and ecosystems</div>
+              </div>
+              <div class="course-contents">
+                <div class="course-photo">📊</div>
+                <div class="course">Accountancy</div>
+                <div class="course-description">Bachelor of Science in Accountancy - Principles of accounting, auditing, and financial management</div>
               </div>
             </div>
           </div>
-          
-          <!-- Scholarship Updates Section -->
-          <div class="scholarship-updates-section">
-            <h2 class="scholarship-updates-title">Scholarship Updates</h2>
-            <div class="scholarships-container">
-              
-              <!-- Scholarship Card 1 -->
-              <div class="scholarship-card">
-                <div class="scholarship-image-container">
-                  <img class="scholarship-pic" src="https://c.animaapp.com/nZYq2W0H/img/scholarship-pic-1@2x.png" alt="DOST Scholarship" />
-                </div>
-                <div class="scholarship-details">
-                  <h3 class="scholarship-title">DOST Scholarship Program for Undergraduates</h3>
-                  <p class="scholarship-description">Full scholarship covering tuition, living allowance, and other educational expenses for science and technology students.</p>
-                </div>
-              </div>
-              
-              <!-- Scholarship Card 2 -->
-              <div class="scholarship-card">
-                <div class="scholarship-image-container">
-                  <img class="scholarship-pic" src="https://c.animaapp.com/nZYq2W0H/img/scholarship-pic-2@2x.png" alt="CHED Scholarship" />
-                </div>
-                <div class="scholarship-details">
-                  <h3 class="scholarship-title">CHED Merit Scholarship Program</h3>
-                  <p class="scholarship-description">Academic excellence scholarship for outstanding students pursuing higher education in priority courses.</p>
-                </div>
-              </div>
-              
-              <!-- Scholarship Card 3 -->
-              <div class="scholarship-card">
-                <div class="scholarship-image-container">
-                  <img class="scholarship-pic" src="https://c.animaapp.com/nZYq2W0H/img/scholarship-pic-3@2x.png" alt="UniFAST Scholarship" />
-                </div>
-                <div class="scholarship-details">
-                  <h3 class="scholarship-title">UniFAST Tertiary Education Subsidy</h3>
-                  <p class="scholarship-description">Government subsidy program providing financial assistance to qualified students in state universities and colleges.</p>
-                </div>
-              </div>
-              
-              <!-- Scholarship Card 4 -->
-              <div class="scholarship-card">
-                <div class="scholarship-image-container">
-                  <img class="scholarship-pic" src="https://c.animaapp.com/nZYq2W0H/img/scholarship-pic-4@2x.png" alt="Private Scholarship" />
-                </div>
-                <div class="scholarship-details">
-                  <h3 class="scholarship-title">SM Foundation College Scholarship</h3>
-                  <p class="scholarship-description">Private scholarship program supporting deserving students from low-income families across the Philippines.</p>
-                </div>
-              </div>
-              
-              <!-- Scholarship Card 5 -->
-              <div class="scholarship-card">
-                <div class="scholarship-image-container">
-                  <img class="scholarship-pic" src="https://c.animaapp.com/nZYq2W0H/img/scholarship-pic-5@2x.png" alt="Academic Scholarship" />
-                </div>
-                <div class="scholarship-details">
-                  <h3 class="scholarship-title">Academic Excellence Scholarship</h3>
-                  <p class="scholarship-description">University-based scholarship program recognizing outstanding academic performance and leadership potential.</p>
-                </div>
-              </div>
-              
-              <!-- Scholarship Card 6 -->
-              <div class="scholarship-card">
-                <div class="scholarship-image-container">
-                  <img class="scholarship-pic" src="https://c.animaapp.com/nZYq2W0H/img/scholarship-pic-6@2x.png" alt="International Scholarship" />
-                </div>
-                <div class="scholarship-details">
-                  <h3 class="scholarship-title">International Exchange Scholarship</h3>
-                  <p class="scholarship-description">Opportunities for Filipino students to study abroad through international partnership programs and cultural exchanges.</p>
-                </div>
-              </div>
-              
+          <!-- Recommended Courses & Top Universities Section (Hidden by Default) -->
+          <div id="recommendedSection" style="display:none;">
+            <div class="university-separator">
+              <h2 class="recommended-title">Recommended Courses For You</h2>
             </div>
+            <div class="recommended-universities-section">
+              <div class="universities-slideshow">
+                <div class="slideshow-container">
+                  <div class="universities-track" id="universitiesTrack">
+                    <!-- Example recommended course cards (can be dynamically generated) -->
+                    <div class="course-card">
+                      <div class="course-photo"></div>
+                      <div class="course-title">Course</div>
+                      <div class="course-description">Course Description</div>
+                    </div>
+                    <div class="course-card">
+                      <div class="course-photo"></div>
+                      <div class="course-title">Course</div>
+                      <div class="course-description">Course Description</div>
+                    </div>
+                  </div>
+                  <div class="slide-nav prev" onclick="previousSlide()"></div>
+                  <div class="slide-nav next" onclick="nextSlide()"></div>
+                </div>
+              </div>
+            </div>
+            <!-- Scholarship Updates Section (copied from homepage, visible only after clicking Find a Course) -->
+            <div id="scholarshipUpdatesSection" class="scholarship-updates-section" style="display:none;">
+              <h2 class="scholarship-updates-title">Recent Scholarship Updates</h2>
+              <div class="scholarships-container">
+                <!-- CHED Scholarship Card -->
+                <div class="scholarship-card">
+                  <div class="scholarship-image-container">
+                    <img class="scholarship-pic" src="https://c.animaapp.com/nZYq2W0H/img/scholarship-pic@2x.png" alt="CHED Logo" />
+                  </div>
+                  <div class="scholarship-details">
+                    <div class="scholarship-header">
+                      <a href="https://ched.gov.ph/scholarships-and-grants/" target="_blank">
+                        <h3 class="scholarship-title">CHED Scholarship 2025-2026 is Open | Limited Slots! <span class="arrow">→</span></h3>
+                      </a>
+                    </div>
+                    <p class="scholarship-description">Monthly stipend up to ₱40,000/year. For both public and private schools. Priority to underprivileged, high-performing students.</p>
+                  </div>
+                </div>
+                <!-- DOST Scholarship Card -->
+                <div class="scholarship-card">
+                  <div class="scholarship-image-container">
+                    <img class="scholarship-pic" src="https://c.animaapp.com/nZYq2W0H/img/scholarship-pic-1@2x.png" alt="DOST Logo" />
+                  </div>
+                  <div class="scholarship-details">
+                    <div class="scholarship-header">
+                      <a href="https://www.dost.gov.ph/dost-sei/programs-and-projects/scholarships" target="_blank">
+                        <h3 class="scholarship-title">DOST Scholarship 2025 Exam Results | List of Passers <span class="arrow">→</span></h3>
+                      </a>
+                    </div>
+                    <p class="scholarship-description">Full tuition, allowance, and book grant. For STEM students with top scores. Guaranteed priority jobs in science sector.</p>
+                  </div>
+                </div>
+                <!-- Security Bank Scholarship Card -->
+                <div class="scholarship-card">
+                  <div class="scholarship-image-container">
+                    <img class="scholarship-pic" src="https://c.animaapp.com/nZYq2W0H/img/scholarship-pic-2@2x.png" alt="Security Bank Logo" />
+                  </div>
+                  <div class="scholarship-details">
+                    <div class="scholarship-header">
+                      <a href="https://www.securitybank.com/foundation/sbfi-scholars-for-better-communities/" target="_blank">
+                        <h3 class="scholarship-title">Security Bank Scholarship 2025-2026 is Open <span class="arrow">→</span></h3>
+                      </a>
+                    </div>
+                    <p class="scholarship-description">Covers tuition and learning expenses. Open to financially challenged students. Includes mentorship and development programs.</p>
+                  </div>
+                </div>
+                <!-- SM College Scholarship Card -->
+                <div class="scholarship-card">
+                  <div class="scholarship-image-container">
+                    <img class="scholarship-pic" src="https://c.animaapp.com/nZYq2W0H/img/scholarship-pic-3@2x.png" alt="SM Logo" />
+                  </div>
+                  <div class="scholarship-details">
+                    <div class="scholarship-header">
+                      <a href="https://www.sm-foundation.org/what_we_do/college-scholarship-program/" target="_blank">
+                        <h3 class="scholarship-title">SM College Scholarship 2025-2026 | Apply Now! <span class="arrow">→</span></h3>
+                      </a>
+                    </div>
+                    <p class="scholarship-description">Full tuition and monthly allowance. Part-time job during breaks. Priority for public high school graduates.</p>
+                  </div>
+                </div>
+                <!-- Gold Eagle College Scholarship Card -->
+                <div class="scholarship-card">
+                  <div class="scholarship-image-container">
+                    <img class="scholarship-pic" src="https://c.animaapp.com/nZYq2W0H/img/scholarship-pic-4@2x.png" alt="Gold Eagle Logo" />
+                  </div>
+                  <div class="scholarship-details">
+                    <div class="scholarship-header">
+                      <a href="https://www.insularfoundation.com.ph/news/gold-eagle-college-scholarship-grant-for-stem-ay-2025-2026" target="_blank">
+                        <h3 class="scholarship-title">Gold Eagle College Scholarship 2025-2026 is Open <span class="arrow">→</span></h3>
+                      </a>
+                    </div>
+                    <p class="scholarship-description">Full tuition and monthly allowance. For top STEM and tech students. Backed by Insular Foundation (prestigious support).</p>
+                  </div>
+                </div>
+                <!-- FEUTECH Scholarship Card -->
+                <div class="scholarship-card">
+                  <div class="scholarship-image-container">
+                    <img class="scholarship-pic" src="https://c.animaapp.com/nZYq2W0H/img/scholarship-pic-5@2x.png" alt="FEUTECH Logo" />
+                  </div>
+                  <div class="scholarship-details">
+                    <div class="scholarship-header">
+                      <a href="https://www.feutech.edu.ph/admission/scholarship-grants" target="_blank">
+                        <h3 class="scholarship-title">FEUTECH Scholarships are now Open & Updated! <span class="arrow">→</span></h3>
+                      </a>
+                    </div>
+                    <p class="scholarship-description">High chance of 100% coverage. Open for academic and talent-based. Tuition, allowance, and discounts included.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Removed duplicate Top Universities that offer the course slideshow section -->
           </div>
+          <!-- Scholarship Updates Section (kept for future use, can be toggled as needed) -->
+          <!-- <div class="scholarship-updates-section">...</div> -->
           
           <!-- Footer -->
+          <!-- Add more space above the footer -->
+          <div style="height: 100px;"></div>
           <footer class="main-footer">
             <div class="footer-content">
               <div class="footer-brand-section">
@@ -243,5 +274,31 @@
         </div>
       </div>
     </div>
+    <script>
+      // Toggle between Browse All Courses and Recommended Section
+      const findCourseBtn = document.getElementById('findCourseBtn');
+      const browseAllCoursesSection = document.getElementById('browseAllCoursesSection');
+      const recommendedSection = document.getElementById('recommendedSection');
+      if (findCourseBtn) {
+        findCourseBtn.addEventListener('click', function() {
+          browseAllCoursesSection.style.display = 'none';
+          recommendedSection.style.display = 'block';
+        });
+      }
+      function filterCoursesHero() {
+    const input = document.querySelector('.course-search-input');
+    const filter = input.value.toLowerCase();
+    const courseCards = document.querySelectorAll('.course-contents');
+    courseCards.forEach(card => {
+      const title = card.querySelector('.course').textContent.toLowerCase();
+      const desc = card.querySelector('.course-description').textContent.toLowerCase();
+      if (title.includes(filter) || desc.includes(filter)) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+    </script>
   </body>
 </html>

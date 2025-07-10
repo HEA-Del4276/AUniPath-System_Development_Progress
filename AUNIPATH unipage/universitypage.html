@@ -1,147 +1,566 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AUniPath - Universities</title>
-  <link rel="stylesheet" href="../css/global.css" />
-  <link rel="stylesheet" href="../css/style.css" />
-  <link rel="stylesheet" href="../css/university-page.css" />
-</head>
-<body>
-  <div class="desktop-1">
-    <div class="header">
-      <div class="nav-bar">
-        <div class="nav-left">
-          <img class="aunipath-logo" src="https://c.animaapp.com/nZYq2W0H/img/aunipath-logo-r--2@2x.png" alt="AUniPath Logo" />
-          <a href="../index.html" class="aunipath-title">AUniPath</a>
-          <div class="search">
-            <input type="text" class="search-input" placeholder="Search your path here..." />
-            <button class="SEARCH-btn" aria-label="Search">
-              <img class="ion-search" src="https://c.animaapp.com/nZYq2W0H/img/ion-search.svg" alt="Search" />
-            </button>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <title>AUniPath - Find Universities</title>
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/course-page.css" />
+  </head>
+  <body>
+    <div class="HOME" data-model-id="88:766">
+      <div class="BODY-wrapper">
+        <div class="BODY">
+          <div class="nav-bar">
+            <div class="nav-left">
+              <img class="aunipath-logo" src="https://c.animaapp.com/nZYq2W0H/img/aunipath-logo-r--2@2x.png" />
+              <a href="../index.html" class="aunipath-title">AUniPath</a>
+            </div>
+            <div class="nav-right">
+              <a href="../index.html" class="nav-link">Home</a>
+              <a href="../about.html" class="nav-link">About</a>
+              <a href="../AUNIPATH coursepage/coursepage.html" class="nav-link">Courses</a>
+              <a href="../AUNIPATH unipage/universitypage.html" class="nav-link" style="color: #7e5bef;">Universities</a>
+              <a href="../login.html" class="nav-btn login-btn">Log In</a>
+              <a href="../signup.html" class="nav-btn signup-btn">Sign Up</a>
+            </div>
           </div>
-        </div>
-        <div class="nav-right">
-          <a href="../index.html" class="nav-link">Home</a>
-          <a href="../about.html" class="nav-link">About</a>
-          <a href="../AUNIPATH coursepage/coursepage.html" class="nav-link">Courses</a>
-          <div class="nav-link universities" style="color: #7e5bef;">Universities</div>
-          <a href="../login.html" class="nav-btn login-btn">Log In</a>
-          <a href="../signup.html" class="nav-btn signup-btn">Sign Up</a>
+          <!-- University Hero Section -->
+          <div class="course-hero-section">
+            <div class="course-tagline">Which Path Will You Take?</div>
+            <div class="course-search-container">
+              <div class="course-search-bar">
+                <input type="text" class="course-search-input" placeholder="Search for universities..." oninput="filterUniversitiesHero()" />
+                <button class="course-search-btn" aria-label="Search" disabled style="pointer-events: none; opacity: 0.5;">
+                  <img class="course-search-icon" src="https://c.animaapp.com/nZYq2W0H/img/ion-search.svg" alt="Search" />
+                </button>
+              </div>
+              <button class="course-filter-btn" aria-label="Filter">
+                <img class="course-filter-icon" src="filter button.png" alt="Filter" />
+              </button>
+            </div>
+            <div class="course-action-buttons">
+              <a href="../AUNIPATH coursepage/coursepage.html" class="course-btn" id="findCourseBtn">
+                <div class="course-btn-content">Find a Course</div>
+              </a>
+              <button class="university-btn active" type="button" id="findUniversityBtn">
+                <div class="university-btn-content">Find a University</div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Browse All Universities Section (Default) -->
+          <div id="browseAllUniversitiesSection">
+            <div class="courses-for-you-bar" style="background: #3F118B; margin-top: 0;">
+              <div class="courses-for-you1" style="font-family: 'SF Cartoonist Hand', 'SF Cartoonist Hand-Regular', Helvetica; font-size: clamp(36px, 8vw, 64px); font-weight: 500; text-transform: none;">Browse All Universities</div>
+            </div>
+            <style>
+              /* Scoped only to universitypage.html for Browse All Universities grid */
+              #browseAllUniversitiesSection .university-cards-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: repeat(2, auto);
+                gap: 32px 24px;
+                margin: 40px 0 32px 0;
+                justify-items: stretch;
+                align-items: stretch;
+              }
+              #browseAllUniversitiesSection .university-card {
+                background: #fff;
+                border-radius: 24px;
+                box-shadow: 0 8px 32px rgba(63,17,139,0.15);
+                padding: 40px 32px 32px 32px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                color: #3F118B;
+                font-family: 'Inter', 'SF Cartoonist Hand', Arial, sans-serif;
+                font-size: 1.1rem;
+                min-height: 480px;
+                max-width: 100%;
+                margin-bottom: 24px;
+                transition: box-shadow 0.2s;
+              }
+              #browseAllUniversitiesSection .university-card h3,
+              #browseAllUniversitiesSection .university-card .university-name {
+                color: #3F118B !important;
+                font-size: 1.35rem;
+                font-weight: bold;
+                margin: 24px 0 18px 0;
+                text-align: center;
+              }
+              #browseAllUniversitiesSection .university-card .info-text {
+                color: #3F118B !important;
+                font-size: 1.08rem;
+              }
+              #browseAllUniversitiesSection .university-card .university-logo {
+                width: 140px;
+                height: 140px;
+                object-fit: contain;
+                margin-bottom: 24px;
+                border-radius: 50%;
+                border: 8px solid #fff;
+                box-shadow: 0 0 0 6px #8b5cf6;
+                background: #fff;
+                display: block;
+                box-sizing: border-box;
+              }
+              #browseAllUniversitiesSection .university-card .university-info {
+                margin-top: 12px;
+                background: rgba(255,255,255,0.07);
+                border: 2px solid #8b5cf6;
+                border-radius: 10px;
+                padding: 18px 20px;
+                width: 100%;
+                max-width: 340px;
+                box-sizing: border-box;
+                margin-left: auto;
+                margin-right: auto;
+              }
+              #browseAllUniversitiesSection .university-card .info-item {
+                display: flex;
+                align-items: flex-start;
+                margin-bottom: 6px;
+              }
+              #browseAllUniversitiesSection .university-card .checkmark-icon {
+                width: 18px;
+                height: 18px;
+                margin-right: 8px;
+                margin-top: 2px;
+              }
+              @media (max-width: 1200px) {
+                #browseAllUniversitiesSection .university-cards-grid {
+                  grid-template-columns: repeat(2, 1fr);
+                  grid-template-rows: repeat(4, auto);
+                }
+              }
+              @media (max-width: 700px) {
+                #browseAllUniversitiesSection .university-cards-grid {
+                  grid-template-columns: 1fr;
+                  grid-template-rows: repeat(8, auto);
+                }
+              }
+            </style>
+            <div class="university-cards-grid">
+              <!-- University Card 1: FEU Institute of Technology -->
+              <div class="university-card">
+                <div class="university-logo-container">
+                  <div class="university-logo-wrapper">
+                    <a href="https://www.feutech.edu.ph/" target="_blank">
+                      <img class="university-logo" src="https://upload.wikimedia.org/wikipedia/en/6/6e/FEU_Tech_Logo.png" alt="FEU Institute of Technology Logo" />
+                    </a>
+                  </div>
+                </div>
+                <h3 class="university-name">FEU Institute of Technology</h3>
+                <div class="university-info">
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Tech-driven, modern facilities</div></div>
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Modern learning environment</div></div>
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Strong industry internship links</div></div>
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Innovation and research driven</div></div>
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Various scholarships for achievers</div></div>
+                </div>
+              </div>
+              <!-- University Card 2: Polytechnic University of the Philippines -->
+              <div class="university-card">
+                <div class="university-logo-container">
+                  <div class="university-logo-wrapper">
+                    <a href="https://www.pup.edu.ph/" target="_blank">
+                      <img class="university-logo" src="https://c.animaapp.com/nZYq2W0H/img/feutech-logo-1-1@2x.png" alt="Polytechnic University of the Philippines Logo" />
+                    </a>
+                  </div>
+                </div>
+                <h3 class="university-name">Polytechnic University of <br> the Philippines</h3>
+                <div class="university-info">
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Free quality public education</div></div>
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Strong board exam performance</div></div>
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Bold, active student life</div></div>
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Mass comm, business excellence</div></div>
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Massive student community</div></div>
+                </div>
+              </div>
+              <!-- University Card 3: University of Santo Tomas -->
+              <div class="university-card">
+                <div class="university-logo-container">
+                  <div class="university-logo-wrapper">
+                    <a href="https://www.ust.edu.ph/" target="_blank">
+                      <img class="university-logo" src="https://c.animaapp.com/nZYq2W0H/img/feutech-logo-1-2@2x.png" alt="University of Santo Tomas Logo" />
+                    </a>
+                  </div>
+                </div>
+                <h3 class="university-name">University of Santo Tomas</h3>
+                <div class="university-info">
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Oldest university in Asia</div></div>
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Leading health science courses</div></div>
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Catholic-based education</div></div>
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Global academic partnerships</div></div>
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Historic campus facilities</div></div>
+                </div>
+              </div>
+              <!-- University Card 4: Pamantasan ng Lungsod ng Maynila -->
+              <div class="university-card">
+                <div class="university-logo-container">
+                  <div class="university-logo-wrapper">
+                    <a href="https://www.plm.edu.ph/" target="_blank">
+                      <img class="university-logo" src="https://c.animaapp.com/nZYq2W0H/img/feutech-logo-1-3@2x.png" alt="Pamantasan ng Lungsod ng Maynila Logo" />
+                    </a>
+                  </div>
+                </div>
+                <h3 class="university-name">Pamantasan ng Lungsod <br> ng Maynila</h3>
+                <div class="university-info">
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Free for Manileños</div></div>
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">High licensure exam rates</div></div>
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Public service focus</div></div>
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Competitive admission standards</div></div>
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Central Intramuros campus</div></div>
+                </div>
+              </div>
+              <!-- University Card 5: Ateneo de Manila University -->
+              <div class="university-card">
+                <div class="university-logo-container">
+                  <div class="university-logo-wrapper">
+                    <a href="https://www.ateneo.edu/" target="_blank">
+                      <img class="university-logo" src="https://c.animaapp.com/nZYq2W0H/img/feutech-logo-1@2x.png" alt="Ateneo de Manila University Logo" />
+                    </a>
+                  </div>
+                </div>
+                <h3 class="university-name">Ateneo de Manila University</h3>
+                <div class="university-info">
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Prestigious Jesuit education</div></div>
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Excellence in liberal arts</div></div>
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Strong alumni network</div></div>
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Top-tier research programs</div></div>
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Beautiful Katipunan campus</div></div>
+                </div>
+              </div>
+              <!-- University Card 6: De La Salle University -->
+              <div class="university-card">
+                <div class="university-logo-container">
+                  <div class="university-logo-wrapper">
+                    <a href="https://www.dlsu.edu.ph/" target="_blank">
+                      <img class="university-logo" src="https://c.animaapp.com/nZYq2W0H/img/feutech-logo-1-1@2x.png" alt="De La Salle University Logo" />
+                    </a>
+                  </div>
+                </div>
+                <h3 class="university-name">De La Salle University</h3>
+                <div class="university-info">
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Leading business education</div></div>
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Strong engineering programs</div></div>
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">International partnerships</div></div>
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Modern Taft campus</div></div>
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Excellent sports programs</div></div>
+                </div>
+              </div>
+              <!-- University Card 7: University of the Philippines Diliman -->
+              <div class="university-card">
+                <div class="university-logo-container">
+                  <div class="university-logo-wrapper">
+                    <a href="https://upd.edu.ph/" target="_blank">
+                      <img class="university-logo" src="https://c.animaapp.com/nZYq2W0H/img/feutech-logo-1-2@2x.png" alt="University of the Philippines Diliman Logo" />
+                    </a>
+                  </div>
+                </div>
+                <h3 class="university-name">University of the Philippines Diliman</h3>
+                <div class="university-info">
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Premier state university</div></div>
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">World-class research facilities</div></div>
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Highly competitive admission</div></div>
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Outstanding faculty members</div></div>
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Free quality education</div></div>
+                </div>
+              </div>
+              <!-- University Card 8: Mapúa University -->
+              <div class="university-card">
+                <div class="university-logo-container">
+                  <div class="university-logo-wrapper">
+                    <a href="https://www.mapua.edu.ph/" target="_blank">
+                      <img class="university-logo" src="https://c.animaapp.com/nZYq2W0H/img/feutech-logo-1-3@2x.png" alt="Mapúa University Logo" />
+                    </a>
+                  </div>
+                </div>
+                <h3 class="university-name">Mapúa University</h3>
+                <div class="university-info">
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Top engineering school</div></div>
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Industry-relevant curriculum</div></div>
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">High board exam passing rates</div></div>
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Strong industry connections</div></div>
+                  <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Modern Intramuros campus</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recommended Universities & Top Courses Section (Hidden by Default) -->
+          <div id="recommendedSection" style="display:none;">
+            <div class="university-separator">
+              <h2 class="recommended-title">Recommended Universities For You</h2>
+            </div>
+            <div class="recommended-universities-section">
+              <div class="universities-slideshow">
+                <div class="slideshow-container">
+                  <div class="universities-track" id="universitiesTrack">
+                    <!-- University Card 1: FEU Institute of Technology -->
+                    <div class="university-card">
+                      <div class="university-logo-container">
+                        <div class="university-logo-wrapper">
+                          <a href="https://www.feutech.edu.ph/" target="_blank">
+                            <img class="university-logo" src="https://c.animaapp.com/nZYq2W0H/img/feutech-logo-1@2x.png" alt="FEU Institute of Technology Logo" />
+                          </a>
+                        </div>
+                      </div>
+                      <h3 class="university-name">FEU Institute of Technology</h3>
+                      <div class="university-info">
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Tech-driven, modern facilities</div></div>
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Modern learning environment</div></div>
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Strong industry internship links</div></div>
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Innovation and research driven</div></div>
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Various scholarships for achievers</div></div>
+                      </div>
+                    </div>
+                    <!-- University Card 2: Polytechnic University of the Philippines -->
+                    <div class="university-card">
+                      <div class="university-logo-container">
+                        <div class="university-logo-wrapper">
+                          <a href="https://www.pup.edu.ph/" target="_blank">
+                            <img class="university-logo" src="https://c.animaapp.com/nZYq2W0H/img/feutech-logo-1-1@2x.png" alt="Polytechnic University of the Philippines Logo" />
+                          </a>
+                        </div>
+                      </div>
+                      <h3 class="university-name">Polytechnic University of <br> the Philippines</h3>
+                      <div class="university-info">
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Free quality public education</div></div>
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Strong board exam performance</div></div>
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Bold, active student life</div></div>
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Mass comm, business excellence</div></div>
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Massive student community</div></div>
+                      </div>
+                    </div>
+                    <!-- University Card 3: University of Santo Tomas -->
+                    <div class="university-card">
+                      <div class="university-logo-container">
+                        <div class="university-logo-wrapper">
+                          <a href="https://www.ust.edu.ph/" target="_blank">
+                            <img class="university-logo" src="https://c.animaapp.com/nZYq2W0H/img/feutech-logo-1-2@2x.png" alt="University of Santo Tomas Logo" />
+                          </a>
+                        </div>
+                      </div>
+                      <h3 class="university-name">University of Santo Tomas</h3>
+                      <div class="university-info">
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Oldest university in Asia</div></div>
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Leading health science courses</div></div>
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Catholic-based education</div></div>
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Global academic partnerships</div></div>
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Historic campus facilities</div></div>
+                      </div>
+                    </div>
+                    <!-- University Card 4: Pamantasan ng Lungsod ng Maynila -->
+                    <div class="university-card">
+                      <div class="university-logo-container">
+                        <div class="university-logo-wrapper">
+                          <a href="https://www.plm.edu.ph/" target="_blank">
+                            <img class="university-logo" src="https://c.animaapp.com/nZYq2W0H/img/feutech-logo-1-3@2x.png" alt="Pamantasan ng Lungsod ng Maynila Logo" />
+                          </a>
+                        </div>
+                      </div>
+                      <h3 class="university-name">Pamantasan ng Lungsod <br> ng Maynila</h3>
+                      <div class="university-info">
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Free for Manileños</div></div>
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">High licensure exam rates</div></div>
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Public service focus</div></div>
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Competitive admission standards</div></div>
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Central Intramuros campus</div></div>
+                      </div>
+                    </div>
+                    <!-- University Card 5: Ateneo de Manila University -->
+                    <div class="university-card">
+                      <div class="university-logo-container">
+                        <div class="university-logo-wrapper">
+                          <a href="https://www.ateneo.edu/" target="_blank">
+                            <img class="university-logo" src="https://c.animaapp.com/nZYq2W0H/img/feutech-logo-1@2x.png" alt="Ateneo de Manila University Logo" />
+                          </a>
+                        </div>
+                      </div>
+                      <h3 class="university-name">Ateneo de Manila University</h3>
+                      <div class="university-info">
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Prestigious Jesuit education</div></div>
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Excellence in liberal arts</div></div>
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Strong alumni network</div></div>
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Top-tier research programs</div></div>
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Beautiful Katipunan campus</div></div>
+                      </div>
+                    </div>
+                    <!-- University Card 6: De La Salle University -->
+                    <div class="university-card">
+                      <div class="university-logo-container">
+                        <div class="university-logo-wrapper">
+                          <a href="https://www.dlsu.edu.ph/" target="_blank">
+                            <img class="university-logo" src="https://c.animaapp.com/nZYq2W0H/img/feutech-logo-1-1@2x.png" alt="De La Salle University Logo" />
+                          </a>
+                        </div>
+                      </div>
+                      <h3 class="university-name">De La Salle University</h3>
+                      <div class="university-info">
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Leading business education</div></div>
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Strong engineering programs</div></div>
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">International partnerships</div></div>
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Modern Taft campus</div></div>
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Excellent sports programs</div></div>
+                      </div>
+                    </div>
+                    <!-- University Card 7: University of the Philippines Diliman -->
+                    <div class="university-card">
+                      <div class="university-logo-container">
+                        <div class="university-logo-wrapper">
+                          <a href="https://upd.edu.ph/" target="_blank">
+                            <img class="university-logo" src="https://c.animaapp.com/nZYq2W0H/img/feutech-logo-1-2@2x.png" alt="University of the Philippines Diliman Logo" />
+                          </a>
+                        </div>
+                      </div>
+                      <h3 class="university-name">University of the Philippines Diliman</h3>
+                      <div class="university-info">
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Premier state university</div></div>
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">World-class research facilities</div></div>
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Highly competitive admission</div></div>
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Outstanding faculty members</div></div>
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Free quality education</div></div>
+                      </div>
+                    </div>
+                    <!-- University Card 8: Mapúa University -->
+                    <div class="university-card">
+                      <div class="university-logo-container">
+                        <div class="university-logo-wrapper">
+                          <a href="https://www.mapua.edu.ph/" target="_blank">
+                            <img class="university-logo" src="https://c.animaapp.com/nZYq2W0H/img/feutech-logo-1-3@2x.png" alt="Mapúa University Logo" />
+                          </a>
+                        </div>
+                      </div>
+                      <h3 class="university-name">Mapúa University</h3>
+                      <div class="university-info">
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Top engineering school</div></div>
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Industry-relevant curriculum</div></div>
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">High board exam passing rates</div></div>
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Strong industry connections</div></div>
+                        <div class="info-item"><img class="checkmark-icon" src="https://c.animaapp.com/nZYq2W0H/img/vector-19.svg" alt="Checkmark" /><div class="info-text">Modern Intramuros campus</div></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slide-nav prev" onclick="previousSlide()"></div>
+                  <div class="slide-nav next" onclick="nextSlide()"></div>
+                </div>
+              </div>
+            </div>
+            <div class="university-separator">
+              <h2 class="recommended-title">Top Courses from these universities</h2>
+            </div>
+            <div class="recommended-universities-section">
+              <div class="universities-slideshow">
+                <div class="slideshow-container">
+                  <div class="universities-track" id="coursesTrack">
+                    <!-- Example course cards (can be dynamically generated) -->
+                    <div class="course-card">
+                      <div class="course-photo"></div>
+                      <div class="course-title">Course</div>
+                      <div class="course-description">Course Description</div>
+                    </div>
+                    <div class="course-card">
+                      <div class="course-photo"></div>
+                      <div class="course-title">Course</div>
+                      <div class="course-description">Course Description</div>
+                    </div>
+                  </div>
+                  <div class="slide-nav prev" onclick="previousSlide()"></div>
+                  <div class="slide-nav next" onclick="nextSlide()"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <script>
+            // Toggle between Browse All Universities and Recommended Section
+            const findCourseBtn = document.getElementById('findCourseBtn');
+            const findUniversityBtn = document.getElementById('findUniversityBtn');
+            const browseAllUniversitiesSection = document.getElementById('browseAllUniversitiesSection');
+            const recommendedSection = document.getElementById('recommendedSection');
+            if (findCourseBtn) {
+              findCourseBtn.addEventListener('click', function(e) {
+                // Redirect to coursepage.html
+                window.location.href = '../AUNIPATH coursepage/coursepage.html';
+              });
+            }
+            if (findUniversityBtn) {
+              findUniversityBtn.addEventListener('click', function(e) {
+                // Show recommended universities and top courses
+                browseAllUniversitiesSection.style.display = 'none';
+                recommendedSection.style.display = 'block';
+              });
+            }
+            function filterUniversitiesHero() {
+              const input = document.querySelector('.course-search-input');
+              const filter = input.value.toLowerCase();
+              const universityCards = document.querySelectorAll('.university-card');
+              universityCards.forEach(card => {
+                const title = card.querySelector('.university-title').textContent.toLowerCase();
+                const desc = card.querySelector('.university-description').textContent.toLowerCase();
+                if (title.includes(filter) || desc.includes(filter)) {
+                  card.style.display = '';
+                } else {
+                  card.style.display = 'none';
+                }
+              });
+            }
+          </script>
+          <!-- Footer -->
+          <footer class="main-footer">
+            <div class="footer-content">
+              <div class="footer-brand-section">
+                <div class="footer-brand">
+                  <img class="footer-logo" src="https://c.animaapp.com/nZYq2W0H/img/aunipath-logo-r--2@2x.png" alt="AUniPath Logo" />
+                  <h3 class="footer-title">AUniPath</h3>
+                </div>
+                <p class="footer-description">
+                  Your comprehensive guide to finding the perfect university and scholarship opportunities. 
+                  Empowering students to achieve their educational dreams through informed choices.
+                </p>
+              </div>
+              
+              <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                  <li><a href="../index.html">Home</a></li>
+                  <li><a href="../about.html">About Us</a></li>
+                  <li><a href="../AUNIPATH coursepage/coursepage.html">Find Courses</a></li>
+                  <li><a href="../AUNIPATH unipage/universitypage.html">Find Universities</a></li>
+                </ul>
+              </div>
+              
+              <div class="footer-section">
+                <h4>Contact Info</h4>
+                <div class="footer-contact">
+                  <p>📧 aUnipath@gmail.com</p>
+                  <p>📱 +63 912 723 5862</p>
+                  <p>🌐 www.aunipath.com</p>
+                </div>
+              </div>
+              
+              <div class="footer-section">
+                <h4>Follow Us</h4>
+                <ul class="footer-links">
+                  <li><a href="#" target="_blank">Facebook</a></li>
+                  <li><a href="#" target="_blank">Twitter</a></li>
+                  <li><a href="#" target="_blank">Instagram</a></li>
+                  <li><a href="#" target="_blank">GitHub</a></li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="footer-bottom">
+              <p>© 2025 AUniPath. All rights reserved. Website developed by BSITWMA TW01 students of FEU Tech.</p>
+            </div>
+          </footer>
+          
         </div>
       </div>
     </div>
-    </div>
     
-    <main class="main-content">
-      <div class="tagline">Which Path Will You Take?</div>
-      <div class="search-bar">
-        <div class="search">
-          <input type="text" class="search-input" placeholder="Search for universities..." />
-          <button class="search-btn" aria-label="Search">
-            <img class="search-icon" src="https://c.animaapp.com/nZYq2W0H/img/ion-search.svg" alt="Search" />
-          </button>
-        </div>
-        <button class="filter-btn" aria-label="Filter">
-          <img class="filter-icon" src="filter button.png" alt="Filter" />
-        </button>
-      </div>
-      <div class="action-buttons">
-        <a href="../AUNIPATH coursepage/coursepage.html" class="course-button">
-          <div class="find-a-course">Find a Course</div>
-        </a>
-        <div class="university-button active">
-          <div class="find-a-university">Find a University</div>
-        </div>
-      </div>
-      
-      <div class="universities-for-you">
-        <div class="universities-for-you-bar">
-          <div class="universities-for-you1">Universities For You</div>
-        </div>
-        <div class="university-grid">
-          <div class="uni-contents">
-            <div class="uni-photo"></div>
-            <div class="university-text">
-              <div class="university">University</div>
-              <div class="university-description">University Description</div>
-            </div>
-          </div>
-          <div class="uni-contents">
-            <div class="uni-photo"></div>
-            <div class="university-text">
-              <div class="university">University</div>
-              <div class="university-description">University Description</div>
-            </div>
-          </div>
-          <div class="uni-contents">
-            <div class="uni-photo"></div>
-            <div class="university-text">
-              <div class="university">University</div>
-              <div class="university-description">University Description</div>
-            </div>
-          </div>
-          <div class="uni-contents">
-            <div class="uni-photo"></div>
-            <div class="university-text">
-              <div class="university">University</div>
-              <div class="university-description">University Description</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="courses-section">
-        <div class="top-courses-that">Top Courses from these universities:</div>
-        <div class="course-grid">
-          <div class="course-info">
-            <div class="course-photo"></div>
-            <div class="course-text">
-              <div class="course">Course</div>
-              <div class="course-description">Course Description</div>
-            </div>
-          </div>
-          <div class="course-info">
-            <div class="course-photo"></div>
-            <div class="course-text">
-              <div class="course">Course</div>
-              <div class="course-description">Course Description</div>
-            </div>
-          </div>
-          <div class="course-info">
-            <div class="course-photo"></div>
-            <div class="course-text">
-              <div class="course">Course</div>
-              <div class="course-description">Course Description</div>
-            </div>
-          </div>
-          <div class="course-info">
-            <div class="course-photo"></div>
-            <div class="course-text">
-              <div class="course">Course</div>
-              <div class="course-description">Course Description</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-    
-    <footer class="footer">
-      <div class="footer-content">
-        <img class="aunipath-logo" src="AUniPath Logo 1.png" alt="AUniPath Logo" />
-        <div class="aunipath-title">AUniPath</div>
-        <div class="footer-links">
-          <a href="../index.html" class="footer-link">Home</a>
-          <a href="../about.html" class="footer-link">About</a>
-          <div class="footer-link">Contact Us</div>
-        </div>
-      </div>
-    </footer>
-  </div>
-  	
-  	
-  	
-  	
-</body>
+    <script src="../js/slideshow.js"></script>
+  </body>
 </html>
