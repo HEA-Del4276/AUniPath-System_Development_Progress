@@ -63,14 +63,14 @@
   transition: transform 0.3s ease;
 }
 .university-card:hover .university-logo-wrapper {
-  /* transform: scale(1.05); */
+  transform: scale(1.05);
 }
 .university-logo {
   width: 180px;
   height: 180px;
   object-fit: contain;
   padding: 3px;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
 }
 .university-name {
   font-family: "Inter", Helvetica, Arial, sans-serif;
