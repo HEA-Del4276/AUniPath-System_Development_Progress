@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
     findUniversityBtn.addEventListener('click', function(e) {
         e.preventDefault();
         console.log('Find University button clicked - redirecting to university page');
-        window.location.href = '../AUNIPATH unipage/universitypage.html';
+        window.location.href = '../universitypage.html';
     });
     
     function showCourseCards() {

@@ -143,11 +143,11 @@ class HeroImageSlideshow {
         
         // Array of image sources - customize these paths with your actual images
         this.images = [
-            'https://c.animaapp.com/nZYq2W0H/img/img.png', // Default image
-            'https://c.animaapp.com/nZYq2W0H/img/hero-slide-2.jpg', // Add your image path here
-            'https://c.animaapp.com/nZYq2W0H/img/hero-slide-3.jpg', // Add your image path here
-            'https://c.animaapp.com/nZYq2W0H/img/hero-slide-4.jpg', // Add your image path here
-            'https://c.animaapp.com/nZYq2W0H/img/hero-slide-5.jpg'  // Add your image path here
+            'https://pressone.ph/wp-content/uploads/2022/08/FEU-IT.jpg',
+            'https://www.its.ac.id/international/wp-content/uploads/sites/66/2019/05/MapuaUni.jpg', 
+            'https://www.goodnewspilipinas.com/wp-content/uploads/2018/07/UP_Diliman-slide.jpg', 
+            'https://png.pngtree.com/thumb_back/fh260/background/20220821/pngtree-facade-of-university-of-the-city-of-manila-at-intramuros-manila-photo-image_33365420.jpg', 
+            'https://images.metronewscentral.net/6152waFqL248-UdM.jpg'  
         ];
         
         this.init();
