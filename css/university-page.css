@@ -1,209 +1,321 @@
+/* Course Page Hero Section Styles */
+.course-hero-section {
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.course-tagline {
+    font-family: "SF Cartoonist Hand", "SF Cartoonist Hand-Regular", Helvetica;
+    font-size: clamp(48px, 12vw, 96px);
+    font-weight: 500;
+    color: #3f118b;
+    margin-bottom: 40px;
+    text-transform: none;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.course-search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 40px auto;
+    max-width: 800px;
+    flex-wrap: wrap;
+}
+
+.course-search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: 3px solid #d9c7e6;
+    border-radius: 50px;
+    padding: 0 20px;
+    flex: 1;
+    max-width: 600px;
+    height: 59px;
+    min-width: 300px;
+}
+
+.course-search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    padding: 15px 0;
+    background: transparent;
+}
+
+.course-search-input::placeholder {
+    color: #999;
+}
+
+.course-search-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.course-search-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.course-filter-btn {
+    background: #9a6fef;
+    border: none;
+    border-radius: 50px;
+    width: 59px;
+    height: 59px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.course-filter-btn:hover {
+    background: #7e5bef;
+}
+
+.course-filter-icon {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
+}
+
+.course-action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 40px 0 0;
+    flex-wrap: wrap;
+}
+
+.course-btn, .university-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    height: 65px;
+    background-color: #9a6fef;
+    border-radius: 100px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    font-family: "Dustismo-Regular", Helvetica;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.course-btn.active {
+    background-color: #7e5bef;
+    transform: translateY(-2px);
+}
+
+.university-btn.active {
+    background-color: #7e5bef;
+    transform: translateY(-2px);
+}
+
+.course-btn:hover, .university-btn:hover {
+    transform: translateY(-2px);
+    background-color: #3F118B;
+}
+
+.course-btn-content, .university-btn-content {
+    color: white;
+    text-decoration: none;
+}
+
+/* Courses section */
+.courses-for-you {
+    margin: 0;
+}
+
+.courses-for-you-bar {
+    background: linear-gradient(135deg, #9a6fef 0%, #7c3aed 100%);
+    text-align: center;
+    padding: 30px 20px;
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+.courses-for-you1 {
+    font-family: "Dustismo-Regular", Helvetica;
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 500;
+    color: white;
+    margin: 0;
+}
+
 /* university-page.css - For universitypage.html, matching homepage card style */
-
-.university-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2.5rem 2rem;
-  justify-items: center;
-  align-items: start;
-  margin: 2.5rem auto;
-  max-width: 1400px;
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+      #browseAllUniversitiesSection {
+        width: 100%;
+        padding: 0px 0 32px 0;
+        background: #f7f7fa;
+        font-family: 'Inter', Arial, sans-serif;
+      }
+      .universities-title {
+        font-size: 2.2rem;
+        font-weight: 600;
+        color: #3F118B;
+        text-align: center;
+        margin-bottom: 32px;
+        letter-spacing: 0.5px;
+      }
+      .university-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+        max-width: 1200px;
+        margin: 0 auto;
+        justify-items: stretch;
+        align-items: stretch;
+      }
+      .university-card {
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 4px 24px rgba(63, 17, 139, 0.08), 0 1.5px 6px rgba(63, 17, 139, 0.06);
+        border: 2px solid #ece6f6;
+        padding: 32px 20px 28px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-width: 0;
+        min-height: 620px;
+        transition: box-shadow 0.2s;
+      }
+      .university-card:hover {
+        box-shadow: 0 8px 32px rgba(63, 17, 139, 0.16), 0 2px 8px rgba(63, 17, 139, 0.10);
+      }
+      .university-logo-wrapper {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        border: 3px solid #3F118B;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 18px;
+        transition: box-shadow 0.2s, transform 0.2s;
+      }
+      .university-logo {
+        width: 70px;
+        height: 70px;
+        object-fit: contain;
+        border-radius: 50%;
+        transition: box-shadow 0.2s, transform 0.2s;
+      }
+      .university-logo-wrapper:hover .university-logo,
+      .university-logo:hover {
+        box-shadow: 0 0 0 8px #7e5bef40;
+        transform: scale(1.08);
+      }
+      .university-name {
+        font-size: 1.15rem;
+        font-weight: 600;
+        color: #3F118B !important;
+        text-align: center;
+        margin-bottom: 16px;
+        margin-top: 2px;
+        letter-spacing: 0.2px;
+      }
+      .university-info-lelist {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+      }
+      .info-item {
+        display: flex;
+        align-items: center;
+        font-size: 1rem;
+        color: #3F118B !important;
+        margin-bottom: 10px;
+        gap: 5px;
+        word-break: break-word;
+      }
+      .info-item:last-child {
+        margin-bottom: 0;
+      }
+      .checkmark-icon {
+        filter: none !important;
+        width: 18px;
+        height: 18px;
+      }
+      
+      @media (max-width: 1024px) {
+        .university-cards-grid {
+          grid-template-columns: repeat(2, 1fr);
+          max-width: 700px;
+        }
+      }
+      @media (max-width: 600px) {
+        .university-cards-grid {
+          grid-template-columns: 1fr;
+          max-width: 350px;
+          gap: 16px;
+          padding: 0 8px;
+        }
+        .university-card {
+          padding: 20px 10px 16px 10px;
+          min-height: 0;
+        }
+        .university-logo-wrapper {
+          width: 64px;
+          height: 64px;
+        }
+        .university-logo {
+          width: 48px;
+          height: 48px;
+        }
+      }
+      
+/* Improved university card and info-item alignment for all screen sizes */
+.university-card,
+.university-card .info-text,
+.university-card .university-name,
+.university-card h3 {
+  color: #3F118B !important;
 }
 
-.university-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-  margin: 2rem 0;
-}
-.university-card {
-  background: transparent;
-  border-radius: 15px;
-  padding: 55px 7px;
-  text-align: center;
+.university-card:hover {
   box-shadow: none;
-  border: none;
-  margin-right: 0px;
-  transition: transform 0.3s ease;
-  user-select: none;
-  height: 530px;
-  max-height: 530px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  overflow: hidden;
-  box-sizing: border-box;
-  width: 100%;
-  max-width: 340px;
+  transform: none;
 }
-/* .university-card:hover {
-  transform: translateY(-2px);
-} */
-
 .university-logo-container {
-  width: 130px;
-  height: 130px;
-  margin: 0 auto 50px;
+  width: 500px;
+  height: 500px;
+  margin: 0 auto 32px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .university-logo-wrapper {
-  position: relative;
-  width: 180px;
-  height: 180px;
-  background-color: #fff;
+  width: 500px;
+  height: 500px;
+  background: #fff;
   border-radius: 50%;
-  border: none;
+  border: 6px solid #8b5cf6;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: none;
   transition: transform 0.3s ease;
-}
-.university-card:hover .university-logo-wrapper {
-  transform: scale(1.05);
-}
-.university-logo {
-  width: 180px;
-  height: 180px;
+  height: 100px;
   object-fit: contain;
-  padding: 3px;
-  transition: transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
-}
-.university-name {
-  font-family: "Inter", Helvetica, Arial, sans-serif;
-  font-weight: 700;
-  color: #3F118B;
-  font-size: 18px;
-  text-align: center;
-  letter-spacing: 0.5px;
-  line-height: 1.2;
-  margin-bottom: 15px;
-  padding: 0 3px;
-  min-height: 60px;
-  max-height: 80px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-overflow: ellipsis;
-  word-wrap: break-word;
-  hyphens: auto;
-  white-space: normal;
-  word-break: break-word;
-}
-.university-info {
-  width: 100%;
-  border: 2px solid #9A6FEF;
-  border-radius: 5px;
-  background: transparent;
-  padding: 23px 10px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  min-height: 200px;
-  max-height: 300px;
-  overflow: hidden;
-}
-.info-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 14px;
-  transition: transform 0.2s ease;
-}
-.info-item:hover {
-  transform: translateX(2px);
-}
-.info-item:last-child {
-  margin-bottom: 0;
-}
-.checkmark-icon {
-  width: 16px;
-  height: 16px;
-  flex-shrink: 0;
-  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
-}
-.info-text {
-  font-family: "Dustismo-Regular", Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  color: #3F118B;
-  font-size: 15px;
-  letter-spacing: 0.3px;
-  line-height: 1.3;
-  flex: 1;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  text-align: left;
-}
-.university-photo {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  margin-bottom: 1rem;
-}
-.university-title {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #3F118B;
-  margin-bottom: 0.5rem;
-  text-align: center;
-}
-.university-description {
-  font-size: 1rem;
-  color: #444;
-  text-align: center;
-}
-.courses-for-you-bar {
-  border-radius: 1rem 1rem 0 0;
-  padding: 1.5rem 0.5rem 1rem 0.5rem;
-  color: #fff;
-  text-align: center;
-}
-.courses-for-you1 {
-  font-size: 2.2rem;
-  font-weight: 600;
-}
-.course-hero-section {
-  margin-bottom: 2rem;
-}
-.course-search-bar input[disabled],
-.course-search-btn[disabled] {
-  background: #eee;
-  cursor: not-allowed;
-}
-.slide-nav,
-.slideshow-nav {
-  background: none;
-  border: none;
-  font-size: 2rem;
-  color: #3F118B;
-  cursor: pointer;
-  margin: 0 0.5rem;
-}
-.slide-nav[disabled],
-.slideshow-nav[disabled] {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-@media (max-width: 1200px) {
-  .university-cards-grid {
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 700px;
-  }
-}
-@media (max-width: 700px) {
-  .university-cards-grid {
-    grid-template-columns: 1fr;
-    max-width: 95vw;
-  }
-  .university-card {
-    height: auto;
-    max-height: none;
-    padding: 30px 5px;
-  }
+  border-radius: 50%;
 }
 
