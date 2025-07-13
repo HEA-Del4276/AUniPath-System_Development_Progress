@@ -1,3 +1,256 @@
+/* Recommended Courses Slider Navigation Buttons (copied from homepage) */
+.recommended-slider-section .slide-nav {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  background: rgba(154, 111, 239, 0.9);
+  border: 2px solid #9A6FEF;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  z-index: 10;
+  font-size: 28px;
+  color: #ffffff;
+  font-weight: bold;
+}
+.recommended-slider-section .slide-nav:hover {
+  background: rgba(154, 111, 239, 1);
+  transform: translateY(-50%) scale(1.1);
+}
+.recommended-slider-section .slide-nav.prev {
+  left: -20px;
+}
+.recommended-slider-section .slide-nav.next {
+  right: -20px;
+}
+.recommended-slider-section .slide-nav {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  background: #A085F7;
+  border: none;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(63, 17, 139, 0.10);
+  z-index: 10;
+  padding: 0;
+}
+.recommended-slider-section .slide-nav:focus {
+  outline: 2px solid #7e5bef;
+}
+.recommended-slider-section .slide-nav:hover {
+  background: #9A6FEF;
+  transform: translateY(-50%) scale(1.08);
+}
+.recommended-slider-section .slide-nav.prev {
+  left: -35px;
+}
+.recommended-slider-section .slide-nav.next {
+  right: -35px;
+}
+.recommended-slider-section .double-chevron-svg {
+  display: block;
+  margin: auto;
+  width: 44px;
+  height: 44px;
+}
+.recommended-slider-section {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background: #3F118B;
+  padding: 30px 0;
+  position: relative;
+}
+.recommended-courses-bar {
+  width: 100%;
+  background: #9A6FEF;
+  height: 80px;
+  margin: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.recommended-title {
+  font-family: 'SF Cartoonist Hand', 'SF Cartoonist Hand-Regular', Helvetica, Arial, sans-serif;
+  font-size: clamp(32px, 6vw, 48px);
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+  margin: 0;
+}
+.university-separator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.recommended-title {
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  font-family: 'SF Cartoonist Hand', 'SF Cartoonist Hand-Regular', Helvetica, Arial, sans-serif;
+  font-size: clamp(32px, 6vw, 48px);
+  color: #3F118B;
+  font-weight: 600;
+}
+/* Recommended Slider Section Styles */
+.recommended-slider-section {
+  margin: 32px 0;
+  display: flex;
+  justify-content: center;
+}
+.recommended-slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  align-items: center;
+}
+.recommended-slider-track {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  background: none;
+  border-radius: 16px;
+  box-shadow: none;
+  padding: 32px 24px 24px 24px;
+  align-items: stretch;
+  justify-content: center;
+  width: 100%;
+  transition: box-shadow 0.2s;
+}
+.recommended-slider-card:hover {
+  width: 110px;
+  height: 110px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4.5rem;
+  margin-bottom: 22px;
+  box-shadow: none;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 10px;
+  font-family: 'SF Cartoonist Hand', 'SF Cartoonist Hand-Regular', Helvetica, Arial, sans-serif;
+  color: #3F118B;
+  text-align: center;
+  font-size: 1.05rem;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 0;
+  font-size: 0.98rem;
+  color: #5a4a7b;
+  text-align: center;
+  margin-bottom: 4px;
+}
+.slide-nav {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #ece6fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(63, 17, 139, 0.10);
+  z-index: 2;
+}
+.slide-nav.prev {
+  left: -48px;
+}
+.slide-nav.next {
+  right: -48px;
+}
+.slide-nav::before {
+  content: '';
+  display: block;
+  width: 16px;
+  height: 16px;
+  border: solid #7e5bef;
+  border-width: 0 4px 4px 0;
+  padding: 2px;
+}
+.slide-nav.prev::before {
+  transform: rotate(135deg);
+}
+.slide-nav.next::before {
+  transform: rotate(-45deg);
+}
+/* Recommended Courses Section Styles */
+.recommended-courses-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin: 32px 0;
+}
+
+.recommended-category {
+  background: #f7f4ff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(63, 17, 139, 0.08);
+  padding: 24px 32px;
+}
+
+.recommended-category-header {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #3F118B;
+}
+
+.recommended-icon {
+  font-size: 2.5rem;
+  margin-right: 12px;
+}
+
+.recommended-category-title {
+  font-family: 'SF Cartoonist Hand', 'SF Cartoonist Hand-Regular', Helvetica, Arial, sans-serif;
+}
+
+.recommended-course-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(63, 17, 139, 0.06);
+  padding: 16px 20px;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #3F118B;
+  transition: box-shadow 0.2s;
+}
+.recommended-course-card:hover {
+  box-shadow: 0 4px 12px rgba(63, 17, 139, 0.15);
+  background: #ece6fa;
+}
+.recommended-course-title {
+  font-family: 'SF Cartoonist Hand', 'SF Cartoonist Hand-Regular', Helvetica, Arial, sans-serif;
+}
 /* Hide navigation search bar for course page only */
 .nav-bar .search {
     display: none !important;
@@ -554,148 +807,48 @@
     color: #d9c7e6;
 }
 
-/* Course Cards in Recommended Section */
-.course-card {
-  flex: 0 0 25%;
-  min-width: 0;
-  background: transparent;
-  border-radius: 0;
-  padding: 30px 20px;
-  text-align: center;
-  box-shadow: none;
-  transition: transform 0.3s ease;
-  user-select: none;
-  height: 350px;
+/* Recommended Slider Card Styles (Restored/Improved) */
+.recommended-slider-card {
+  background: rgba(255,255,255,0.10);
+  border-radius: 22px;
+  border: 1.5px solid rgba(255,255,255,0.18);
+  box-shadow: 0 2px 16px 0 rgba(63, 17, 139, 0.10);
+  padding: 36px 28px 32px 28px;
+  min-width: 240px;
+  max-width: 300px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
-  box-sizing: border-box;
+  transition: box-shadow 0.2s, background 0.2s;
+  margin: 0 16px;
+  backdrop-filter: blur(2px);
 }
 
-.course-card:hover {
-  transform: translateY(-2px);
+.recommended-slider-icon-circle {
+  width: 110px;
+  height: 110px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4.5rem;
+  margin-bottom: 22px;
   box-shadow: none;
 }
-
-.course-photo {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  background-color: #c4a7e7;
-  margin: 0 auto 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s ease;
-}
-
-.course-card:hover .course-photo {
-  transform: scale(1.05);
-}
-
-.course-title {
-  font-family: "Inter", Helvetica;
+.recommended-slider-title {
+  font-family: 'SF Cartoonist Hand', 'SF Cartoonist Hand-Regular', Helvetica;
+  font-size: 1.35rem;
   font-weight: 600;
-  color: #3f118b;
-  font-size: 24px;
+  color: #fff;
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
-
-.course-description {
-  font-family: "Inter", Helvetica;
-  font-weight: 400;
-  color: #666;
-  font-size: 16px;
+.recommended-slider-specialization {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  font-size: 1.05rem;
+  color: #fff;
   text-align: center;
-  line-height: 1.4;
-  flex: 1;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-}
-
-/* Call-to-Action Section Styles */
-.call-to-action-section {
-    background-color: #F8F0FF;
-    padding: 40px 20px;
-    margin: 0;
-    text-align: center;
-}
-
-.call-to-action-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-.call-to-action-text {
-    font-family: "Dustismo-Regular", Helvetica;
-    font-size: clamp(20px, 4vw, 28px);
-    font-weight: 400;
-    color: #3f118b;
-    margin: 0;
-    text-align: center;
-}
-
-.call-to-action-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 180px;
-    height: 65px;
-    background-color: #9a6fef;
-    border-radius: 100px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    border: none;
-    font-family: "Dustismo-Regular", Helvetica;
-    font-weight: 400;
-    color: #ffffff;
-    font-size: 18px;
-    box-shadow: none;
-}
-
-.call-to-action-btn:hover {
-    transform: translateY(-2px);
-    background-color: #3F118B;
-}
-
-.call-to-action-btn:active {
-    transform: translateY(0);
-}
-
-/* Spacing adjustments for grids after call-to-action */
-.call-to-action-section + .course-grid {
-    margin-top: 40px;
-    padding: 0 20px;
-}
-
-.call-to-action-section + .university-grid {
-    margin-top: 40px;
-    padding: 0 20px;
-}
-
-/* Responsive adjustments for call-to-action */
-@media (max-width: 768px) {
-    .call-to-action-content {
-        flex-direction: column;
-        gap: 20px;
-    }
-    
-    .call-to-action-text {
-        font-size: 22px;
-    }
-    
-    .call-to-action-btn {
-        font-size: 16px;
-        padding: 12px 25px;
-    }
+  margin-bottom: 0;
 }
 

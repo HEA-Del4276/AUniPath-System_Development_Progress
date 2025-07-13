@@ -167,28 +167,17 @@
 
           <!-- Recommended Courses & Top Universities Section (Hidden by Default) -->
           <div id="recommendedSection" style="display:none;">
-            <div class="university-separator">
+            <div class="recommended-courses-bar">
               <h2 class="recommended-title">Recommended Courses For You</h2>
             </div>
-            <div class="recommended-universities-section">
-              <div class="universities-slideshow">
-                <div class="slideshow-container">
-                  <div class="universities-track" id="universitiesTrack">
-                    <!-- Example recommended course cards (can be dynamically generated) -->
-                    <div class="course-card">
-                      <div class="course-photo"></div>
-                      <div class="course-title">Course</div>
-                      <div class="course-description">Course Description</div>
-                    </div>
-                    <div class="course-card">
-                      <div class="course-photo"></div>
-                      <div class="course-title">Course</div>
-                      <div class="course-description">Course Description</div>
-                    </div>
-                  </div>
-                  <div class="slide-nav prev" onclick="previousSlide()"></div>
-                  <div class="slide-nav next" onclick="nextSlide()"></div>
+            <div class="recommended-slider-section">
+              <div class="recommended-slider-container">
+                <div class="recommended-slider-track" id="recommendedSliderTrack">
+                  <!-- Recommended bachelor course cards will be rendered here -->
                 </div>
+                <!-- Navigation Arrows -->
+                <button class="slide-nav prev" id="recommendedPrevBtn" aria-label="Previous University">‹</button>
+                <button class="slide-nav next" id="recommendedNextBtn" aria-label="Next University">›</button>
               </div>
             </div>
             <!-- Scholarship Updates Section (copied from homepage, visible only after clicking Find a Course) -->
@@ -340,30 +329,169 @@
       </div>
     </div>
     <script>
-      // Toggle between Browse All Courses and Recommended Section
+      // Recommended bachelor courses data
+      const recommendedCoursesData = [
+        {
+          category: 'Animation',
+          icon: '🎨',
+          keywords: ['animation', 'multimedia', 'game'],
+          courses: [
+            'Bachelor of Fine Arts in Animation',
+            'Bachelor of Science in Digital Animation',
+            'Bachelor of Arts in Multimedia Arts',
+            'Bachelor in Game Design & Animation'
+          ]
+        },
+        {
+          category: 'Coding / Technology',
+          icon: '💻',
+          keywords: ['coding', 'technology', 'computer', 'information'],
+          courses: [
+            'Bachelor of Science in Computer Science',
+            'Bachelor of Science in Information Technology'
+          ]
+        },
+        {
+          category: 'Engineering',
+          icon: '⚙️',
+          keywords: ['engineering', 'mechanical', 'civil', 'electrical', 'industrial'],
+          courses: [
+            'Bachelor of Science in Mechanical Engineering',
+            'Bachelor of Science in Civil Engineering',
+            'Bachelor of Science in Electrical Engineering',
+            'Bachelor of Science in Industrial Engineering'
+          ]
+        },
+        {
+          category: 'Biology',
+          icon: '🧬',
+          keywords: ['biology', 'molecular', 'environmental', 'microbiology', 'neurobiology'],
+          courses: [
+            'Bachelor of Science in Biology',
+            'Bachelor of Science in Molecular Biology',
+            'Bachelor of Science in Environmental Biology',
+            'Bachelor of Science in Microbiology',
+            'Bachelor of Science in Neurobiology'
+          ]
+        },
+        {
+          category: 'Accounting',
+          icon: '📊',
+          keywords: ['accounting', 'accountancy', 'management', 'forensic', 'public', 'corporate'],
+          courses: [
+            'Bachelor of Science in Accountancy',
+            'Bachelor of Science in Management Accounting',
+            'Bachelor of Science in Forensic Accounting',
+            'Bachelor of Science in Public Accounting',
+            'Bachelor of Science in Corporate Accounting'
+          ]
+        }
+      ];
+
+      // Toggle between Browse All Courses and Recommended Section, and show recommended courses
       const findCourseBtn = document.getElementById('findCourseBtn');
       const browseAllCoursesSection = document.getElementById('browseAllCoursesSection');
       const recommendedSection = document.getElementById('recommendedSection');
+      const recommendedSliderTrack = document.getElementById('recommendedSliderTrack');
+      const recommendedPrevBtn = document.getElementById('recommendedPrevBtn');
+      const recommendedNextBtn = document.getElementById('recommendedNextBtn');
+      let recommendedSliderIndex = 0;
+      let recommendedSliderCards = [];
+
+      // Data for recommended bachelor courses with specializations
+      const recommendedCoursesDetailed = [
+        { icon: '🎨', title: 'Bachelor of Fine Arts in Animation', specialization: 'Specializations in 2D Animation, 3D Animation, Character Design', keywords: ['animation', 'fine arts'] },
+        { icon: '🌀', title: 'Bachelor of Science in Digital Animation', specialization: 'Focus on Visual Effects, CGI, and Motion Graphics', keywords: ['animation', 'digital'] },
+        { icon: '📽️', title: 'Bachelor of Arts in Multimedia Arts', specialization: 'Specializations in Animation, Graphic Design, Interactive Media', keywords: ['multimedia', 'animation'] },
+        { icon: '👾', title: 'Bachelor in Game Design & Animation', specialization: 'Focus on Game Animation, Rigging, and Character Modeling', keywords: ['game', 'animation'] },
+        { icon: '💻', title: 'Bachelor of Science in Computer Science', specialization: 'Specializations in Software Development, AI, and Algorithms', keywords: ['computer', 'coding', 'technology'] },
+        { icon: '🖥️', title: 'Bachelor of Science in Information Technology', specialization: 'Specializations in Web Development, Mobile Apps, Programming', keywords: ['information', 'technology', 'coding'] },
+        { icon: '⚙️', title: 'Bachelor of Science in Mechanical Engineering', specialization: 'Covers thermodynamics, machine design, and robotics', keywords: ['mechanical', 'engineering'] },
+        { icon: '🏗️', title: 'Bachelor of Science in Civil Engineering', specialization: 'Specializations in structural design, construction, and geotechnical engineering', keywords: ['civil', 'engineering'] },
+        { icon: '💡', title: 'Bachelor of Science in Electrical Engineering', specialization: 'Focus on circuits, control systems, and power generation', keywords: ['electrical', 'engineering'] },
+        { icon: '⚙️', title: 'Bachelor of Science in Industrial Engineering', specialization: 'Specializations in systems, operations, and manufacturing', keywords: ['industrial', 'engineering'] },
+        { icon: '🧬', title: 'Bachelor of Science in Biology', specialization: 'General Biology, research, and laboratory work', keywords: ['biology'] },
+        { icon: '🧬', title: 'Bachelor of Science in Molecular Biology', specialization: 'Focus on genetics, cell biology, and molecular techniques', keywords: ['molecular', 'biology'] },
+        { icon: '🌱', title: 'Bachelor of Science in Environmental Biology', specialization: 'Studies ecosystems, conservation, and climate impact on species', keywords: ['environmental', 'biology'] },
+        { icon: '🧫', title: 'Bachelor of Science in Microbiology', specialization: 'Focus on bacteria, viruses, and laboratory diagnostics', keywords: ['microbiology', 'biology'] },
+        { icon: '🧠', title: 'Bachelor of Science in Neurobiology', specialization: 'Studies the brain, nervous system, and neural disorders', keywords: ['neurobiology', 'biology'] },
+        { icon: '📚', title: 'Bachelor of Science in Forensic Accounting', specialization: 'Combines auditing, investigation, and legal compliance', keywords: ['forensic', 'accounting'] },
+        { icon: '🧾', title: 'Bachelor of Science in Public Accounting', specialization: 'Emphasis on tax services, audits, and regulatory reporting', keywords: ['public', 'accounting'] },
+        { icon: '🏛️', title: 'Bachelor of Science in Corporate Accounting', specialization: 'Focus on internal finance, reporting, and business forecasting', keywords: ['corporate', 'accounting'] },
+        { icon: '📊', title: 'Bachelor of Science in Accountancy', specialization: 'General accountancy, CPA track', keywords: ['accountancy', 'accounting'] },
+        { icon: '📊', title: 'Bachelor of Science in Management Accounting', specialization: 'Focus on management, cost, and business accounting', keywords: ['management', 'accounting'] }
+      ];
+
+      function renderRecommendedSlider(cards, startIdx = 0) {
+        recommendedSliderTrack.innerHTML = '';
+        // Show up to 3 cards at a time (slider window)
+        for (let i = startIdx; i < Math.min(cards.length, startIdx + 3); i++) {
+          const card = cards[i];
+          const cardDiv = document.createElement('div');
+          cardDiv.className = 'recommended-slider-card';
+          cardDiv.innerHTML = `
+            <div class="recommended-slider-icon-circle">${card.icon}</div>
+            <div class="recommended-slider-title">${card.title}</div>
+            <div class="recommended-slider-specialization">${card.specialization}</div>
+          `;
+          recommendedSliderTrack.appendChild(cardDiv);
+        }
+      }
+
+      function filterRecommendedSlider(filter) {
+        if (!filter) return recommendedCoursesDetailed;
+        filter = filter.toLowerCase();
+        return recommendedCoursesDetailed.filter(card => card.keywords.some(k => filter.includes(k)));
+      }
+
       if (findCourseBtn) {
-        findCourseBtn.addEventListener('click', function() {
-          browseAllCoursesSection.style.display = 'none';
+        findCourseBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const input = document.querySelector('.course-search-input');
+          const filter = input.value.trim().toLowerCase();
           recommendedSection.style.display = 'block';
+          browseAllCoursesSection.style.display = 'none';
+          recommendedSliderCards = filterRecommendedSlider(filter);
+          if (recommendedSliderCards.length === 0) {
+            recommendedSliderCards = recommendedCoursesDetailed;
+          }
+          recommendedSliderIndex = 0;
+          renderRecommendedSlider(recommendedSliderCards, recommendedSliderIndex);
         });
       }
-      function filterCoursesHero() {
-    const input = document.querySelector('.course-search-input');
-    const filter = input.value.toLowerCase();
-    const courseCards = document.querySelectorAll('.course-contents');
-    courseCards.forEach(card => {
-      const title = card.querySelector('.course').textContent.toLowerCase();
-      const desc = card.querySelector('.course-description').textContent.toLowerCase();
-      if (title.includes(filter) || desc.includes(filter)) {
-        card.style.display = '';
-      } else {
-        card.style.display = 'none';
+
+      if (recommendedPrevBtn) {
+        recommendedPrevBtn.addEventListener('click', function() {
+          if (recommendedSliderIndex > 0) {
+            recommendedSliderIndex--;
+            renderRecommendedSlider(recommendedSliderCards, recommendedSliderIndex);
+          }
+        });
       }
-    });
-  }
+      if (recommendedNextBtn) {
+        recommendedNextBtn.addEventListener('click', function() {
+          if (recommendedSliderIndex < recommendedSliderCards.length - 3) {
+            recommendedSliderIndex++;
+            renderRecommendedSlider(recommendedSliderCards, recommendedSliderIndex);
+          }
+        });
+      }
+
+      // Keep the original filter for Browse All Courses
+      function filterCoursesHero() {
+        const input = document.querySelector('.course-search-input');
+        const filter = input.value.toLowerCase();
+        const courseCards = document.querySelectorAll('.course-contents');
+        courseCards.forEach(card => {
+          const title = card.querySelector('.course').textContent.toLowerCase();
+          const desc = card.querySelector('.course-description').textContent.toLowerCase();
+          if (title.includes(filter) || desc.includes(filter)) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
     </script>
     <script src="../js/userlogin.js"></script>
   </body>
