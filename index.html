@@ -599,6 +599,68 @@
         });
       });
     </script>
-        <script src="js/userlogin.js"></script>
-    </body>
+    <script src="js/userlogin.js"></script>
+<script>
+// Search functionality for navigation bar
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.querySelector('.search-input');
+  const searchBtn = document.querySelector('.SEARCH-btn');
+
+  // Section mapping for homepage
+  const homepageSections = [
+    { keywords: ["recommended universities", "university", "universities"], selector: ".university-separator" },
+    { keywords: ["scholarship", "scholarships", "scholarship updates", "recent scholarship updates"], selector: ".scholarship-updates-section" }
+  ];
+
+  // Helper: fuzzy match
+  function matchesKeyword(input, keywords) {
+    input = input.toLowerCase();
+    return keywords.some(kw => input.includes(kw));
+  }
+
+function doSearch() {
+  const value = searchInput.value.trim().toLowerCase();
+  if (!value) return;
+
+  // Redirect for courses/universities
+  if (value.includes("course")) {
+    window.location.href = "coursepage.html";
+    searchInput.value = "";
+    return;
+  }
+  if (value.includes("university")) {
+    window.location.href = "universitypage.html";
+    searchInput.value = "";
+    return;
+  }
+
+  // Homepage section scroll
+  let found = false;
+  homepageSections.forEach(section => {
+    if (matchesKeyword(value, section.keywords)) {
+      const el = document.querySelector(section.selector);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+        found = true;
+        searchInput.value = "";
+      }
+    }
+  });
+  if (!found) {
+    alert("No matching section found.");
+  }
+}
+
+searchBtn.addEventListener('click', function(e) {
+  doSearch();
+});
+
+searchInput.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') {
+    doSearch();
+  }
+});
+});
+</script>
+</body>
 </html>

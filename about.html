@@ -90,6 +90,54 @@
                 <li><strong>Guided and Personalized</strong> – We're not just a directory—we're your partner in progress. Our smart tools and friendly support help you navigate your path with confidence.</li>
                 <li><strong>Accessible for Everyone, Anywhere</strong> – Whether you're a student, a working professional, or a curious learner, AUnipath brings opportunities to your fingertips—right when you need them.</li>
             </ul>
+
+            <h2>Course Finder</h2>
+            <p>
+                The Course Finder section is designed to address the widespread issue of strand–course misalignment in the 
+                Philippines. Many students enter college without a clear understanding of which degree programs are aligned with 
+                their SHS strand or personal interests. This feature allows them to explore recommended courses based on their 
+                strand, helping them avoid unnecessary academic struggles, wasted tuition, or program shifting later on. 
+            </p>
+            
+            <h3>What the Course Finder solves:</h3>
+            <ul>
+                <li>1. Mismatch between a student’s SHS strand and the college course they pursue.</li>
+                <li>2. Lack of awareness about which college degrees are best suited to their background.</li>
+                <li>3. Risk of taking bridging courses, shifting programs, or dropping out due to poor course fit.</li>
+            </ul>
+            <img src="Elements/Images/Course Finder Sample.png" alt="course finder sample" class="finder-img">
+
+            <div style="margin-top:2.2rem;text-align:left;">
+              <div style="font-size:1.12rem;font-weight:600;margin-bottom:0.7rem;color:#3F118B;font-style:italic;">Try AUniPath's course finder now!</div>
+                <a href="../universitypage.html" class="finduniversity-btn">
+                  <div class="overlap-3"><div class="text-wrapper-6">Find a Course</div></div>
+                </a>
+            </div>
+
+
+            <h2>University Finder</h2>
+            <p>
+                The University Finder is a key feature of AUniPath that helps senior high school graduates find universities 
+                that align with their academic background, interests, and chosen course. Many students feel lost when exploring 
+                their options, especially when information online is unorganized or incomplete. This section addresses that 
+                confusion by offering students a way to explore universities based on relevant filters such as location, course 
+                offerings, entrance exam requirements, and scholarship availability. 
+            </p>
+            
+            <h3>What the University Finder solves:</h3>
+            <ul>
+                <li>1. Difficulty finding universities that match the student’s SHS strand and intended course.</li>
+                <li>2. Lack of centralized information about admissions, programs, and scholarship options.</li>
+                <li>3. Overwhelm caused by scattered or outdated content from social media and unofficial sources.</li>
+            </ul>
+            <img src="Elements/Images/University Finder Sample.png" alt="university finder sample" class="finder-img">
+            <div style="margin-top:2.2rem;text-align:left;">
+              <div style="font-size:1.12rem;font-weight:600;margin-bottom:0.7rem;color:#3F118B;font-style:italic;">Try AUniPath's university finder now!</div>
+                <a href="../universitypage.html" class="finduniversity-btn">
+                  <div class="overlap-3"><div class="text-wrapper-6">Find a University</div></div>
+                </a>
+            </div>
+
           </div>
           
           <!-- Group Photos Section -->
@@ -154,6 +202,86 @@
       </div>
     </div>
     <script src="js/userlogin.js">
+    </script>
+    <script>
+    // Search functionality for navigation bar (About Page)
+    document.addEventListener('DOMContentLoaded', function() {
+      const searchInput = document.querySelector('.search-input');
+      const searchBtn = document.querySelector('.SEARCH-btn');
+
+      // Section mapping for about page
+      const aboutSections = [
+        { keywords: ["meet the team", "team"], selector: ".meet-team-section" },
+        { keywords: ["about us", "about"], selector: ".about-section" },
+        { keywords: ["why use aunipath", "why aunipath", "why use"], selector: "h2" },
+        { keywords: ["here's what makes aunipath your ultimate academic companion", "academic companion", "what makes aunipath"], selector: "h3" },
+        { keywords: ["course finder", "course"], selector: "h2" },
+        { keywords: ["what the course finder solves", "course finder solves", "course solves"], selector: "h3" },
+        { keywords: ["university finder", "university"], selector: "h2" },
+        { keywords: ["what the university finder solves", "university finder solves", "university solves"], selector: "h3" }
+      ];
+
+      // Helper: fuzzy match
+      function matchesKeyword(input, keywords) {
+        input = input.toLowerCase();
+        return keywords.some(kw => input.includes(kw));
+      }
+
+      searchBtn.addEventListener('click', function(e) {
+        doSearch();
+      });
+
+      searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+          doSearch();
+        }
+      });
+
+      function doSearch() {
+        const value = searchInput.value.trim().toLowerCase();
+        if (!value) return;
+
+        // Redirect for courses/universities
+        if (value.includes("courses") || value === "course") {
+          window.location.href = "coursepage.html";
+          searchInput.value = "";
+          return;
+        }
+        if (value.includes("universities") || value === "university") {
+          window.location.href = "universitypage.html";
+          searchInput.value = "";
+          return;
+        }
+
+        // About page section scroll
+        let found = false;
+        for (let section of aboutSections) {
+          if (matchesKeyword(value, section.keywords)) {
+            let el = null;
+            // For selectors that are tag names, find the first matching with correct text
+            if (section.selector === "h2" || section.selector === "h3") {
+              const headers = document.querySelectorAll(section.selector);
+              headers.forEach(header => {
+                if (matchesKeyword(header.textContent.toLowerCase(), section.keywords)) {
+                  el = header;
+                }
+              });
+            } else {
+              el = document.querySelector(section.selector);
+            }
+            if (el) {
+              el.scrollIntoView({ behavior: "smooth" });
+              found = true;
+              searchInput.value = "";
+              return;
+            }
+          }
+        }
+        if (!found) {
+          alert("No matching section found.");
+        }
+      }
+    });
     </script>
   </body>
 </html>

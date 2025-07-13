@@ -1082,6 +1082,16 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
+        .finder-img {
+            width: 100%;
+            max-width: 950px;
+            height: auto;
+            border-radius: 15px;
+            margin: 30px auto;
+            display: block;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
 /* ===== MEET THE TEAM SECTION ===== */
 .meet-team-section {
     background: #3F118B;
