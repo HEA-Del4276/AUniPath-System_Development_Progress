@@ -1,5 +1,209 @@
 // Course Page - Direct Display (No Multi-Step)
 document.addEventListener('DOMContentLoaded', function() {
+    // University data array
+    const universities = [
+      {
+        name: 'FEU Institute of Technology',
+        logo: 'Elements/Images/feutech-logo.png',
+        url: 'https://www.feutech.edu.ph/',
+        info: 'FEU Tech is a top technology school in Manila, offering innovative programs in IT, engineering, and multimedia.',
+        courses: [
+          'Bachelor of Fine Arts in Animation',
+          'Bachelor of Science in Digital Animation',
+          'Bachelor of Arts in Multimedia Arts',
+          'Bachelor in Game Design & Animation',
+          'Bachelor of Science in Information Technology',
+          'Bachelor of Science in Mechanical Engineering',
+          'Bachelor of Science in Industrial Engineering',
+          'Bachelor of Science in Accountancy',
+          'Bachelor of Science in Management Accounting',
+          'Bachelor of Science in Forensic Accounting',
+          'Bachelor of Science in Public Accounting',
+          'Bachelor of Science in Corporate Accounting'
+        ]
+      },
+      {
+        name: 'Polytechnic University of the Philippines (PUP)',
+        logo: 'Elements/Images/pup-logo.png',
+        url: 'https://www.pup.edu.ph/',
+        info: 'PUP is a leading state university known for affordable, quality education in engineering, technology, and business.',
+        courses: [
+          'Bachelor of Science in Computer Science',
+          'Bachelor of Science in Information Technology',
+          'Bachelor of Science in Civil Engineering',
+          'Bachelor of Science in Electrical Engineering',
+          'Bachelor of Science in Industrial Engineering',
+          'Bachelor of Science in Biology',
+          'Bachelor of Science in Molecular Biology',
+          'Bachelor of Science in Environmental Biology',
+          'Bachelor of Science in Microbiology',
+          'Bachelor of Science in Neurobiology',
+          'Bachelor of Science in Accountancy',
+          'Bachelor of Science in Management Accounting',
+          'Bachelor of Science in Forensic Accounting',
+          'Bachelor of Science in Public Accounting',
+          'Bachelor of Science in Corporate Accounting'
+        ]
+      },
+      {
+        name: 'University of Santo Tomas (UST)',
+        logo: 'Elements/Images/ust-logo.png',
+        url: 'https://www.ust.edu.ph/',
+        info: 'UST is the oldest university in Asia, offering a wide range of programs in science, engineering, and the arts.',
+        courses: [
+          'Bachelor of Science in Computer Science',
+          'Bachelor of Science in Information Technology',
+          'Bachelor of Science in Mechanical Engineering',
+          'Bachelor of Science in Civil Engineering',
+          'Bachelor of Science in Electrical Engineering',
+          'Bachelor of Science in Industrial Engineering',
+          'Bachelor of Science in Biology',
+          'Bachelor of Science in Molecular Biology',
+          'Bachelor of Science in Environmental Biology',
+          'Bachelor of Science in Microbiology',
+          'Bachelor of Science in Neurobiology',
+          'Bachelor of Science in Accountancy',
+          'Bachelor of Science in Management Accounting',
+          'Bachelor of Science in Forensic Accounting',
+          'Bachelor of Science in Public Accounting',
+          'Bachelor of Science in Corporate Accounting'
+        ]
+      },
+      {
+        name: 'Pamantasan ng Lungsod ng Maynila (PLM)',
+        logo: 'Elements/Images/plm-logo.png',
+        url: 'https://www.plm.edu.ph/',
+        info: 'PLM is a premier city university in Manila, known for excellence in engineering, science, and accountancy.',
+        courses: [
+          'Bachelor of Science in Computer Science',
+          'Bachelor of Science in Information Technology',
+          'Bachelor of Science in Civil Engineering',
+          'Bachelor of Science in Biology',
+          'Bachelor of Science in Molecular Biology',
+          'Bachelor of Science in Environmental Biology',
+          'Bachelor of Science in Microbiology',
+          'Bachelor of Science in Neurobiology',
+          'Bachelor of Science in Accountancy',
+          'Bachelor of Science in Management Accounting',
+          'Bachelor of Science in Forensic Accounting',
+          'Bachelor of Science in Public Accounting',
+          'Bachelor of Science in Corporate Accounting'
+        ]
+      },
+      {
+        name: 'Ateneo de Manila University (ADMU)',
+        logo: 'Elements/Images/admu-logo.png',
+        url: 'https://www.ateneo.edu/',
+        info: 'Ateneo is a top private university in Quezon City, offering strong programs in science, engineering, and biology.',
+        courses: [
+          'Bachelor of Science in Computer Science',
+          'Bachelor of Science in Biology',
+          'Bachelor of Science in Molecular Biology',
+          'Bachelor of Science in Environmental Biology',
+          'Bachelor of Science in Microbiology',
+          'Bachelor of Science in Neurobiology'
+        ]
+      },
+      {
+        name: 'De La Salle University (DLSU)',
+        logo: 'Elements/Images/dlsu-logo.png',
+        url: 'https://www.dlsu.edu.ph/',
+        info: 'DLSU is a leading private university in Manila, known for its engineering, technology, and science programs.',
+        courses: [
+          'Bachelor of Science in Computer Science',
+          'Bachelor of Science in Information Technology',
+          'Bachelor of Science in Mechanical Engineering',
+          'Bachelor of Science in Civil Engineering',
+          'Bachelor of Science in Electrical Engineering',
+          'Bachelor of Science in Industrial Engineering',
+          'Bachelor of Science in Biology',
+          'Bachelor of Science in Molecular Biology',
+          'Bachelor of Science in Environmental Biology',
+          'Bachelor of Science in Microbiology',
+          'Bachelor of Science in Neurobiology',
+          'Bachelor of Science in Accountancy',
+          'Bachelor of Science in Management Accounting',
+          'Bachelor of Science in Forensic Accounting',
+          'Bachelor of Science in Public Accounting',
+          'Bachelor of Science in Corporate Accounting'
+        ]
+      },
+      {
+        name: 'University of the Philippines Diliman (UP Diliman)',
+        logo: 'Elements/Images/up-logo.png',
+        url: 'https://upd.edu.ph/',
+        info: 'UP Diliman is the flagship campus of the national university, offering top programs in engineering, science, and IT.',
+        courses: [
+          'Bachelor of Science in Computer Science',
+          'Bachelor of Science in Information Technology',
+          'Bachelor of Science in Mechanical Engineering',
+          'Bachelor of Science in Civil Engineering',
+          'Bachelor of Science in Electrical Engineering',
+          'Bachelor of Science in Industrial Engineering',
+          'Bachelor of Science in Biology',
+          'Bachelor of Science in Molecular Biology',
+          'Bachelor of Science in Environmental Biology',
+          'Bachelor of Science in Microbiology',
+          'Bachelor of Science in Neurobiology',
+          'Bachelor of Science in Accountancy',
+          'Bachelor of Science in Management Accounting',
+          'Bachelor of Science in Forensic Accounting',
+          'Bachelor of Science in Public Accounting',
+          'Bachelor of Science in Corporate Accounting'
+        ]
+      },
+      {
+        name: 'Mapúa University',
+        logo: 'Elements/Images/mapua-logo.png',
+        url: 'https://www.mapua.edu.ph/',
+        info: 'Mapúa is a top engineering and technology university in Manila, with strong programs in engineering and IT.',
+        courses: [
+          'Bachelor of Science in Computer Science',
+          'Bachelor of Science in Information Technology',
+          'Bachelor of Science in Mechanical Engineering',
+          'Bachelor of Science in Civil Engineering',
+          'Bachelor of Science in Electrical Engineering',
+          'Bachelor of Science in Industrial Engineering',
+          'Bachelor of Science in Biology',
+          'Bachelor of Science in Molecular Biology',
+          'Bachelor of Science in Environmental Biology',
+          'Bachelor of Science in Microbiology',
+          'Bachelor of Science in Neurobiology',
+          'Bachelor of Science in Accountancy',
+          'Bachelor of Science in Management Accounting',
+          'Bachelor of Science in Forensic Accounting',
+          'Bachelor of Science in Public Accounting',
+          'Bachelor of Science in Corporate Accounting'
+        ]
+      }
+    ];
+
+    // Render university cards dynamically
+    function renderUniversityCards(containerId) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      container.innerHTML = '';
+      universities.forEach(univ => {
+        const card = document.createElement('div');
+        card.className = 'university-card';
+        card.innerHTML = `
+          <div class="university-card-content">
+            <a href="${univ.url}" target="_blank" class="university-logo-link">
+              <img src="${univ.logo}" alt="${univ.name} Logo" class="university-logo" />
+            </a>
+            <div class="university-name">${univ.name}</div>
+            <div class="university-info">${univ.info}</div>
+            <div class="university-courses">
+              <span class="courses-label">Courses:</span>
+              <ul class="courses-list">
+                ${univ.courses.map(course => `<li>${course}</li>`).join('')}
+              </ul>
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
     console.log('Course page JavaScript loaded');
     
     // Get all necessary elements
@@ -68,50 +272,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     function showCourseCards() {
-        const universitiesTrack = document.getElementById('universitiesTrack');
-        universitiesTrack.innerHTML = `
-            <!-- Course Card 1 -->
-            <div class="course-card">
-                <div class="course-photo"></div>
-                <div class="course-title">Computer Science</div>
-                <div class="course-description">Bachelor of Science in Computer Science</div>
-            </div>
-            
-            <!-- Course Card 2 -->
-            <div class="course-card">
-                <div class="course-photo"></div>
-                <div class="course-title">Information Technology</div>
-                <div class="course-description">Bachelor of Science in Information Technology</div>
-            </div>
-            
-            <!-- Course Card 3 -->
-            <div class="course-card">
-                <div class="course-photo"></div>
-                <div class="course-title">Business Administration</div>
-                <div class="course-description">Bachelor of Science in Business Administration</div>
-            </div>
-            
-            <!-- Course Card 4 -->
-            <div class="course-card">
-                <div class="course-photo"></div>
-                <div class="course-title">Engineering</div>
-                <div class="course-description">Bachelor of Science in Engineering</div>
-            </div>
-            
-            <!-- Course Card 5 -->
-            <div class="course-card">
-                <div class="course-photo"></div>
-                <div class="course-title">Psychology</div>
-                <div class="course-description">Bachelor of Arts in Psychology</div>
-            </div>
-            
-            <!-- Course Card 6 -->
-            <div class="course-card">
-                <div class="course-photo"></div>
-                <div class="course-title">Nursing</div>
-                <div class="course-description">Bachelor of Science in Nursing</div>
-            </div>
-        `;
+        renderUniversityCards('universitiesTrack');
     }
     
     // Recommended Courses Section Setup
