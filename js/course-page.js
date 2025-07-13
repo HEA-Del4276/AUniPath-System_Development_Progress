@@ -113,4 +113,94 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         `;
     }
+    
+    // Recommended Courses Section Setup
+    const browseAllCoursesSection = document.getElementById('browseAllCoursesSection');
+    const recommendedSliderTrack = document.getElementById('recommendedSliderTrack');
+    const recommendedPrevBtn = document.getElementById('recommendedPrevBtn');
+    const recommendedNextBtn = document.getElementById('recommendedNextBtn');
+    let recommendedSliderIndex = 0;
+    let recommendedSliderCards = [];
+    const recommendedCoursesDetailed = [
+      { icon: '🎨', title: 'Bachelor of Fine Arts in Animation', specialization: '2D, 3D Animation, Character Design', keywords: ['animation', 'fine arts'] },
+      { icon: '🌀', title: 'Bachelor of Science in Digital Animation', specialization: 'Visual Effects, CGI, Motion Graphics', keywords: ['animation', 'digital'] },
+      { icon: '📽️', title: 'Bachelor of Arts in Multimedia Arts', specialization: 'Graphic Design, Interactive Media', keywords: ['multimedia', 'animation'] },
+      { icon: '👾', title: 'Bachelor in Game Design & Animation', specialization: 'Game Animation, Rigging', keywords: ['game', 'animation'] },
+      { icon: '💻', title: 'Bachelor of Science in Computer Science', specialization: 'Software, AI, Algorithms', keywords: ['computer', 'coding', 'technology'] },
+      { icon: '🖥️', title: 'Bachelor of Science in Information Technology', specialization: 'Web/Mobile Development', keywords: ['information', 'technology', 'coding'] },
+      { icon: '⚙️', title: 'Bachelor of Science in Mechanical Engineering', specialization: 'Thermodynamics, Robotics', keywords: ['mechanical', 'engineering'] },
+      { icon: '🏗️', title: 'Bachelor of Science in Civil Engineering', specialization: 'Construction, Structural Design', keywords: ['civil', 'engineering'] },
+      { icon: '💡', title: 'Bachelor of Science in Electrical Engineering', specialization: 'Circuits, Power Systems', keywords: ['electrical', 'engineering'] },
+      { icon: '📚', title: 'Bachelor of Science in Forensic Accounting', specialization: 'Auditing, Investigation', keywords: ['forensic', 'accounting'] }
+    ];
+    
+    function filterRecommendedSlider(filter) {
+      if (!filter) return recommendedCoursesDetailed;
+      filter = filter.toLowerCase();
+      return recommendedCoursesDetailed.filter(card =>
+        card.keywords.some(k => filter.includes(k))
+      );
+    }
+    
+    function renderRecommendedSlider(cards, startIdx = 0) {
+      recommendedSliderTrack.innerHTML = '';
+      for (let i = startIdx; i < Math.min(cards.length, startIdx + 3); i++) {
+        const card = cards[i];
+        const cardDiv = document.createElement('div');
+        cardDiv.className = 'recommended-slider-card';
+        cardDiv.innerHTML = `
+          <div class="recommended-slider-icon-circle">${card.icon}</div>
+          <div class="recommended-slider-title">${card.title}</div>
+          <div class="recommended-slider-specialization">${card.specialization}</div>
+        `;
+        recommendedSliderTrack.appendChild(cardDiv);
+      }
+    }
+    
+    // Replace your current findCourseBtn click with this:
+    findCourseBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      console.log('Find Course button clicked');
+  
+      const filter = courseSearchInput.value.trim().toLowerCase();
+      const filtered = filterRecommendedSlider(filter);
+  
+      if (!filter) {
+        alert('Please type a course keyword to find a course.');
+        return;
+      }
+  
+      if (filtered.length === 0) {
+        alert('No matching course found. Try another keyword.');
+        return;
+      }
+  
+      // Show recommended, hide browse-all
+      if (recommendedSection) recommendedSection.style.display = 'block';
+      if (browseAllCoursesSection) browseAllCoursesSection.style.display = 'none';
+      if (updatesSection) updatesSection.style.display = 'block';
+  
+      recommendedSliderCards = filtered;
+      recommendedSliderIndex = 0;
+      renderRecommendedSlider(recommendedSliderCards, recommendedSliderIndex);
+    });
+    
+    // Arrow nav
+    if (recommendedPrevBtn) {
+      recommendedPrevBtn.addEventListener('click', function () {
+        if (recommendedSliderIndex > 0) {
+          recommendedSliderIndex--;
+          renderRecommendedSlider(recommendedSliderCards, recommendedSliderIndex);
+        }
+      });
+    }
+    if (recommendedNextBtn) {
+      recommendedNextBtn.addEventListener('click', function () {
+        if (recommendedSliderIndex < recommendedSliderCards.length - 3) {
+          recommendedSliderIndex++;
+          renderRecommendedSlider(recommendedSliderCards, recommendedSliderIndex);
+        }
+      });
+    }
 });
+

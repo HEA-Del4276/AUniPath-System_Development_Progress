@@ -135,34 +135,8 @@
   transition: box-shadow 0.2s;
 }
 .recommended-slider-card:hover {
-  width: 110px;
-  height: 110px;
-  background: rgba(255,255,255,0.12);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 4.5rem;
-  margin-bottom: 22px;
-  box-shadow: none;
-  justify-content: center;
-  font-size: 2.5rem;
-  font-size: 1.35rem;
-  font-weight: 600;
-  color: #fff;
-  text-align: center;
-  margin-bottom: 10px;
-  font-family: 'SF Cartoonist Hand', 'SF Cartoonist Hand-Regular', Helvetica, Arial, sans-serif;
-  color: #3F118B;
-  text-align: center;
-  font-size: 1.05rem;
-  color: #fff;
-  text-align: center;
-  margin-bottom: 0;
-  font-size: 0.98rem;
-  color: #5a4a7b;
-  text-align: center;
-  margin-bottom: 4px;
+  transform: translateY(-5px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
 }
 .slide-nav {
   width: 36px;
@@ -185,21 +159,7 @@
 .slide-nav.next {
   right: -48px;
 }
-.slide-nav::before {
-  content: '';
-  display: block;
-  width: 16px;
-  height: 16px;
-  border: solid #7e5bef;
-  border-width: 0 4px 4px 0;
-  padding: 2px;
-}
-.slide-nav.prev::before {
-  transform: rotate(135deg);
-}
-.slide-nav.next::before {
-  transform: rotate(-45deg);
-}
+/* Removed pseudo-element styles for .slide-nav buttons to eliminate symbols. */
 /* Recommended Courses Section Styles */
 .recommended-courses-list {
   display: flex;

@@ -40,7 +40,7 @@
             <div class="course-tagline">Which Path Will You Take?</div>
             <div class="course-search-container">
               <div class="course-search-bar">
-                <input type="text" class="course-search-input" placeholder="Search for courses..." oninput="filterCoursesHero()" />
+                <input type="text" class="course-search-input" placeholder="Search for courses..."/>
                 <button class="course-search-btn" aria-label="Search" onclick="filterCoursesHero()">
                   <img class="course-search-icon" src="Elements/Components/search button.png" alt="Search" />
                 </button>
@@ -167,17 +167,17 @@
 
           <!-- Recommended Courses & Top Universities Section (Hidden by Default) -->
           <div id="recommendedSection" style="display:none;">
-            <div class="recommended-courses-bar">
+            <div class="recommended-courses-bar" style="margin-bottom:0;">
               <h2 class="recommended-title">Recommended Courses For You</h2>
             </div>
-            <div class="recommended-slider-section">
+            <div class="recommended-slider-section" style="margin-top:0;">
               <div class="recommended-slider-container">
                 <div class="recommended-slider-track" id="recommendedSliderTrack">
                   <!-- Recommended bachelor course cards will be rendered here -->
                 </div>
-                <!-- Navigation Arrows -->
-                <button class="slide-nav prev" id="recommendedPrevBtn" aria-label="Previous University">‹</button>
-                <button class="slide-nav next" id="recommendedNextBtn" aria-label="Next University">›</button>
+                <!-- Navigation Arrows (homepage style: one per side) -->
+                <button class="slide-nav prev" id="recommendedPrevBtn" aria-label="Previous Course"></button>
+                <button class="slide-nav next" id="recommendedNextBtn" aria-label="Next Course"></button>
               </div>
             </div>
             <!-- Scholarship Updates Section (copied from homepage, visible only after clicking Find a Course) -->
@@ -449,12 +449,19 @@
           e.preventDefault();
           const input = document.querySelector('.course-search-input');
           const filter = input.value.trim().toLowerCase();
+          // Only allow if filter matches a course keyword
+          const filtered = filterRecommendedSlider(filter);
+          if (!filter) {
+            alert('Please type a course keyword to find a course.');
+            return;
+          }
+          if (filtered.length === 0) {
+            alert('No matching course found. Please try another keyword.');
+            return;
+          }
           recommendedSection.style.display = 'block';
           browseAllCoursesSection.style.display = 'none';
-          recommendedSliderCards = filterRecommendedSlider(filter);
-          if (recommendedSliderCards.length === 0) {
-            recommendedSliderCards = recommendedCoursesDetailed;
-          }
+          recommendedSliderCards = filtered;
           recommendedSliderIndex = 0;
           renderRecommendedSlider(recommendedSliderCards, recommendedSliderIndex);
         });
@@ -477,20 +484,10 @@
         });
       }
 
-      // Keep the original filter for Browse All Courses
+      // Only filter recommended slider, not Browse All Courses
       function filterCoursesHero() {
         const input = document.querySelector('.course-search-input');
         const filter = input.value.toLowerCase();
-        const courseCards = document.querySelectorAll('.course-contents');
-        courseCards.forEach(card => {
-          const title = card.querySelector('.course').textContent.toLowerCase();
-          const desc = card.querySelector('.course-description').textContent.toLowerCase();
-          if (title.includes(filter) || desc.includes(filter)) {
-            card.style.display = '';
-          } else {
-            card.style.display = 'none';
-          }
-        });
       }
     </script>
     <script src="../js/userlogin.js"></script>
