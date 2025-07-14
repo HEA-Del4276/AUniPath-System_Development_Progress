@@ -1,3 +1,165 @@
+
+/* Top Courses from these universities section spacing and layout */
+.recommended-universities-section {
+  width: 100%;
+  margin: 48px auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+.universities-slideshow {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+.slideshow-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+.universities-track {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, auto);
+  gap: 32px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto 48px auto;
+  align-items: stretch;
+  justify-items: center;
+}
+.horizontal-university-card {
+  margin-bottom: 0;
+}
+.horizontal-university-card:not(:last-child) {
+  margin-bottom: 16px;
+}
+.university-cards-title {
+  margin-bottom: 64px;
+}
+/* Horizontal University Card Styles (like homepage scholarship card) */
+.university-cards-section {
+  width: 100%;
+  margin: 48px auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.university-cards-title {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto 50px auto;
+  padding: 0 20px;
+  font-family: "Inter", Helvetica;
+  font-weight: 700;
+  color: #1f4784;
+  font-size: 36px;
+  letter-spacing: 1.5px;
+  line-height: normal;
+  text-align: left;
+  box-sizing: border-box;
+}
+.university-cards-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, auto);
+  gap: 32px;
+  justify-items: center;
+  align-items: stretch;
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.horizontal-university-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  padding: 0;
+  overflow: hidden;
+  min-height: 200px;
+  max-width: 1400px;
+  width: 100%;
+  border: 1px solid #f5f5f5;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+  position: relative;
+  text-decoration: none;
+  cursor: pointer;
+}
+.horizontal-university-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  border-color: #e8e8e8;
+}
+.horizontal-university-card-img {
+  width: 280px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px 0 0 15px;
+}
+.horizontal-university-card-img img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(63, 17, 139, 0.15);
+  margin: auto;
+}
+.horizontal-university-card-content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 2px;
+}
+.horizontal-university-card-title {
+  font-family: 'SF Cartoonist Hand', 'SF Cartoonist Hand-Regular', Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #3F118B;
+  margin-bottom: 2px;
+  line-height: 1.3;
+}
+.horizontal-university-card-desc {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  font-size: 1.05rem;
+  color: #444;
+  margin-bottom: 0;
+}
+.horizontal-university-card-arrow {
+  margin-left: auto;
+  margin-right: 32px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.horizontal-university-card-arrow svg {
+  width: 38px;
+  height: 38px;
+  color: #7e5bef;
+}
 /* Course Page Hero Section Styles */
 .course-hero-section {
     padding: 60px 20px;
@@ -177,7 +339,7 @@
       .university-cards-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 18px;
+        gap: 0px;
         max-width: 1200px;
         margin: 0 auto;
         justify-items: stretch;
@@ -193,7 +355,7 @@
         flex-direction: column;
         align-items: center;
         min-width: 0;
-        min-height: 620px;
+        min-height: 600px;
         transition: box-shadow 0.2s;
       }
       .university-card:hover {
@@ -319,3 +481,17 @@
   border-radius: 50%;
 }
 
+.university-cards-title {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto 50px auto;
+  padding: 0 20px;
+  font-family: "Inter", Helvetica;
+  font-weight: 700;
+  color: #1f4784;
+  font-size: 36px;
+  letter-spacing: 1.5px;
+  line-height: normal;
+  text-align: left;
+  box-sizing: border-box;
+}
