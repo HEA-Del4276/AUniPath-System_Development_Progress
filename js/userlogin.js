@@ -1,198 +1,153 @@
 // File: js/userlogin.js
 
     // Only add form submit handler if form exists (login or signup page)
-    var form = document.querySelector('.form-area form');
-    if (form) {
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        // Simulate login/signup success
-        var emailInput = form.querySelector('input[type="email"]');
-        var passwordInput = form.querySelector('input[type="password"]');
-        var email = emailInput ? emailInput.value : '';
-        localStorage.setItem('aunipath_logged_in', 'true');
-        localStorage.setItem('aunipath_user_email', email);
-        updateNavBar();
-        // Empty form fields
-        if (emailInput) emailInput.value = '';
-        if (passwordInput) passwordInput.value = '';
-        // Also clear other fields (for signup)
-        var otherInputs = form.querySelectorAll('input:not([type="email"]):not([type="password"])');
-        otherInputs.forEach(function(input) { input.value = ''; });
+var form = document.querySelector('.form-area form');
+if (form) {
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var emailInput = form.querySelector('input[type="email"]');
+    var passwordInput = form.querySelector('input[type="password"]');
+    var email = emailInput ? emailInput.value : '';
+    localStorage.setItem('aunipath_logged_in', 'true');
+    localStorage.setItem('aunipath_user_email', email);
+    updateNavBar();
+    if (emailInput) emailInput.value = '';
+    if (passwordInput) passwordInput.value = '';
+    var otherInputs = form.querySelectorAll('input:not([type="email"]):not([type="password"])');
+    otherInputs.forEach(function (input) {
+      input.value = '';
+    });
+    if (window.location.pathname.replace(/\\/g, '/').endsWith('login.html')) {
+      window.location.reload();
+    }
+  });
+}
+
+function updateNavBar() {
+  const navRight = document.querySelector('.nav-right');
+  const email = localStorage.getItem('aunipath_user_email') || '';
+  if (navRight) {
+    let path = window.location.pathname.replace(/\\/g, '/');
+    let isCoursePage = path.includes('coursepage.html');
+    let isUniPage = path.includes('universitypage.html');
+    let isRoot = !isCoursePage && !isUniPage;
+    let rootPrefix = isRoot ? '' : '../';
+    let coursePrefix = isCoursePage ? '' : (isUniPage ? '../AUNIPATH coursepage/' : 'AUNIPATH coursepage/');
+    let uniPrefix = isUniPage ? '' : (isCoursePage ? '../AUNIPATH unipage/' : 'AUNIPATH unipage/');
+    let iconPrefix = isRoot ? 'Elements/Components/' : '../Elements/Components/';
+    const isLoginPage = path.endsWith('/login.html') || path.endsWith('login.html');
+    const isSignupPage = path.endsWith('/signup.html') || path.endsWith('signup.html');
+    const isLoggedIn = localStorage.getItem('aunipath_logged_in') === 'true';
+
+    let navLinks = `<a href="${rootPrefix}index.html" class="nav-link">Home</a>
+      <a href="${rootPrefix}about.html" class="nav-link">About</a>`;
+    
+    if (isCoursePage || isUniPage) {
+      navLinks += `
+      <a href="${rootPrefix}coursepage.html" class="nav-link">Courses</a>
+      <a href="${rootPrefix}universitypage.html" class="nav-link">Universities</a>`;
+    }
+
+    let icons = '';
+    if (isLoggedIn) {
+      icons = `\n<div class="nav-icon notifs" style="position:relative;display:inline-block;">
+        <img src="${iconPrefix}notifs.png" alt="Notifications" style="height:44px;width:44px;margin-right:18px;vertical-align:middle;cursor:pointer;" />
+        <div class="notifs-dropdown" style="display:none;position:absolute;top:120%;right:0;background:#fff;border:1px solid #ddd;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.13);min-width:320px;z-index:30;">
+          <div class="notif-item" data-univ="FEU Institute of Technology" style="display:flex;align-items:center;padding:12px 16px;cursor:pointer;gap:12px;">
+            <img src="${iconPrefix}AUniPath Logo 1.png" alt="FEU Tech Logo" style="width:40px;height:40px;border-radius:50%;border:2px solid #8b5cf6;object-fit:cover;" />
+            <div>
+              <div style="font-weight:600;color:#3F118B;">FEU Institute of Technology</div>
+              <div style="color:#8b5cf6;">Scholarship applications open!</div>
+            </div>
+          </div>
+          <div class="notif-item" data-univ="University of Santo Tomas" style="display:flex;align-items:center;padding:12px 16px;cursor:pointer;gap:12px;">
+            <img src="${iconPrefix}AUniPath Logo 1.png" alt="UST Logo" style="width:40px;height:40px;border-radius:50%;border:2px solid #8b5cf6;object-fit:cover;" />
+            <div>
+              <div style="font-weight:600;color:#3F118B;">University of Santo Tomas</div>
+              <div style="color:#8b5cf6;">Entrance exams announced!</div>
+            </div>
+          </div>
+          <div class="notif-item" data-univ="De La Salle University" style="display:flex;align-items:center;padding:12px 16px;cursor:pointer;gap:12px;">
+            <img src="${iconPrefix}AUniPath Logo 1.png" alt="DLSU Logo" style="width:40px;height:40px;border-radius:50%;border:2px solid #8b5cf6;object-fit:cover;" />
+            <div>
+              <div style="font-weight:600;color:#3F118B;">De La Salle University</div>
+              <div style="color:#8b5cf6;">Open registration now available!</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-icon profile" style="position:relative;display:inline-block;cursor:pointer;margin-right:48px;">
+        <img src="${iconPrefix}profile.png" alt="Profile" style="height:44px;width:44px;vertical-align:middle;border-radius:50%;" />
+        <span class="profile-tooltip" style="display:none;position:absolute;top:110%;left:50%;transform:translateX(-50%);background:#fff;color:#3F118B;padding:6px 14px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.12);font-size:0.98rem;white-space:nowrap;z-index:10;">${email}</span>
+        <div class="profile-dropdown" style="display:none;position:absolute;top:120%;right:0;background:#fff;border:1px solid #ddd;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.13);min-width:180px;z-index:20;">
+          <a href="#" class="dropdown-item account-settings" style="display:block;padding:12px 18px;color:#3F118B;text-decoration:none;">Account Settings</a>
+          <a href="#" class="dropdown-item view-save" style="display:block;padding:12px 18px;color:#3F118B;text-decoration:none;">View My Save</a>
+        </div>
+      </div>`;
+    } else {
+      icons = `\n<a href="${rootPrefix}login.html" class="nav-btn login-btn">Log In</a>\n<a href="${rootPrefix}signup.html" class="nav-btn signup-btn">Sign Up</a>`;
+    }
+
+    navRight.innerHTML = navLinks + icons;
+
+    const profile = navRight.querySelector('.profile');
+    const tooltip = navRight.querySelector('.profile-tooltip');
+    if (profile && tooltip) {
+      profile.addEventListener('mouseenter', () => tooltip.style.display = 'block');
+      profile.addEventListener('mouseleave', () => tooltip.style.display = 'none');
+    }
+
+    if (profile) {
+      const dropdown = navRight.querySelector('.profile-dropdown');
+      profile.addEventListener('click', function (e) {
+        e.stopPropagation();
+        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+      });
+      document.addEventListener('click', () => dropdown.style.display = 'none');
+      profile.addEventListener('mouseleave', () => setTimeout(() => {
+        if (!dropdown.matches(':hover') && !profile.matches(':hover')) dropdown.style.display = 'none';
+      }, 120));
+      dropdown.addEventListener('mouseleave', () => setTimeout(() => {
+        if (!dropdown.matches(':hover') && !profile.matches(':hover')) dropdown.style.display = 'none';
+      }, 120));
+    }
+
+    const notifs = navRight.querySelector('.notifs');
+    if (notifs) {
+      const notifsDropdown = navRight.querySelector('.notifs-dropdown');
+      notifs.addEventListener('click', function (e) {
+        e.stopPropagation();
+        notifsDropdown.style.display = notifsDropdown.style.display === 'block' ? 'none' : 'block';
+      });
+      document.addEventListener('click', () => notifsDropdown.style.display = 'none');
+      notifs.addEventListener('mouseleave', () => setTimeout(() => {
+        if (!notifsDropdown.matches(':hover') && !notifs.matches(':hover')) notifsDropdown.style.display = 'none';
+      }, 120));
+      notifsDropdown.addEventListener('mouseleave', () => setTimeout(() => {
+        if (!notifsDropdown.matches(':hover') && !notifs.matches(':hover')) notifsDropdown.style.display = 'none';
+      }, 120));
+      notifsDropdown.querySelectorAll('.notif-item').forEach(item => {
+        item.addEventListener('click', function (ev) {
+          ev.stopPropagation();
+          showNotifErrorModal();
+          notifsDropdown.style.display = 'none';
+        });
       });
     }
 
-    function updateNavBar() {
-      const navRight = document.querySelector('.nav-right');
-      const email = localStorage.getItem('aunipath_user_email') || '';
-      if (navRight) {
-        // Determine correct relative path for icons based on current page location
-        // Use correct relative links and image paths for each page
-        // Determine depth (root, AUNIPATH coursepage, or AUNIPATH unipage)
-        let path = window.location.pathname.replace(/\\/g, '/');
-        let isCoursePage = path.includes('coursepage.html');
-        let isUniPage = path.includes('universitypage.html');
-        let isRoot = !isCoursePage && !isUniPage;
+    const accountSettings = navRight.querySelector('.account-settings');
+    const viewSave = navRight.querySelector('.view-save');
+    if (accountSettings) accountSettings.addEventListener('click', e => {
+      e.preventDefault();
+      showAccountSettingsModal();
+    });
+    if (viewSave) viewSave.addEventListener('click', e => {
+      e.preventDefault();
+      showViewSaveModal();
+    });
+  }
+}
 
-        // For links
-        let rootPrefix = isRoot ? '' : '../';
-        let coursePrefix = isCoursePage ? '' : (isUniPage ? '../AUNIPATH coursepage/' : 'AUNIPATH coursepage/');
-        let uniPrefix = isUniPage ? '' : (isCoursePage ? '../AUNIPATH unipage/' : 'AUNIPATH unipage/');
-
-        // For images
-        let iconPrefix = isRoot ? 'Elements/Components/' : '../Elements/Components/';
-        let unipageImgPrefix = iconPrefix;
-
-        // Only show Home, About, Login, Signup on login/signup pages
-        let isLoginPage = path.endsWith('/login.html') || path.endsWith('login.html');
-        let isSignupPage = path.endsWith('/signup.html') || path.endsWith('signup.html');
-        const isLoggedIn = localStorage.getItem('aunipath_logged_in') === 'true';
-        if (isLoginPage || isSignupPage) {
-          navRight.innerHTML =
-            '<a href="' + rootPrefix + 'index.html" class="nav-link">Home</a>' +
-            '<a href="' + rootPrefix + 'about.html" class="nav-link">About</a>' +
-            '<a href="' + rootPrefix + 'login.html" class="nav-btn login-btn">Log In</a>' +
-            '<a href="' + rootPrefix + 'signup.html" class="nav-btn signup-btn">Sign Up</a>';
-        } else {
-          // Show Courses & Universities tabs on both coursepage.html and universitypage.html
-          let navLinks = `<a href="${rootPrefix}index.html" class="nav-link">Home</a>
-            <a href="${rootPrefix}about.html" class="nav-link">About</a>`;
-          if (path.includes('coursepage.html')) {
-            navLinks += `\n<a href="${coursePrefix}coursepage.html" class="nav-link">Courses</a>`;
-          }
-          if (path.includes('universitypage.html')) {
-            navLinks += `\n<a href="${uniPrefix}universitypage.html" class="nav-link">Universities</a>`;
-          }
-          let icons = '';
-          if (isLoggedIn) {
-            icons = `\n<div class="nav-icon notifs" style="position:relative;display:inline-block;">
-              <img src="${iconPrefix}notifs.png" alt="Notifications" style="height:44px;width:44px;margin-right:18px;vertical-align:middle;cursor:pointer;" />
-              <div class="notifs-dropdown" style="display:none;position:absolute;top:120%;right:0;background:#fff;border:1px solid #ddd;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.13);min-width:320px;z-index:30;">
-                <div class="notif-item" data-univ="FEU Institute of Technology" style="display:flex;align-items:center;padding:12px 16px;cursor:pointer;gap:12px;">
-                  <img src="${iconPrefix}AUniPath Logo 1.png" alt="FEU Tech Logo" style="width:40px;height:40px;border-radius:50%;border:2px solid #8b5cf6;object-fit:cover;" />
-                  <div>
-                    <div style="font-weight:600;color:#3F118B;">FEU Institute of Technology</div>
-                    <div style="color:#8b5cf6;">Scholarship applications open!</div>
-                  </div>
-                </div>
-                <div class="notif-item" data-univ="University of Santo Tomas" style="display:flex;align-items:center;padding:12px 16px;cursor:pointer;gap:12px;">
-                  <img src="${iconPrefix}AUniPath Logo 1.png" alt="UST Logo" style="width:40px;height:40px;border-radius:50%;border:2px solid #8b5cf6;object-fit:cover;" />
-                  <div>
-                    <div style="font-weight:600;color:#3F118B;">University of Santo Tomas</div>
-                    <div style="color:#8b5cf6;">Entrance exams announced!</div>
-                  </div>
-                </div>
-                <div class="notif-item" data-univ="De La Salle University" style="display:flex;align-items:center;padding:12px 16px;cursor:pointer;gap:12px;">
-                  <img src="${iconPrefix}AUniPath Logo 1.png" alt="DLSU Logo" style="width:40px;height:40px;border-radius:50%;border:2px solid #8b5cf6;object-fit:cover;" />
-                  <div>
-                    <div style="font-weight:600;color:#3F118B;">De La Salle University</div>
-                    <div style="color:#8b5cf6;">Open registration now available!</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="nav-icon profile" style="position:relative;display:inline-block;cursor:pointer;margin-right:48px;">
-              <img src="${iconPrefix}profile.png" alt="Profile" style="height:44px;width:44px;vertical-align:middle;border-radius:50%;" />
-              <span class="profile-tooltip" style="display:none;position:absolute;top:110%;left:50%;transform:translateX(-50%);background:#fff;color:#3F118B;padding:6px 14px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.12);font-size:0.98rem;white-space:nowrap;z-index:10;">${email}</span>
-              <div class="profile-dropdown" style="display:none;position:absolute;top:120%;right:0;background:#fff;border:1px solid #ddd;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.13);min-width:180px;z-index:20;">
-                <a href="#" class="dropdown-item account-settings" style="display:block;padding:12px 18px;color:#3F118B;text-decoration:none;">Account Settings</a>
-                <a href="#" class="dropdown-item view-save" style="display:block;padding:12px 18px;color:#3F118B;text-decoration:none;">View My Save</a>
-              </div>
-            </div>`;
-          } else {
-            icons = `\n<a href="${rootPrefix}login.html" class="nav-btn login-btn">Log In</a>\n<a href="${rootPrefix}signup.html" class="nav-btn signup-btn">Sign Up</a>`;
-          }
-          navRight.innerHTML = navLinks + icons;
-        }
-        // End of navRight.innerHTML logic
-        // Tooltip hover
-        const profile = navRight.querySelector('.profile');
-        const tooltip = navRight.querySelector('.profile-tooltip');
-        if (profile && tooltip) {
-          profile.addEventListener('mouseenter', function() {
-            tooltip.style.display = 'block';
-          });
-          profile.addEventListener('mouseleave', function() {
-            tooltip.style.display = 'none';
-          });
-        }
-        // Profile Dropdown logic
-        if (profile) {
-          const dropdown = navRight.querySelector('.profile-dropdown');
-          profile.addEventListener('click', function(e) {
-            e.stopPropagation();
-            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-          });
-          document.addEventListener('click', function() {
-            dropdown.style.display = 'none';
-          });
-          // Hide dropdown on mouseleave from icon or dropdown
-          profile.addEventListener('mouseleave', function() {
-            setTimeout(function() {
-              if (!dropdown.matches(':hover') && !profile.matches(':hover')) {
-                dropdown.style.display = 'none';
-              }
-            }, 120);
-          });
-          dropdown.addEventListener('mouseleave', function() {
-            setTimeout(function() {
-              if (!dropdown.matches(':hover') && !profile.matches(':hover')) {
-                dropdown.style.display = 'none';
-              }
-            }, 120);
-          });
-        }
-        // Notification Dropdown logic
-        const notifs = navRight.querySelector('.notifs');
-        if (notifs) {
-          const notifsDropdown = navRight.querySelector('.notifs-dropdown');
-          notifs.addEventListener('click', function(e) {
-            e.stopPropagation();
-            notifsDropdown.style.display = notifsDropdown.style.display === 'block' ? 'none' : 'block';
-          });
-          document.addEventListener('click', function() {
-            notifsDropdown.style.display = 'none';
-          });
-          // Hide dropdown on mouseleave from icon or dropdown
-          notifs.addEventListener('mouseleave', function() {
-            setTimeout(function() {
-              if (!notifsDropdown.matches(':hover') && !notifs.matches(':hover')) {
-                notifsDropdown.style.display = 'none';
-              }
-            }, 120);
-          });
-          notifsDropdown.addEventListener('mouseleave', function() {
-            setTimeout(function() {
-              if (!notifsDropdown.matches(':hover') && !notifs.matches(':hover')) {
-                notifsDropdown.style.display = 'none';
-              }
-            }, 120);
-          });
-          // Notification item click
-          notifsDropdown.querySelectorAll('.notif-item').forEach(function(item) {
-            item.addEventListener('click', function(ev) {
-              ev.stopPropagation();
-              showNotifErrorModal();
-              notifsDropdown.style.display = 'none';
-            });
-          });
-        }
-        // Dropdown item actions
-        const accountSettings = navRight.querySelector('.account-settings');
-        const viewSave = navRight.querySelector('.view-save');
-        if (accountSettings) {
-          accountSettings.addEventListener('click', function(e) {
-            e.preventDefault();
-            showAccountSettingsModal();
-          });
-        }
-        if (viewSave) {
-          viewSave.addEventListener('click', function(e) {
-            e.preventDefault();
-            showViewSaveModal();
-          });
-        }
-      }
-    }
 
     // Account Settings Modal
     function showAccountSettingsModal() {
